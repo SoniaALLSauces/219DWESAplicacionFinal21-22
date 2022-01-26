@@ -1,8 +1,8 @@
 /*
 Author: Sonia Anton Llanes
-Created on: 25-enero-2021
+Created on: 29-septiembre-2020
 Last modification: 25-enero-2021
-CSS Proyecto Aplicacion FINAL
+CSS Index General Segundo Curso del Módulo Desarrollo de Aplicaciones Web
 */
 
 * { box-sizing: border-box; margin:0px; padding:0px;}
@@ -18,17 +18,13 @@ a{text-decoration: none; color:#000; }
 .container{
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% auto 8%;
+    grid-template-rows: auto 8%;
     grid-template-columns:1% auto 1%;
     grid-template-areas:
-        "header header header"
         "main main main"
         ". footer .";
 }
 
-.header{
-    grid-area: header;
-}
 .main{
     grid-area: main;
 }
@@ -38,58 +34,28 @@ a{text-decoration: none; color:#000; }
 
 
 /* Tamaño y posicion dentro del elemto */
-/* Margin, padding y border */
 .header{
     width: 100%;
-    position: fixed;
-    margin: 0px;
-    padding: 5px 25px;
-    border-bottom: 2px solid #BF2411;
-}
-.header>*{
-    display: inline-block;
-}
-h2{
-    padding: 10px;
 }
 
-.secDoc{
-    border: 20px solid #BF2411;
-    margin-bottom: 8vh;
-}
-h3{
-    padding: 15px;
-}
-
-.botonesHeader{
-     border-right: 1px solid #BF2411;   
-    position: fixed;
-    top: 10px;
-}
-.inicioPl>.botonesHeader{ right: 25px; }
-.inicioPr>.botonesHeader{ right: 150px; }
-.botonesHeader>*{
-    height: 40px;
-    display: inline-block;
-    border: 0px solid white;
-    border-left: 1px solid #BF2411;
-    margin: 0px;
-    padding: 5px 20px;
-}
 .volver>*{
     position: fixed;
-    top: 10px;
-    right: 20px;
+    top: 0px;
+    left: 0px;
 }
 
 .botones>*,
 .mtoDepartamentos>*{
     height: 60px;
 }
-.tablaBottonUsu{
+.bPublicos,
+.tablaBotones{
     position: relative;
     float: right;
     right: 10px;
+}
+.bPublicos>*{
+    display: block;
 }
 
 .saludo{
@@ -108,42 +74,17 @@ h3{
     height: 70vh;
 }
 .documentosApp{
-    width: 90vw;
+    width: 95vw;
     display: flex;
-    border-bottom: 1px solid #BF2411;
 }
 .documentosApp>*{
-    width: 43vw;
+    width: 45vw;
     height: 200px;
-    flex-direction: row;
-}
-.descripcion,.docImagen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.docImagen>img{
-    width: 40vw;
-    height: 180px;
+    flex-direction: row;    
 }
 
-.rest{
-    display: flex; 
-}
-.rest>*{
-    flex-direction: row;
-}
-.temp{
-    width: 20vw;
-    height: 200px;
-    border: 2px solid #BF2411;
-    margin: 50px;
-    padding: 20px 0px;
-}
-
-.tLogin,.tRest{
-    width: 50vw;
+.tLogin{
+    width: 50%;
 }
 .dato, .error{
     width: 100%;
@@ -160,12 +101,6 @@ h3{
     width: 85%;
 }
 
-.footer{
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    border-top: 2px solid #BF2411;
-}
 .fnav ul li{
     display: inline-block; 
     width: 45%;
@@ -176,7 +111,17 @@ h3{
 }
 
 /* Border, Margin y Padding */
-
+.header{
+    border-bottom: 2px solid #BF2411;
+    margin: 0px;
+    padding: 5px 0px;
+}
+.header>a{
+    border: 0;
+}
+h2{
+    margin: 1% 1%;
+}
 .miWeb{
     margin: 50px;
 }
@@ -198,20 +143,12 @@ h3{
     margin: 1% auto;
     text-align: center;
 }
-.ventana{
-    margin-top: 20px;
-}
 
 .tLogin{
     border: 1px solid black;
     margin: 20px auto;
     margin-top: 50px;
     padding: 30px;
-}
-.tRest{
-    border: 1px solid black;
-    margin: 50px;
-    padding: 15px;
 }
 th{
     margin: 5% auto;
@@ -246,6 +183,10 @@ input{
     padding: 5px 20px;
 }
 
+.footer{
+    border-top: 2px solid #BF2411;
+}
+
 
 /* Background */
 .main{
@@ -254,13 +195,12 @@ input{
     background-position: center center;
     background-size: cover;
 }
-.header, .header>*{
+.header, .header>a{
     background: white;
 }
-.botonesHeader>*{
+h2{
     background: white;
 }
-
 #volver{
     background-image: url("../images/volver.jpg");
     background-size: 100px;
@@ -270,11 +210,11 @@ input{
     border: none;
     text-decoration: none;
 }
-.secDoc{
+.documentosApp{
     background: white;
 }
 
-.tLogin,.tRest{
+.tLogin{
     background: white;
 }
 #login, #register{
@@ -297,23 +237,21 @@ input{
     font-family: 'Dancing Script', cursive;
     font-size: 32px;
     font-weight: bolder;
-    vertical-align: top;
+    vertical-align: middle;
 }
-h2{
-    font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    font-weight: bolder;
-    text-align: center;
+.header>a{
+    text-decoration: none;
 }
 h3{
     font-family: 'Secular One', sans-serif;
     font-size: 20px;
-    text-align: center;
 }
 h4{
     font-size: 20px;
 }
-
+.centrado{
+    text-align: center;
+}
 .bienvenidos{
     font-family: 'Dancing Script', cursive;
     font-size: 10vw;
@@ -332,10 +270,9 @@ h4{
 .button{
     font-size: 1.3rem;
 }
-.tablaBottonUsu>*{
+.tablaBotones>*{
     text-align: center;
 }
-.botonesHeader>*,
 .botones>*,
 .mtoDepartamentos>*{
     font-size: 1.8vw;
@@ -346,12 +283,7 @@ h4{
     vertical-align: middle;
 }
 
-.temp{
-    font-size: 8rem;
-    text-align: center;
-    vertical-align: middle;
-}
-.tLogin,.tRest{
+.tLogin{
     text-align: center;
 }
 .dato{
@@ -384,13 +316,6 @@ h4{
 }
 
 /* Hover */
-.botonesHeader>*:hover{
-    background: #ecaaa1;
-}
-.docImagen>img:hover{
-    width: 60vw;
-    height: 250px;
-}
 .buttonForm input:hover{
     background-color:  green;
     color: white;

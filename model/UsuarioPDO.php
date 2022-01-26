@@ -32,7 +32,7 @@
                     if ($rdoConsulta->rowCount()>0){  //si encuentra el registro (usuario y contraseña)
                         $usuarioPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
                         //Instancio un objeto usuario
-                        $oUsuario= new Usuario($usuarioPDOStatment->T01_CodUsuario, $usuarioPDOStatment->T01_Password, $usuarioPDOStatment->T01_DescUsuario, $usuarioPDOStatment->T01_NumConexiones, $usuarioPDOStatment->T01_FechaHoraUltimaConexion, null, $usuarioPDOStatment->T01_Perfil);
+                        $oUsuario= new Usuario($usuarioPDOStatment->T01_CodUsuario, $usuarioPDOStatment->T01_Password, $usuarioPDOStatment->T01_DescUsuario, $usuarioPDOStatment->T01_NumConexiones, $usuarioPDOStatment->T01_FechaHoraUltimaConexion, null, $usuarioPDOStatment->T01_Perfil,null,null);
                     } 
                 return $oUsuario;
             }

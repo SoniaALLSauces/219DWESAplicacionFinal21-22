@@ -6,7 +6,7 @@
      * 
      * @author Sonia Anton Llanes
      * @created 21/01/2022
-     * @updated: 21/01/2022
+     * @updated: 24/01/2022
      */
 
 
@@ -31,7 +31,8 @@
         'login' => 'controller/cLogin.php',
         'inicioPrivado' => 'controller/cInicioPrivado.php',
         'detalle' => 'controller/cDetalle.php',
-        'wip' => 'controller/cWIP.php'
+        'wip' => 'controller/cWIP.php',
+        'rest' => 'controller/cREST.php'
     ];
 
 //Array con las vistas
@@ -41,6 +42,7 @@
         'login' => 'view/vLogin.php',
         'inicioPrivado' => 'view/vInicioPrivado.php',
         'detalle' => 'view/vDetalle.php',
-        'wip' => 'view/vWIP.php'
+        'wip' => 'view/vWIP.php',
+        'rest' => 'view/vREST.php'
     ];
     
