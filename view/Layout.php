@@ -35,12 +35,16 @@
     </head>
     
     <body class="container">
+        
+        <header class="header">
+            <a href="../../index.html">
+                <img src="webroot/images/logo.png" alt="logo" height="55vh">
+            </a>
+            <h2>Proyecto FINAL</h2> 
+        </header>
 
 	<main class="main">
-                <div class="header">
-                    <h2 class="centrado"><a href="../../proyectoDWES/indexProyectoDWES.php" style="border-bottom: 2px solid black; color:black;">DWES</a> -
-                        Proyecto FINAL Login Logout Multicapa POO</h2> 
-                </div>
+                
             
                 <?php require_once $vistas[$_SESSION['pagina']]; ?>
             
@@ -53,7 +57,7 @@
                     <li>                       
                         <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV"></a>
                         <a class="maxMedia" href=""><img src="webroot/images/linkedin.png" alt="imagen_linkedIn"></a>
-                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/AplicacionLoginLogoutMulticapa.git" target="_blank"><img src="webroot/images/github.png" alt="imagen_github"></a>
+                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/github.png" alt="imagen_github"></a>
                     </li>
                 </ul>
             </nav>
