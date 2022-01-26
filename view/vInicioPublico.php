@@ -2,15 +2,14 @@
 <!--  Author: Sonia Antón Llanes
   --  Created on: 21-enero-2022
   --  Last Modify: 24-enero-2022
-  --  vInicio PROYECTO LOGIN LOGOUT: cuando el valor de $vistaEnCurso  se muestra ventana Publica
+  --  vInicioPublico PROYECTO LOGIN LOGOUT: el valor de $_SESSION['pagina'] muestra ventana Publica
   -->
 
 
-    <section class="inicio">
+    <section class="inicioPl">
 
-        <form class="bPublicos" name="inicio" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        <form class="botonesHeader" name="inicio" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <input type="submit" value="Log IN" name="log">
-            <input type="submit" value="API REST" name="rest">
         </form>
 
         <section class="miWeb">

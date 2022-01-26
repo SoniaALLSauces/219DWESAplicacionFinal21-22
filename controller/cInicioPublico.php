@@ -19,15 +19,6 @@
             exit;
     } 
     
-     //Si pulso en el boton REST
-    if (isset($_REQUEST['rest'])){
-        $_SESSION['paginaAnterior']=$_SESSION['pagina']; //
-        $_SESSION['pagina']='rest';  //cambio la sesion de pagina a rest
-        header('Location: index.php');  //recargo el fichero index.php
-            exit;
-    } 
-    
-    
     $_SESSION['pagina']='inicioPublico';  //Inicio sesion de pagina para ver la vista inicioPublico
     
     //salida:

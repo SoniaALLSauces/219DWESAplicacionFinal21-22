@@ -2,12 +2,13 @@
 
 
     /**
-     * Controlador que contiene la vista de Inicio Publico 
-     *   y controla a que pagina va en funcion del submit que se pulse
+     * Controlador que contiene la vista del formulario y lo que se muestra de la API REST 
+     *   y realiza conexion a la API REST selecionada http : //api.weatherstack.com/
+     *   para mostrar la temperatura actual en el lugar seleccionado
      * 
      * @author Sonia Anton Llanes
-     * @created 25/01/2022
-     * @updated: 25/01/2021
+     * @created 26/01/2022
+     * @updated: 26/01/2021
      */
 
 
@@ -39,7 +40,12 @@
     else{  //aun no se ha pulsado el boton enviar
         $entradaOK = false;   // si no se pulsa enviar, entradaOK es false
     }
-
+    
+    if($entradaOK){  //Si la entrada son correctas
+        $fichero= file_get_contents('http://api.weatherstack.com/'.$_REQUEST['ciudad']);//devuelve un String del contenido JSON
+        $aJson=json_decode($fichero,true);//decodificamos el json y lo devolvemos en un array
+        $_SESSION['APIrest']=$aJson;
+    }
     
     
         

@@ -2,7 +2,7 @@
 <!--  Author: Sonia Antón Llanes
   --  Created on: 25-enero-2022
   --  Last Modify: 25-enero-2022
-  --  vLogin PROYECTO LOGIN LOGOUT: $vistaEnCurso tiene como valor login : mostramos el formulario
+  --  vREST PROYECTO LOGIN LOGOUT: $vistaEnCurso tiene como valor rest : mostramos el formulario y resultado
   -->
 
 
@@ -43,6 +43,6 @@
                 </table>
             </form>
             
-            <div class="temp">0º</div>
+            <div class="temp">_º</div>
         </div>
     </section>
