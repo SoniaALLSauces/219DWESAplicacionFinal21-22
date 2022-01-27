@@ -14,7 +14,7 @@
             </form>
         </div>
 
-        <h2 class="ventana">API REST Externo: TEMPERATURA</h2>
+        <h2 class="ventana">API REST Externo: TEMPERATURA ACTUAL</h2>
         
         <div class="rest">
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -24,10 +24,11 @@
                             <div class="dato"><label for="LbCiudad">CIUDAD <span class="ast">*</span></label></div>
                             <div class="datoUsu"><input type="text" name="ciudad" id="LbCiudad"></div>
                         </td>
+                        <th><input id="buscar" name="buscar" type="submit" value=""></th>
                     </tr>
                                         
                     <tr>
-                        <td colspan="2">
+                        <td colspan="3">
                             <div class="error"><?php
                                 if ($aErrores['ciudad']!=NULL) { //si hay errores muestra el mensaje
                                     echo "<span style=\"color:red;\">".$aErrores['ciudad']."</span>"; //aparece el mensaje de error que tiene el array aErrores
@@ -37,12 +38,12 @@
                     </tr>
                     <tr><td class="vacio"></td></tr>
                     
-                    <tr>
-                        <th><input id="buscar" name="buscar" type="submit" value="Buscar"></th>
-                    </tr>
                 </table>
             </form>
             
-            <div class="temp">_º</div>
+            <article class="temp">
+                <div> <?php echo $temperatura; ?>º </div>
+                <p> <?php echo $region."/".$pais; ?> </p>
+            </article>
         </div>
     </section>

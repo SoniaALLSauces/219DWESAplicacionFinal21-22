@@ -1,3 +1,4 @@
+ErrorDocument 400 /errors/indexError.html
 ErrorDocument 403 /errors/indexError.html
 ErrorDocument 404 /errors/indexError.html
 ErrorDocument 500 /errors/indexError.html

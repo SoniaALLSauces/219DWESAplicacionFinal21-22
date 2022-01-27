@@ -62,7 +62,7 @@ h3{
 }
 
 .botonesHeader{
-     border-right: 1px solid #BF2411;   
+    border-right: 1px solid #BF2411;   
     position: fixed;
     top: 10px;
 }
@@ -83,6 +83,7 @@ h3{
 }
 
 .botones>*,
+.botonesPr>*,
 .mtoDepartamentos>*{
     height: 60px;
 }
@@ -238,11 +239,20 @@ input{
 .error{
     margin-top: 20px;
 }
+#buscar{
+    margin: 50px 20px 0 0;
+}
 
 .botones>*,
 .mtoDepartamentos>*{
     border: 2px solid #BF2411;
     margin: 5px 10px;
+    padding: 5px 20px;
+}
+.botonesPr>*{
+    border: 0;
+    border-right: 2px solid #BF2411;
+    margin: 5px 0;
     padding: 5px 20px;
 }
 
@@ -270,6 +280,15 @@ input{
     border: none;
     text-decoration: none;
 }
+#buscar{
+    background-image: url("../images/buscar.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    border: none;
+    text-decoration: none;
+}
 .secDoc{
     background: white;
 }
@@ -285,6 +304,9 @@ input{
 .mtoDepartamentos>*,
 .saludo{
     background: #ecaaa1;
+}
+.botonesPr>*{
+    background: none;
 }
 
 .footer{
@@ -337,6 +359,7 @@ h4{
 }
 .botonesHeader>*,
 .botones>*,
+.botonesPr>*,
 .mtoDepartamentos>*{
     font-size: 1.8vw;
     vertical-align: middle;
@@ -347,10 +370,12 @@ h4{
 }
 
 .temp{
-    font-size: 8rem;
-    text-align: center;
+    text-align: center;    
     vertical-align: middle;
 }
+.temp>div{ font-size: 8rem; }
+.temp>p{ font-size: 1rem; }
+    
 .tLogin,.tRest{
     text-align: center;
 }
