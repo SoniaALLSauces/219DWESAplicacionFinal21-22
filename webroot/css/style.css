@@ -1,0 +1,422 @@
+/*
+Author: Sonia Anton Llanes
+Created on: 25-enero-2021
+Last modification: 25-enero-2021
+CSS Proyecto Aplicacion FINAL
+*/
+
+* { box-sizing: border-box; margin:0px; padding:0px;}
+ul, ol {list-style: none; }
+a{text-decoration: none; color:#000; }
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* Tamaño y Posicion de los Elementos con Grid */
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10% auto 8%;
+    grid-template-columns:1% auto 1%;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        ". footer .";
+}
+
+.header{
+    grid-area: header;
+}
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+}
+
+
+/* Tamaño y posicion dentro del elemto */
+/* Margin, padding y border */
+.header{
+    width: 100%;
+    position: fixed;
+    margin: 0px;
+    padding: 5px 25px;
+    border-bottom: 2px solid #BF2411;
+}
+.header>*{
+    display: inline-block;
+}
+h2{
+    padding: 10px;
+}
+
+.secDoc{
+    border: 20px solid #BF2411;
+    margin-bottom: 8vh;
+}
+h3{
+    padding: 15px;
+}
+
+.botonesHeader{
+    border-right: 1px solid #BF2411;   
+    position: fixed;
+    top: 10px;
+}
+.inicioPl>.botonesHeader{ right: 25px; }
+.inicioPr>.botonesHeader{ right: 150px; }
+.botonesHeader>*{
+    height: 40px;
+    display: inline-block;
+    border: 0px solid white;
+    border-left: 1px solid #BF2411;
+    margin: 0px;
+    padding: 5px 20px;
+}
+.volver>*{
+    position: fixed;
+    top: 10px;
+    right: 20px;
+}
+
+.botones>*,
+.botonesPr>*,
+.mtoDepartamentos>*{
+    height: 60px;
+}
+.tablaBottonUsu{
+    position: relative;
+    float: right;
+    right: 10px;
+}
+
+.saludo{
+    width: 70vw;
+    position: relative;
+    top: 200px;
+    left: 100px;
+}
+.miWeb{
+    width: 70vw;
+    height: 40vh;
+    line-height: 18vh;
+}
+.wip>*{
+    width: 80vw;
+    height: 70vh;
+}
+.documentosApp{
+    width: 90vw;
+    display: flex;
+    border-bottom: 1px solid #BF2411;
+}
+.documentosApp>*{
+    width: 43vw;
+    height: 200px;
+    flex-direction: row;
+}
+.descripcion,.docImagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.docImagen>img{
+    width: 40vw;
+    height: 180px;
+}
+
+.rest{
+    display: flex; 
+}
+.rest>*{
+    flex-direction: row;
+}
+.temp{
+    width: 20vw;
+    height: 200px;
+    border: 2px solid #BF2411;
+    margin: 50px;
+    padding: 20px 0px;
+}
+
+.tLogin,.tRest{
+    width: 50vw;
+}
+.dato, .error{
+    width: 100%;
+    height: 20px;
+}
+.datoUsu>input{
+    width: 80%;
+    height: 30px;
+}
+.vacio{
+    height: 20px;
+}
+#login, #register{
+    width: 85%;
+}
+
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    border-top: 2px solid #BF2411;
+}
+.fnav ul li{
+    display: inline-block; 
+    width: 45%;
+}
+.fnav li img{
+    height: 7vh;
+    width: auto;
+}
+
+/* Border, Margin y Padding */
+
+.miWeb{
+    margin: 50px;
+}
+.saludo{
+    border: 2px solid #BF2411;
+    border-radius: 10px;
+    padding: 40px;
+}
+.saludo>*{
+    padding: 5px;
+}
+.wip{
+    margin: 5%;
+}
+.documentosApp{
+    margin: 0 auto;
+}
+.documentosApp>*{
+    margin: 1% auto;
+    text-align: center;
+}
+.ventana{
+    margin-top: 20px;
+}
+
+.tLogin{
+    border: 1px solid black;
+    margin: 20px auto;
+    margin-top: 50px;
+    padding: 30px;
+}
+.tRest{
+    border: 1px solid black;
+    margin: 50px;
+    padding: 15px;
+}
+th{
+    margin: 5% auto;
+    border: none;
+}
+.dato{
+    margin: 15px;
+    padding: 10px;
+    padding-left: 8vw;
+}
+.datoUsu>input{
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0 10px;
+}
+input{
+    margin-left: 1%;
+}
+#login, #register{
+    border: 2px solid #BF2411;
+    margin: 5px;
+    padding: 5px 20px;
+}
+.error{
+    margin-top: 20px;
+}
+#buscar{
+    margin: 50px 20px 0 0;
+}
+
+.botones>*,
+.mtoDepartamentos>*{
+    border: 2px solid #BF2411;
+    margin: 5px 10px;
+    padding: 5px 20px;
+}
+.botonesPr>*{
+    border: 0;
+    border-right: 2px solid #BF2411;
+    margin: 5px 0;
+    padding: 5px 20px;
+}
+
+
+/* Background */
+.main{
+    background-image: url("../images/catBackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.header, .header>*{
+    background: white;
+}
+.botonesHeader>*{
+    background: white;
+}
+
+#volver{
+    background-image: url("../images/volver.jpg");
+    background-size: 100px;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 40px;
+    border: none;
+    text-decoration: none;
+}
+#buscar{
+    background-image: url("../images/buscar.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    border: none;
+    text-decoration: none;
+}
+.secDoc{
+    background: white;
+}
+
+.tLogin,.tRest{
+    background: white;
+}
+#login, #register{
+    background: #ecaaa1;
+}
+
+.botones>*,
+.mtoDepartamentos>*,
+.saludo{
+    background: #ecaaa1;
+}
+.botonesPr>*{
+    background: none;
+}
+
+.footer{
+    background-color: white;
+}
+
+/* Estilo del texto */
+.header>h2{
+    color: #bb1212;
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: bolder;
+    vertical-align: top;
+}
+h2{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+h3{
+    font-family: 'Secular One', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+h4{
+    font-size: 20px;
+}
+
+.bienvenidos{
+    font-family: 'Dancing Script', cursive;
+    font-size: 10vw;
+    font-weight: bolder;
+    text-align: center;
+    vertical-align: middle;
+}
+.saludo{
+    font-size: 1.3rem;
+}
+.documento{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.button{
+    font-size: 1.3rem;
+}
+.tablaBottonUsu>*{
+    text-align: center;
+}
+.botonesHeader>*,
+.botones>*,
+.botonesPr>*,
+.mtoDepartamentos>*{
+    font-size: 1.8vw;
+    vertical-align: middle;
+}
+.wip{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.temp{
+    text-align: center;    
+    vertical-align: middle;
+}
+.temp>div{ font-size: 8rem; }
+.temp>p{ font-size: 1rem; }
+    
+.tLogin,.tRest{
+    text-align: center;
+}
+.dato{
+    font-size: 18px;
+    text-align: left;
+}
+.error{
+    font-size: 18px;
+    text-align: center;
+}
+.datoUsu>input{
+    font-size: 20px;
+}
+#login, #register{
+    font-size: 2vw;
+}
+.ast{
+    color: #bb1212;
+}
+
+.footer{
+    text-align: center;
+}
+.fnav ul li{
+    vertical-align: middle;
+}
+.ftexto{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+/* Hover */
+.botonesHeader>*:hover{
+    background: #ecaaa1;
+}
+.docImagen>img:hover{
+    width: 60vw;
+    height: 250px;
+}
+.buttonForm input:hover{
+    background-color:  green;
+    color: white;
+}
