@@ -21,10 +21,10 @@
         <table class="tablaBottonUsu">
             <tr>
                 <form name="bottonUsu" method="post">
-                    <td class="botones"><input type="submit" id="editarPerfil" value="Editar Perfil" name="editarPerfil"></td>
-                    <td class="botones"><input type="submit" id="detalle" value="Detalle" name="detalle"></td>
-                    <td class="botones"><input type="submit" id="cerrarSesion" value="Cerrar sesión" name="cerrarSesion"></td>
-                    <td class="botones"><img src="webroot/images/usuario.png" alt="IconoUsuario"></td>
+                    <td class="botonesPr"><input type="submit" id="editarPerfil" value="Editar Perfil" name="editarPerfil"></td>
+                    <td class="botonesPr"><input type="submit" id="detalle" value="Detalle" name="detalle"></td>
+                    <td class="botonesPr"><input type="submit" id="cerrarSesion" value="Cerrar sesión" name="cerrarSesion"></td>
+                    <td class="botonesPr"><img src="webroot/images/usuario.png" alt="IconoUsuario"></td>
                 </form>
             </tr>
         </table>

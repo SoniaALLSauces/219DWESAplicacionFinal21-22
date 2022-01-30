@@ -132,7 +132,7 @@
              * @param integer $fechaHoraUltimaConexionAnterior - el timestamp de la ultima conexión anterior
              */
                 public function setFechaHoraUltimaConexionAnterior($fechaHoraUltimaConexionAnterior){
-                    $this->fechaHoraConexionAnterior = $fechaHoraUltimaConexionAnterior;
+                    $this->fechaHoraUltimaConexionAnterior = $fechaHoraUltimaConexionAnterior;
                 }
                 
         }
