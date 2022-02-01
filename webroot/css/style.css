@@ -254,7 +254,7 @@ input{
 .error{
     margin-top: 20px;
 }
-#buscar{
+#buscarCd, #buscarPr{
     margin: 50px 20px 0 0;
 }
 
@@ -295,7 +295,7 @@ input{
     border: none;
     text-decoration: none;
 }
-#buscar{
+#buscarCd, #buscarPr{
     background-image: url("../images/buscar.png");
     background-size: 50px;
     background-repeat: no-repeat;
@@ -341,6 +341,9 @@ h2{
     font-size: 30px;
     font-weight: bolder;
     text-align: center;
+}
+.webApi{
+    font-size: 20px;
 }
 h3{
     font-family: 'Secular One', sans-serif;

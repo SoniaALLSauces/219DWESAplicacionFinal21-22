@@ -44,5 +44,10 @@
                     }
             }
             
+            
+            public static function buscarProvincia($codProvincia){
+                
+            }
+            
         }
             
