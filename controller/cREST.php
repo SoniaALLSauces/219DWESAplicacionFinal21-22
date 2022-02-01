@@ -26,8 +26,8 @@
         }
 
     
-    //variable que contiene la ciudad de la cual se muestra la temperatura, que por defecto es Madrid 
-        $ciudad= "Madrid";   
+    //variable que contiene la ciudad de la cual se muestra la temperatura, que por defecto esta con parámetros como si estuviese vacio 
+        $oCiudad= new Ciudad("_", "_", "_", 0, null);  
      
 //Variables para el formulario
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
@@ -39,25 +39,30 @@
             $aErrores['ciudad']= validacionFormularios::comprobarAlfabetico($_REQUEST['ciudad'], 200, 1, 1);
                 if ($aErrores['ciudad']!=null){ //si es distinto de null
                     $entradaOK = false;         //si hay algun error entradaOK es false
-                    
-                } else{ //compruebo que no se haya producido ningun error
+                } 
+                else{ //compruebo que no se haya producido ningun error
                     $ciudad= $_REQUEST['ciudad'];
-                    $fichero= file_get_contents('http://api.weatherstack.com/current?access_key=791b13a34544da4f5f1669e760434b77&query='.$ciudad);//devuelve un String del contenido JSON
-                    $aJson=json_decode($fichero,true);
-                    if (isset($aJson['success']) && $aJson['success']==false){
-                        switch ($aJson['error']['code']){
-                            case 101:
-                            case 102:
-                            case 103:
-                            case 104:
-                            case 105: 
-                                $aErrores['ciudad']= "Lo sentimos, se ha producido un error de conexion"; 
-                                break;
-                            case 615: $aErrores['ciudad']= "Introduzca una region correcta."; break;  
+                    $oCiudad= REST::buscarCiudad($ciudad);
+                        if ($oCiudad->getError()!=null){
+                            $aErrores['ciudad']= $oCiudad->getError();
+                            $entradaOK = false;
                         }
-                        $ciudad= "Madrid";
-                        $entradaOK = false; 
-                    }
+//                    $fichero= file_get_contents('http://api.weatherstack.com/current?access_key=791b13a34544da4f5f1669e760434b77&query='.$ciudad);//devuelve un String del contenido JSON
+//                    $aJson=json_decode($fichero,true);
+//                    if (isset($aJson['success']) && $aJson['success']==false){
+//                        switch ($aJson['error']['code']){
+//                            case 101:
+//                            case 102:
+//                            case 103:
+//                            case 104:
+//                            case 105: 
+//                                $aErrores['ciudad']= "Lo sentimos, se ha producido un error de conexion"; 
+//                                break;
+//                            case 615: $aErrores['ciudad']= "Introduzca una region correcta."; break;  
+//                        }
+//                        $ciudad= "Madrid";
+//                        $entradaOK = false; 
+//                    }
                 }
     }
     else{  //aun no se ha pulsado el boton enviar
@@ -66,17 +71,13 @@
     //Si la entrada es correctas
     if($entradaOK){  
         $ciudad= $_REQUEST['ciudad'];
-        
+        $oCiudad= REST::buscarCiudad($ciudad);
     }
     
-    //Conecto con el web services de: http://api.weatherstack.com/ con $ciudad por defecto o el introducido por el usuario
-        $fichero= file_get_contents('http://api.weatherstack.com/current?access_key=791b13a34544da4f5f1669e760434b77&query='.$ciudad);//devuelve un String del contenido JSON
-        $aJson=json_decode($fichero,true);//decodificamos el json y lo devolvemos en un array
-        $_SESSION['APIrest']=$aJson;  //guardo el fichero en la sesion
-    //variables que muestro al usuario recogidas del json que genera la web service
-            $temperatura= $aJson['current']['temperature'];
-            $region= $aJson['location']['region'];
-            $pais= $aJson['location']['country'];   
+    //variables que muestro al usuario obtenidas del objeto Ciudad Creado
+            $temperatura= $oCiudad->getTemperatura();
+            $region= $oCiudad->getRegion();
+            $pais= $oCiudad->getPais();   
     
         
     //salida:
