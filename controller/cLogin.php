@@ -8,28 +8,22 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 25/01/2021
+     * @updated: 30/01/2021
      */
 
 
-    //Si pulso en volver:
+    //Si pulso en volver desde la ventana login quiero volver a la ventana Pública:
         if (isset($_REQUEST['volver'])){
-            $paginaActual=$_SESSION['pagina'];     //variable para guardar la pagina actual, por si queremos volver
-                if(isset($_SESSION['paginaAnterior'])){  //
-                    $_SESSION['pagina']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
-                } else{
-                    $_SESSION['pagina']='inicioPublico';
-                }
-            $_SESSION['paginaAnterior']=$paginaActual;     //y la pagina anterior la que habiamos guardado en la variable antes de cambiarla
+            $_SESSION['pagina']='inicioPublico';
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
     
-    //Si pulso en Registrarse me lleva a WIP:
+    //Si pulso en Registrarse me lleva a la ventana Registro:
         if (isset($_REQUEST['register'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
-            header('Location: index.php');   //recargo el fichero index.php con la ventana login
+            $_SESSION['pagina']='registro';     //y guardo en $_SESSION['pagina'] registro para la recarga de index
+            header('Location: index.php');   //recargo el fichero index.php con la ventana registro
                 exit;
         } 
 

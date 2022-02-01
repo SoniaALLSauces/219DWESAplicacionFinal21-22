@@ -31,6 +31,7 @@
     $controladores = [
         'inicioPublico' => 'controller/cInicioPublico.php',
         'login' => 'controller/cLogin.php',
+        'registro' => 'controller/cRegistro.php',
         'inicioPrivado' => 'controller/cInicioPrivado.php',
         'detalle' => 'controller/cDetalle.php',
         'wip' => 'controller/cWIP.php',
@@ -42,6 +43,7 @@
         'layout' => 'view/Layout.php',
         'inicioPublico' => 'view/vInicioPublico.php',
         'login' => 'view/vLogin.php',
+        'registro' => 'view/vRegistro.php',
         'inicioPrivado' => 'view/vInicioPrivado.php',
         'detalle' => 'view/vDetalle.php',
         'wip' => 'view/vWIP.php',
