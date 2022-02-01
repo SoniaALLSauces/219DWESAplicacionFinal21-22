@@ -56,9 +56,17 @@ h2{
 .secDoc{
     border: 20px solid #BF2411;
     margin-bottom: 8vh;
+    scroll-snap-type: y mandatory;
 }
-h3{
-    padding: 15px;
+.documentosApp{
+    width: 90vw;
+    display: flex;
+    border-bottom: 1px solid #BF2411;
+}
+.documentosApp>*{
+    width: 43vw;
+    height: 200px;
+    flex-direction: row;
 }
 
 .botonesHeader{
@@ -143,21 +151,21 @@ h3{
     padding: 20px 0px;
 }
 
-.tLogin,.tRest{
+.tLogin,.tRest,.tRegistro{
     width: 50vw;
 }
-.dato, .error{
+.dato, .error, .datoR{
     width: 100%;
     height: 20px;
 }
 .datoUsu>input{
-    width: 80%;
+    width: 90%;
     height: 30px;
 }
 .vacio{
     height: 20px;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     width: 85%;
 }
 
@@ -177,7 +185,9 @@ h3{
 }
 
 /* Border, Margin y Padding */
-
+h3{
+    padding-bottom: 10px;
+}
 .miWeb{
     margin: 50px;
 }
@@ -203,7 +213,7 @@ h3{
     margin-top: 20px;
 }
 
-.tLogin{
+.tLogin, .tRegistro{
     border: 1px solid black;
     margin: 20px auto;
     margin-top: 50px;
@@ -223,6 +233,11 @@ th{
     padding: 10px;
     padding-left: 8vw;
 }
+.datoR{
+    margin: 15px;
+    padding: 10px;
+    padding-left: 20px;
+}
 .datoUsu>input{
     border: none;
     border-bottom: 1px solid black;
@@ -231,7 +246,7 @@ th{
 input{
     margin-left: 1%;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     border: 2px solid #BF2411;
     margin: 5px;
     padding: 5px 20px;
@@ -293,10 +308,10 @@ input{
     background: white;
 }
 
-.tLogin,.tRest{
+.tLogin, .tRegistro, .tRest{
     background: white;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     background: #ecaaa1;
 }
 
@@ -376,21 +391,29 @@ h4{
 .temp>div{ font-size: 8rem; }
 .temp>p{ font-size: 1rem; }
     
-.tLogin,.tRest{
+.tLogin,.tRegistro, .tRest{
     text-align: center;
 }
 .dato{
     font-size: 18px;
     text-align: left;
 }
-.error{
+.datoR{
     font-size: 18px;
-    text-align: center;
+    text-align: left;
 }
 .datoUsu>input{
     font-size: 20px;
 }
-#login, #register{
+.error{
+    font-size: 18px;
+    text-align: center;
+}
+.errorR{
+    font-size: 15px;
+    text-align: right;
+}
+#login, #register, #aceptar, #cancelar{
     font-size: 2vw;
 }
 .ast{

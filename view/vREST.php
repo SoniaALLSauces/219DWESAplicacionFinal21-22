@@ -2,7 +2,7 @@
 <!--  Author: Sonia Antón Llanes
   --  Created on: 25-enero-2022
   --  Last Modify: 25-enero-2022
-  --  vREST PROYECTO LOGIN LOGOUT: $vistaEnCurso tiene como valor rest : mostramos el formulario y resultado
+  --  vREST PROYECTO LOGIN LOGOUT: $_SESSION['pagina'] tiene como valor rest : mostramos el formulario y resultado
   -->
 
 
