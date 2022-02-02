@@ -16,7 +16,7 @@
 
         <div class="div">
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <table class="tLogin">
+                <table class="tFormulario">
                     <tr>
                         <th colspan="2"><h3>LogIN</h3></th>
                     </tr>

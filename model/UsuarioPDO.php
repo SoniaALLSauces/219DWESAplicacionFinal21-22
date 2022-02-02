@@ -15,7 +15,7 @@
              * 
              * @param string $entrada_codUsuario - codigo con el que el usuario está registrado
              * @param string $entrada_password - password con el que el usuario está registrado
-             * @return object vacio=null si no se ha encontrado ningun usuario
+             * @return object $oUsuario - vacio=null si no se ha encontrado ningun usuario
              *                o el objeto Usuario con los atributos del usuario encontrado
              */
             public static function validarUsuario($entrada_codUsuario, $entrada_password) {
@@ -113,16 +113,42 @@
                 return $oUsuario;
             }
             
-            public static function modificarUsuario(){
-                
+            /**
+             * modificarUsuario() - modifica la descripción (nombre y apellidos) del usuario
+             * 
+             * @param string $usuario - codigo del usuario
+             * @param string $descUsuario - descripción (nombre y apellidos) del usuario
+             * @return \Usuario - vacio=null si no se ha encontrado ningun usuario
+             *                o el objeto Usuario con los atributos del usuario encontrado
+             */
+            public static function modificarUsuario($oUsuario,$descUsuario){
+                //Actualizo los datos con la nueva descripción
+                    $sqlUpdate = <<<EOD
+                                      UPDATE T01_Usuario SET 
+                                        T01_DescUsuario=:descUsuario
+                                      WHERE T01_CodUsuario=:codUsuario;
+                                    EOD;
+                    $parametros = [':descUsuario' => $descUsuario,
+                                   ':codUsuario' => $oUsuario->getCodUsuario()];
+                    $rdoUpdate = DBPDO::ejecutaConsulta($sqlUpdate, $parametros);
+                //Actualizo el objeto $oUsuario
+                    $oUsuario->setDescUsuario($descUsuario);  
+                return $oUsuario;
             }
             
             public static function cambiarPassword(){
                 
             }
             
-            public static function borrarUsuario(){
-                
+            public static function borrarUsuario($usuario){
+                $eliminado= false;  //variable booleana para indicar si se eliminó correctamente
+                //query para borrar el registro
+                    $sqlDelete = " DELETE FROM T01_Usuario WHERE T01_CodUsuario=? ";
+                    $rdoDelete = DBPDO::ejecutaConsulta($sqlDelete, [$usuario]);
+                        if ($rdoDelete->rowCount()>0){
+                            $eliminado= true;
+                        }
+                return $eliminado;
             }
             
             

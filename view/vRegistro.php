@@ -16,14 +16,14 @@
 
         <div class="divRegistro">
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <table class="tRegistro">
+                <table class="tFormulario">
                     <tr>
                         <th colspan="2"><h3>REGISTRO</h3></th>
                     </tr>
                     <tr>
                         <td colspan="2" class="datoR"><label for="LbUsuario">Usuario <span class="ast">*</span></label></td>
                     </tr>
-                    <tr>
+                    <tr class="borderTR">
                         <td class="datoUsu"><input type="text" name="usuario" id="LbUsuario"
                             value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
                                 echo $resultado = ($aErrores['usuario']==NULL && isset($_REQUEST['usuario'])) ? $_REQUEST['usuario'] : ""; 

@@ -98,6 +98,14 @@
                 public function getFechaHoraUltimaConexionAnterior(){
                     return $this->fechaHoraUltimaConexionAnterior;
                 }
+            /**
+             * getPerfil() - devuelve el perfil del usuario
+             * 
+             * @return string $perfil - puede tomar dos valores 'usuario' o 'administrador'
+             */
+                public function getPerfil(){
+                    return $this->perfil;
+                }
          
             //Setter
             /**
@@ -109,6 +117,14 @@
                 public function __set($atributo, $valor){
                     $this->$atributo = $valor;
                 }
+            /**
+             * setDescUsuario() - modifica la descripcion (nombre y apellidos) del usuario conectado/logeado correctamente
+             * 
+             * @param string $descUsuario - descripcion (nombre y apellidos) del usuario que se ha conectado/logeado correctamente
+             */    
+                public function setDescUsuario($descUsuario){
+                    $this->descUsuario = $descUsuario;
+                }    
             /**
              * setNumConexiones() - modifica el valor del numero de veces que el usuario se ha conectado/logeado correctamente
              * 

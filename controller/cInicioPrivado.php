@@ -8,16 +8,16 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 26/01/2021
+     * @updated: 01/02/2022
      */
 
 
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']!=null){
-            $usuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
-                $descripcion = $usuarioActual->getDescUsuario(); //recuperamos la descripción del usuario
-                $conexiones = $usuarioActual->getNumConexiones(); //recuperamos el numero de conexiones del usuario
-                $conexionAnterior = $usuarioActual->getFechaHoraUltimaConexionAnterior(); //recuperamos la fecha de la conexion anterior del usuario
+            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
+                $descripcion = $oUsuarioActual->getDescUsuario(); //recuperamos la descripción del usuario
+                $conexiones = $oUsuarioActual->getNumConexiones(); //recuperamos el numero de conexiones del usuario
+                $conexionAnterior = $oUsuarioActual->getFechaHoraUltimaConexionAnterior(); //recuperamos la fecha de la conexion anterior del usuario
         }
     
     //Si pulso en volver:
@@ -45,10 +45,10 @@
                 exit;
         } 
     
-    //Si pulso en Editar Perfil me lleva a WIP:
+    //Si pulso en Editar Perfil me lleva a miCuenta:
         if (isset($_REQUEST['editarPerfil'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
+            $_SESSION['pagina']='editarUsuario';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;
         } 

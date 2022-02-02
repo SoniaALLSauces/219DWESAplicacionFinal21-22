@@ -34,6 +34,7 @@
         'registro' => 'controller/cRegistro.php',
         'inicioPrivado' => 'controller/cInicioPrivado.php',
         'detalle' => 'controller/cDetalle.php',
+        'editarUsuario' => 'controller/cMiCuenta.php',
         'wip' => 'controller/cWIP.php',
         'rest' => 'controller/cREST.php'
     ];
@@ -46,6 +47,7 @@
         'registro' => 'view/vRegistro.php',
         'inicioPrivado' => 'view/vInicioPrivado.php',
         'detalle' => 'view/vDetalle.php',
+        'editarUsuario' => 'view/vMiCuenta.php',
         'wip' => 'view/vWIP.php',
         'rest' => 'view/vREST.php'
     ];
