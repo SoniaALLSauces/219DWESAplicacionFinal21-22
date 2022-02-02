@@ -2,12 +2,12 @@
 
 
     /**
-     * Controlador que contiene la vista de Detalle del usuario se ha logeado correctamente 
-     *   con los datos $_SESSION, $_COOKIE, $_SERVER y phpInfo()
+     * Controlador que contiene la vista de Mantenimiento de Departamentos 
+     *   con el formulario de busqueda y el listado de los departamentos
      * 
      * @author Sonia Anton Llanes
-     * @created 26/01/2022
-     * @updated: 26/01/2022
+     * @created 02/02/2022
+     * @updated: 02/02/2022
      */
 
     

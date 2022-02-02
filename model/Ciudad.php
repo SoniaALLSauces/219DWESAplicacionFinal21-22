@@ -20,7 +20,7 @@
             
         //Constructor
             /**
-             * Metodo mágico __construct() - constructor de la clase Usuario
+             * Metodo mágico __construct() - constructor de la clase Ciudad
              * 
              * @param string $ciudad - ciudad introducida por el usuario
              * @param string $region - region a la que pertenece la ciudad

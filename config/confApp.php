@@ -36,7 +36,8 @@
         'detalle' => 'controller/cDetalle.php',
         'editarUsuario' => 'controller/cMiCuenta.php',
         'wip' => 'controller/cWIP.php',
-        'rest' => 'controller/cREST.php'
+        'rest' => 'controller/cREST.php',
+        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php'
     ];
 
 //Array con las vistas
@@ -49,6 +50,7 @@
         'detalle' => 'view/vDetalle.php',
         'editarUsuario' => 'view/vMiCuenta.php',
         'wip' => 'view/vWIP.php',
-        'rest' => 'view/vREST.php'
+        'rest' => 'view/vREST.php',
+        'mtoDepartamentos' => 'view/vMtoDepartamentos.php'
     ];
     

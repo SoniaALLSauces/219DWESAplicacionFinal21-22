@@ -27,7 +27,7 @@
                             <div class="datoE"><label for="LbUsuario">Usuario </label></div>
                         </td>
                         <td colspan="2">
-                            <div class="datoUsu"><input type="text" name="usuario" id="LbUsuario"
+                            <div class="datoUsu"><input type="text" name="usuario" id="LbUsuario" style="background: #f0c0ba;"
                                 placeholder="<?php echo $usuario; ?>" disabled></div>
                         </td>
                     </tr>
@@ -54,7 +54,7 @@
                             <div class="datoE"><label for="LbNumConexiones">Nº de Conexiones </label></div>
                         </td>
                         <td colspan="2">
-                            <div class="datoUsu"><input type="text" name="numConexiones" id="LbNumConexiones"
+                            <div class="datoUsu"><input type="text" name="numConexiones" id="LbNumConexiones" style="background: #f0c0ba;"
                                 placeholder="<?php echo $conexiones; ?>" disabled></div>
                         </td>
                     </tr>
@@ -63,7 +63,7 @@
                             <div class="datoE"><label for="LbUltConexion">Fecha Ultima Conexión </label></div>
                         </td>
                         <td colspan="2">
-                            <div class="datoUsu"><input type="text" name="ultConexion" id="LbUltConexion"
+                            <div class="datoUsu"><input type="text" name="ultConexion" id="LbUltConexion" style="background: #f0c0ba;"
                                 placeholder="<?php echo $ultimaConexionFormat; ?>" disabled></div>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
                             <div class="datoE"><label for="LbPerfil">Perfil </label></div>
                         </td>
                         <td  colspan="2">
-                            <div class="datoUsu"><input type="text" name="perfil" id="LbPerfil"
+                            <div class="datoUsu"><input type="text" name="perfil" id="LbPerfil" style="background: #f0c0ba;"
                                 placeholder="<?php echo $perfil; ?>" disabled=></div>
                         </td>
                     </tr>
