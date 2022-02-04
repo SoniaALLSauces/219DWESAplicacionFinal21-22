@@ -43,9 +43,9 @@
                 $aDepartamento; //variable para guardar los datos del Departamento
                 $consultaSQL = <<<EOD
                                    SELECT * FROM T02_Departamento WHERE 
-                                   T02_CodDepartamento=:codDepartamento;
+                                   T02_DescDepartamento=:descDepartamento;
                                  EOD;
-                $parametros = [':codDepartamento' => $codDepartamento];
+                $parametros = [':descDepartamento' => $descDepartamento];
                     
                 $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL, $parametros);
                     if ($rdoConsulta->rowCount()>0){  //si encuentra el registro departamento

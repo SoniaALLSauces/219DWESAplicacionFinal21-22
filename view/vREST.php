@@ -28,7 +28,7 @@
                                     echo $resultado = ($aErroresCd['ciudad']==NULL && isset($_REQUEST['ciudad'])) ? $aRespuestas['ciudad'] : ""; 
                                     ?>"></div>
                         </td>
-                        <th><input id="buscarCd" name="buscarCd" type="submit" value=""></th>
+                        <th><input id="buscar" name="buscarCd" type="submit" value=""></th>
                     </tr>
                                         
                     <tr>
@@ -66,7 +66,7 @@
                                     echo $resultado = ($aErroresPr['provincia']==NULL && isset($_REQUEST['provincia'])) ? $aRespuestas['provincia'] : ""; 
                                     ?>"></div>
                         </td>
-                        <th><input id="buscarPr" name="buscarPr" type="submit" value=""></th>
+                        <th><input id="buscar" name="buscarPr" type="submit" value=""></th>
                     </tr>
                                         
                     <tr>

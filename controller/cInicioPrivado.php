@@ -37,10 +37,10 @@
                 exit;
         } 
              
-    //Si pulso en Mantenimiento Departamentos me lleva a WIP:
-        if (isset($_REQUEST['workingProgress'])){
+    //Si pulso en Mantenimiento Departamentos me lleva a Mantenimiento de Departamentos:
+        if (isset($_REQUEST['botonDepartamentos'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
+            $_SESSION['pagina']='mtoDepartamentos';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;
         } 

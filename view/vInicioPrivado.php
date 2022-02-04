@@ -21,7 +21,7 @@
         
         <div class="funcionalidadUsuario" onclick="none()">
             <form class="botonesHeader" name="inicio" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                <input type="submit" value="Mto Departamentos" name="workingProgress">
+                <input type="submit" value="Mto Departamentos" name="botonDepartamentos">
                 <input type="submit" value="API REST" name="rest">
             </form>
 
