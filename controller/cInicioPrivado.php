@@ -8,27 +8,15 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 26/01/2021
+     * @updated: 06/02/2022
      */
 
 
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']!=null){
-            $usuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
-                $descripcion = $usuarioActual->getDescUsuario(); //recuperamos la descripción del usuario
-                $conexiones = $usuarioActual->getNumConexiones(); //recuperamos el numero de conexiones del usuario
-                $conexionAnterior = $usuarioActual->getFechaHoraUltimaConexionAnterior(); //recuperamos la fecha de la conexion anterior del usuario
+            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
         }
     
-    //Si pulso en volver:
-        if (isset($_REQUEST['volver'])){
-            $paginaActual=$_SESSION['pagina'];     //guardo la pagina actual en una variable, por si queremos volver
-            $_SESSION['pagina']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
-            $_SESSION['paginaAnterior']=$paginaActual;     //y la pagina anterior la que habiamos guardado en la variable antes de cambiarla
-            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
-                exit;
-        }
-      
     //Si pulso en el boton REST:
         if (isset($_REQUEST['rest'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //
@@ -37,18 +25,18 @@
                 exit;
         } 
              
-    //Si pulso en Mantenimiento Departamentos me lleva a WIP:
-        if (isset($_REQUEST['workingProgress'])){
+    //Si pulso en Mantenimiento Departamentos me lleva a Mantenimiento de Departamentos:
+        if (isset($_REQUEST['botonDepartamentos'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
+            $_SESSION['pagina']='mtoDepartamentos';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;
         } 
     
-    //Si pulso en Editar Perfil me lleva a WIP:
+    //Si pulso en Editar Perfil me lleva a miCuenta:
         if (isset($_REQUEST['editarPerfil'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
+            $_SESSION['pagina']='editarUsuario';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;
         } 
@@ -63,7 +51,7 @@
         
     //Si pulso en Log Out:
         if (isset($_REQUEST['cerrarSesion'])){
-            $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= ""; //elimino el usuario guardado en la sesion
+            unset($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']);  //elimino el usuario guardado en la sesion
             $_SESSION['pagina']='inicioPublico';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;

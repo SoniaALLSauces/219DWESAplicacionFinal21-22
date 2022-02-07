@@ -1,7 +1,7 @@
 /*
 Author: Sonia Anton Llanes
 Created on: 25-enero-2021
-Last modification: 25-enero-2021
+Last modification: 31-enero-2021
 CSS Proyecto Aplicacion FINAL
 */
 
@@ -18,7 +18,7 @@ a{text-decoration: none; color:#000; }
 .container{
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% auto 8%;
+    grid-template-rows: 8% auto 8%;
     grid-template-columns:1% auto 1%;
     grid-template-areas:
         "header header header"
@@ -56,9 +56,17 @@ h2{
 .secDoc{
     border: 20px solid #BF2411;
     margin-bottom: 8vh;
+    scroll-snap-type: y mandatory;
 }
-h3{
-    padding: 15px;
+.documentosApp{
+    width: 90vw;
+    display: flex;
+    border-bottom: 1px solid #BF2411;
+}
+.documentosApp>*{
+    width: 43vw;
+    height: 200px;
+    flex-direction: row;
 }
 
 .botonesHeader{
@@ -67,7 +75,7 @@ h3{
     top: 10px;
 }
 .inicioPl>.botonesHeader{ right: 25px; }
-.inicioPr>.botonesHeader{ right: 150px; }
+.funcionalidadUsuario>.botonesHeader{ right: 150px; }
 .botonesHeader>*{
     height: 40px;
     display: inline-block;
@@ -81,11 +89,28 @@ h3{
     top: 10px;
     right: 20px;
 }
+#listaUsuario{
+    width: 130px;
+    height: 200px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+}
 
 .botones>*,
-.botonesPr>*,
-.mtoDepartamentos>*{
+.botonDepartamentos>*{
     height: 60px;
+}
+.botonesPr>*,
+.imagenUsuario>*{
+    height: 50px;
+}
+.liUsuario{
+    display: none;
+}
+.liUsuario>*{
+    width: 100%;
+    height: 50px;
 }
 .tablaBottonUsu{
     position: relative;
@@ -129,35 +154,78 @@ h3{
     height: 180px;
 }
 
-.rest{
-    display: flex; 
+.rest, .temp, .sinTemp{
+    display: flex;  
 }
-.rest>*{
+.rest>*, .temp>*, .sinTemp>*{
     flex-direction: row;
 }
-.temp{
-    width: 20vw;
-    height: 200px;
-    border: 2px solid #BF2411;
-    margin: 50px;
-    padding: 20px 0px;
-}
-
-.tLogin,.tRest{
+.sinTemp{
+    justify-content: center;
     width: 50vw;
 }
-.dato, .error{
+.temp{
+    justify-content: center;
+    width: 30vw;
+    margin: 0 5vw;
+}
+.temp>*, .sinTemp, .tiempo>*{
+    margin: 0px 3vw;
+}
+.temp, .sinTemp, .tiempo{
+    height: 170px;
+    border: 2px solid #BF2411;
+    padding: 10px 0px;
+}
+.temp{ margin: 2px auto; }
+.sinTemp, .tiempo{ margin: 2px 50px; }
+.tempImg>*{
+    width: 80px;
+    margin: 25px 0;
+}
+.tiempo{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+.descAPI{
+    display: flex;
+    align-items: center;
+}
+.webApi{
+    margin-right: 5vw;
+}
+
+.tFormulario{
+    width: 50vw;
+}
+.tFormularioEdit{
+    width: 60vw;
+}
+.trDto{
+    width: 100%;
+    height: 4.5vh;
+    padding-top: 20px;
+}
+.trDto>*{
+    padding-top: 20px;
+}
+.tRest{
+    width: 30vw;
+}
+
+.dato, .error, .datoR, .datoE, .datoRest{
     width: 100%;
     height: 20px;
 }
 .datoUsu>input{
-    width: 80%;
+    width: 90%;
     height: 30px;
 }
 .vacio{
-    height: 20px;
+    height: 8vh;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     width: 85%;
 }
 
@@ -177,7 +245,9 @@ h3{
 }
 
 /* Border, Margin y Padding */
-
+h3{
+    padding-bottom: 10px;
+}
 .miWeb{
     margin: 50px;
 }
@@ -203,7 +273,7 @@ h3{
     margin-top: 20px;
 }
 
-.tLogin{
+.tFormulario, .tFormularioEdit{
     border: 1px solid black;
     margin: 20px auto;
     margin-top: 50px;
@@ -211,19 +281,32 @@ h3{
 }
 .tRest{
     border: 1px solid black;
-    margin: 50px;
-    padding: 15px;
+    margin: 2px 50px;
+    padding: 10px;
 }
 th{
     margin: 5% auto;
     border: none;
 }
-.dato{
+.dato, .datoR, .datoE, .datoRest{
     margin: 15px;
     padding: 10px;
-    padding-left: 8vw;
 }
-.datoUsu>input{
+.dato{padding-left: 8vw;}
+.datoR{padding-left: 20px;}
+.datoE{padding-left: 0px;}
+.datoRest{padding-left: 2vw;}
+.datoDto{
+    width: 20vw;
+    padding-left: 40px;
+    font-size: 18px;
+}
+.tdDescDto>*{
+    width: 40vw;
+    font-size: 18px;
+}
+
+.datoUsu>input, .tdDescDto>input{
     border: none;
     border-bottom: 1px solid black;
     padding: 0 10px;
@@ -231,7 +314,7 @@ th{
 input{
     margin-left: 1%;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     border: 2px solid #BF2411;
     margin: 5px;
     padding: 5px 20px;
@@ -242,18 +325,38 @@ input{
 #buscar{
     margin: 50px 20px 0 0;
 }
+#buscarDto{
+    margin: 0 20px;
+}
 
 .botones>*,
-.mtoDepartamentos>*{
+.botonDepartamentos>*{
     border: 2px solid #BF2411;
     margin: 5px 10px;
     padding: 5px 20px;
 }
 .botonesPr>*{
     border: 0;
-    border-right: 2px solid #BF2411;
-    margin: 5px 0;
-    padding: 5px 20px;
+    border-left: 2px solid #BF2411;
+    margin: 10px 0;
+    padding: 2px 20px;
+}
+.liUsuario>*{
+    border: 0;
+    border-left: 2px solid #BF2411;
+    border-bottom: 1px solid #BF2411;
+    padding: 2px 10px;
+}
+.imagenUsuario>*{
+    border: 0;
+    margin-bottom: 5px;
+    padding: 2px 10px;
+}
+
+.FormMtoDptos{
+    width: 80vw;
+    margin: 20px auto;
+    border: 2px #bb1212 solid;
 }
 
 
@@ -280,7 +383,10 @@ input{
     border: none;
     text-decoration: none;
 }
-#buscar{
+#listaUsuario{
+    text-decoration: none;
+}
+#buscar, #buscarDto{
     background-image: url("../images/buscar.png");
     background-size: 50px;
     background-repeat: no-repeat;
@@ -292,20 +398,27 @@ input{
 .secDoc{
     background: white;
 }
-
-.tLogin,.tRest{
+.temp, .sinTemp, .tiempo{
     background: white;
 }
-#login, #register{
+/*.tFormulario, .tRest, .tFormularioEdit{
+    background: white;
+}*/
+table{
+    background: white;
+}
+#login, #register, #aceptar, #cancelar{
     background: #ecaaa1;
 }
 
 .botones>*,
-.mtoDepartamentos>*,
+.botonDepartamentos>*,
 .saludo{
     background: #ecaaa1;
 }
-.botonesPr>*{
+.botonesPr>*,
+.liUsuario>*,
+.imagenUsuario>*{
     background: none;
 }
 
@@ -327,10 +440,13 @@ h2{
     font-weight: bolder;
     text-align: center;
 }
+.webApi{
+    font-size: 20px;
+    text-align: right;    
+}
 h3{
     font-family: 'Secular One', sans-serif;
     font-size: 20px;
-    text-align: center;
 }
 h4{
     font-size: 20px;
@@ -358,10 +474,11 @@ h4{
     text-align: center;
 }
 .botonesHeader>*,
+.liUsuario>*,
 .botones>*,
 .botonesPr>*,
-.mtoDepartamentos>*{
-    font-size: 1.8vw;
+.botonDepartamentos>*{
+    font-size: 1.1rem;
     vertical-align: middle;
 }
 .wip{
@@ -369,32 +486,42 @@ h4{
     vertical-align: middle;
 }
 
-.temp{
+.temp, .sinTemp, .tiempo{
     text-align: center;    
     vertical-align: middle;
 }
-.temp>div{ font-size: 8rem; }
-.temp>p{ font-size: 1rem; }
+.grados>div{ font-size: 5rem; }
+.grados>.p{ font-size: 1rem; }
+/*.tiempo{font-size: 1.2rem;}*/
     
-.tLogin,.tRest{
+.tFormulario, .tRest, .tFormularioEdit{
     text-align: center;
 }
-.dato{
+.dato, .datoR, .datoE, .datoRest{
     font-size: 18px;
     text-align: left;
+}
+.datoUsu>input{
+    font-size: 20px;
 }
 .error{
     font-size: 18px;
     text-align: center;
 }
-.datoUsu>input{
-    font-size: 20px;
+.errorR{
+    font-size: 15px;
+    text-align: right;
 }
-#login, #register{
+#login, #register, #aceptar, #cancelar{
     font-size: 2vw;
 }
 .ast{
     color: #bb1212;
+}
+.destacar{
+    color: #bb1212;
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .footer{
@@ -420,3 +547,6 @@ h4{
     background-color:  green;
     color: white;
 }
+/*.imagenUsuario:active~*{
+    display: block;
+}*/

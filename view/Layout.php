@@ -32,6 +32,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+        <script type="text/JavaScript" src="webroot/js/scriptMenuUsuario.js"></script>
     </head>
     
     <body class="container">

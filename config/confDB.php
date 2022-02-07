@@ -26,7 +26,7 @@
         
         
     /* Constantes BD Entorno Desarrollo Casa */
-//        define ('HOST', 'mysql:host=192.168.1.119;dbname=DAW219DBDepartamentos');
-//        define ('USER', 'usuarioDAW219DBDepartamentos');
+//        define ('HOST', 'mysql:host=192.168.1.119;dbname=DB219DWESLoginLogoutTema5');
+//        define ('USER', 'user219DWESLoginLogoutTema5');
 //        define ('PASSWORD', 'P@ssw0rd');
 

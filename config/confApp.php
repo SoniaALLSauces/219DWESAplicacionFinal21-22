@@ -24,15 +24,21 @@
         require_once 'model/Usuario.php';
         require_once 'model/UsuarioPDO.php';
         require_once 'model/DBPDO.php';
+        require_once 'model/Ciudad.php';
+        require_once 'model/Provincia.php';
+        require_once 'model/REST.php';
 
 //Array con los controladores
     $controladores = [
         'inicioPublico' => 'controller/cInicioPublico.php',
         'login' => 'controller/cLogin.php',
+        'registro' => 'controller/cRegistro.php',
         'inicioPrivado' => 'controller/cInicioPrivado.php',
         'detalle' => 'controller/cDetalle.php',
+        'editarUsuario' => 'controller/cMiCuenta.php',
         'wip' => 'controller/cWIP.php',
-        'rest' => 'controller/cREST.php'
+        'rest' => 'controller/cREST.php',
+        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php'
     ];
 
 //Array con las vistas
@@ -40,9 +46,12 @@
         'layout' => 'view/Layout.php',
         'inicioPublico' => 'view/vInicioPublico.php',
         'login' => 'view/vLogin.php',
+        'registro' => 'view/vRegistro.php',
         'inicioPrivado' => 'view/vInicioPrivado.php',
         'detalle' => 'view/vDetalle.php',
+        'editarUsuario' => 'view/vMiCuenta.php',
         'wip' => 'view/vWIP.php',
-        'rest' => 'view/vREST.php'
+        'rest' => 'view/vREST.php',
+        'mtoDepartamentos' => 'view/vMtoDepartamentos.php'
     ];
     

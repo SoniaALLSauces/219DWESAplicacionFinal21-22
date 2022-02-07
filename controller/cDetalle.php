@@ -7,7 +7,7 @@
      * 
      * @author Sonia Anton Llanes
      * @created 26/01/2022
-     * @updated: 26/01/2021
+     * @updated: 26/01/2022
      */
 
     
@@ -22,3 +22,4 @@
 
     //salida:
     require_once 'view/Layout.php';    //llamamos que se ejecute layout
+    

@@ -8,28 +8,22 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 25/01/2021
+     * @updated: 30/01/2021
      */
 
 
-    //Si pulso en volver:
+    //Si pulso en volver desde la ventana login quiero volver a la ventana Pública:
         if (isset($_REQUEST['volver'])){
-            $paginaActual=$_SESSION['pagina'];     //variable para guardar la pagina actual, por si queremos volver
-                if(isset($_SESSION['paginaAnterior'])){  //
-                    $_SESSION['pagina']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
-                } else{
-                    $_SESSION['pagina']='inicioPublico';
-                }
-            $_SESSION['paginaAnterior']=$paginaActual;     //y la pagina anterior la que habiamos guardado en la variable antes de cambiarla
+            $_SESSION['pagina']='inicioPublico';
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
     
-    //Si pulso en Registrarse me lleva a WIP:
+    //Si pulso en Registrarse me lleva a la ventana Registro:
         if (isset($_REQUEST['register'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='wip';     //y guardo login para la recarga de index
-            header('Location: index.php');   //recargo el fichero index.php con la ventana login
+            $_SESSION['pagina']='registro';     //y guardo en $_SESSION['pagina'] registro para la recarga de index
+            header('Location: index.php');   //recargo el fichero index.php con la ventana registro
                 exit;
         } 
 
@@ -61,11 +55,10 @@
         $entradaOK = false;   // si no se pulsa enviar, entradaOK es false
     }
 
-
     if($entradaOK){  //Si todas las entradas son correctas
         $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexion());  //guardamos la fecha/hora de la ultima conexion antes de modificar
-        $usuarioActual=UsuarioPDO::registrarUltimaConexion($oUsuario);   //modificamos el usuario con los datos de la ultima entrada
-        $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= $usuarioActual;  //Guardamos el objeto usuario en la sesion
+        $oUsuarioActual=UsuarioPDO::registrarUltimaConexion($oUsuario);   //modificamos el usuario con los datos de la ultima entrada
+        $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= $oUsuarioActual;  //Guardamos el objeto usuario en la sesion
         $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
         $_SESSION['pagina']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
