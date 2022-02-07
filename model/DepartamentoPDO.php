@@ -39,14 +39,14 @@
              * @return \Departamento - objeto Departamento con los datos del registro encontrado
              */
             public static function buscaDepartamentosPorDesc($descDepartamento) {
-                $aODepartamento = array();  //array para guardar los objetos Departamento
+                $aODepartamento;  //array para guardar los objetos Departamento
                 $consultaSQL = <<<EOD
                                    SELECT * FROM T02_Departamento WHERE 
-                                   T02_DescDepartamento LIKE :descDepartamento;
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' ;
                                  EOD;
-                $parametros = [':descDepartamento' => $descDepartamento];
-                $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL, $parametros);
-                    
+                //$parametros = [':descDepartamento' => $descDepartamento];
+                $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);
+                  
                 $departamentoPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
                     while ($departamentoPDOStatment){  //si encuentra el registro departamento
                         //Instancio un objeto Departamento

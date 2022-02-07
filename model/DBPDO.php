@@ -22,7 +22,7 @@
              * @param array $entrada_parametros - array con los parámetros que se le pasan a la consulta SQL
              * @return object PDOStatement - devuelve un objeto de la clase PDOStatment con los datos del registro de la consulta, o null si esta vacio
              */
-            public static function ejecutaConsulta($entrada_sentenciaSQL, $entrada_parametros) {
+            public static function ejecutaConsulta($entrada_sentenciaSQL, $entrada_parametros = null) {
                 try{
                     $miDB = new PDO (HOST, USER, PASSWORD);  //establezco conexión con objeto PDO 
                     $miDB ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  //y siempre lanzo excepción utilizando manejador propio PDOException cuando se produce un error

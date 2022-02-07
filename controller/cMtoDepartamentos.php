@@ -24,7 +24,7 @@
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
     //Arrays para guardar los errores y las respuestas del formulario:
         $aErrores = ['descDepartamento' => null];   //E inicializo cada elemento
-        $aRespuestas = ['descDepartamento' => null];   //E inicializo cada elemento
+        $aRespuestas = ['descDepartamento' => "de"];   //inicializo
         
     if (isset($_REQUEST['buscarDto'])){
         //Valido los campos del formulario con la libreria de validacion
@@ -40,8 +40,6 @@
     if($entradaOK){  //Si todas las entradas son correctas
         //Busco registros que coincidan con la descripción introducida y los guardo en un array de objetos Departamento
         $aRespuestas['descDepartamento']= $_REQUEST['descDepartamento'];  //guardo la respuesta del usuario en la variable
-        $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento']);
-        
         
         $_SESSION['pagina']= 'mtoDepartamentos';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
             header('Location: index.php');  //recargo el fichero index.php
@@ -50,6 +48,20 @@
     else{   //Si no son correctas o aun no se ha pulsado "Iniciar Sesion" 
         $_SESSION['pagina']= 'mtoDepartamentos';   //continuamos en la sesión para controlador y vista en 'login'
     }
+    
+    $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento']);
+    $aDepartamentos= array();
+    foreach ($aODepartamento as $objDepartamento) {
+        $aDepartamentos[]= [
+            'codDepartamento' => $objDepartamento->getCodDepartamento(),
+            'descDepartamento' => $objDepartamento->getDescDepartamento(),
+            'fechaCreacion' => $objDepartamento->getFechaCreacionDepartamento(),
+            'volumenNeg' => $objDepartamento->getVolumenDeNegocio(),
+            'fechaBaja' => $objDepartamento->getFechaBajaDepartamento()
+        ];
+    }
+    
+    
     
 
     //salida:
