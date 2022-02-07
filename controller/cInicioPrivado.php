@@ -15,6 +15,9 @@
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']!=null){
             $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
+                $descripcion = $oUsuarioActual->getDescUsuario(); //recuperamos la descripción del usuario
+                $conexiones = $oUsuarioActual->getNumConexiones(); //recuperamos el numero de conexiones del usuario
+                $conexionAnterior = $oUsuarioActual->getFechaHoraUltimaConexionAnterior(); //recuperamos la fecha de la conexion anterior del usuario
         }
     
     //Si pulso en el boton REST:

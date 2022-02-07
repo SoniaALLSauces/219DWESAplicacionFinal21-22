@@ -38,14 +38,13 @@
 
             <section class="datosUsuario">            
                 <article  class="saludo">
-                    <p>BIENVENID@   <?php echo $oUsuarioActual->getDescUsuario() ?></p>
+                    <p>BIENVENID@   <?php echo $descripcion ?></p>
 
                     <?php
-                        if ($oUsuarioActual->getNumConexiones()==1){
+                        if ($conexiones==1){
                             echo "<p>Esta es la PRIMERA vez que se conecta.</p>";
                         } else{
-                            echo "<p>Es la ".$oUsuarioActual->getNumConexiones()."ª vez que se conecta.</p>";
-                                $conexionAnterior = $oUsuarioActual->getFechaHoraUltimaConexionAnterior();
+                            echo "<p>Es la ".$conexiones."ª vez que se conecta.</p>";
                                 $ultimaConexion = new DateTime();
                                 $ultimaConexionFormat = $ultimaConexion-> setTimestamp($conexionAnterior) -> format ('d-m-Y H:i:s');
                             echo "<p>Se conectó por ultima vez el: $ultimaConexionFormat </p>";

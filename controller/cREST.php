@@ -80,9 +80,18 @@
     if($entradaOK){ 
         if(isset($oCiudad)){
             $_SESSION['oCiudad']= $oCiudad;
+                $ciudad= $oCiudad->getCiudad();
+                $region= $oCiudad->getRegion();
+                $pais= $oCiudad->getPais();
+                $temperatura= $oCiudad->getTemperatura();
+                $icono= $oCiudad->getIcono();
         }
         if(isset($oProvincia)){
             $_SESSION['oProvincia']= $oProvincia;
+                $provincia= $oProvincia->getProvincia();
+                $idProvincia= $oProvincia->getIdProvincia();
+                $descripcion= $oProvincia->getDescripcion();
+                $tiempo= $oProvincia->getTiempo();
         }
         
     }else{   //Si no son correctas o aun no se ha pulsado "buscar" 

@@ -25,7 +25,7 @@
                             <div class="datoRest"><label for="LbCiudad">CIUDAD <span class="ast">*</span></label></div>
                             <div class="datoUsu"><input type="text" name="ciudad" id="LbCiudad"
                                 value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oCiudad']) ? $oCiudad->getCiudad() : ""; 
+                                    echo $resultado = isset($_SESSION['oCiudad']) ? $ciudad : ""; 
                                     ?>"></div>
                         </td>
                         <th><input id="buscar" name="buscarCd" type="submit" value=""></th>
@@ -46,12 +46,12 @@
             <?php if (isset($_SESSION['oCiudad'])){ ?>
                 <article class="temp">
                     <div class="tempImg">
-                        <img src="<?php echo $oCiudad->getIcono(); ?>" alt="Icono">
+                        <img src="<?php echo $icono; ?>" alt="Icono">
                     </div>
                     <div class="grados">
-                        <div> <?php echo $oCiudad->getTemperatura(); ?>º </div>
-                        <p class="destacar"> <?php echo $oCiudad->getCiudad(); ?> </p>
-                        <p class="p"> <?php echo $oCiudad->getRegion()."/".$oCiudad->getPais(); ?> </p>
+                        <div> <?php echo $temperatura; ?>º </div>
+                        <p class="destacar"> <?php echo $ciudad; ?> </p>
+                        <p class="p"> <?php echo $region."/".$pais; ?> </p>
                     </div>
                 </article>
             <?php } else{ ?>
@@ -75,7 +75,7 @@
                             <div class="datoRest"><label for="LbProvincia">Código Provincia <span class="ast">*</span></label></div>
                             <div class="datoUsu"><input type="text" name="provincia" id="LbProvincia" placeholder="cp provincia: 01, 02, 03..., 52 "
                                 value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oProvincia']) ? $oProvincia->getIdProvincia() : ""; 
+                                    echo $resultado = isset($_SESSION['oProvincia']) ? $idProvincia : ""; 
                                     ?>"></div>
                         </td>
                         <th><input id="buscar" name="buscarPr" type="submit" value=""></th>
@@ -95,8 +95,8 @@
             
             <article class="tiempo">
                 <?php if (isset($_SESSION['oProvincia'])){ ?>
-                    <p><span class="destacar"><?php echo $oProvincia->getProvincia(); ?>:</span>
-                        <?php echo $oProvincia->getTiempo(); ?> </p>
+                    <p><span class="destacar"><?php echo $provincia; ?>:</span>
+                        <?php echo $tiempo; ?> </p>
                 <?php } else{ ?>
                     <div class="descAPI">API REST que devuelve la temperatura y el tiempo según los dos primeros dígitos del código postal de la provincia. 
                                         Los datos que devuelve, entre otros, son: breve resumen del tiempo en el día de hoy o mañana, temperatura máxima y mínima...</div>
