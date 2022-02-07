@@ -98,7 +98,7 @@
                     <p><span class="destacar"><?php echo $oProvincia->getProvincia(); ?>:</span>
                         <?php echo $oProvincia->getTiempo(); ?> </p>
                 <?php } else{ ?>
-                    <div class="descAPI">API REST que Devuelve la temperatura y el tiempo según los dos primeros dígitos del código postal de la provincia. 
+                    <div class="descAPI">API REST que devuelve la temperatura y el tiempo según los dos primeros dígitos del código postal de la provincia. 
                                         Los datos que devuelve, entre otros, son: breve resumen del tiempo en el día de hoy o mañana, temperatura máxima y mínima...</div>
                 <?php } ?>
             </article>
