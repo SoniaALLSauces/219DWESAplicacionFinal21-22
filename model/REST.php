@@ -3,10 +3,11 @@
     /**
      * Clase REST, define los metodos necesarios para procesar los datos de la apiRest seleccionada
      *   en mi caso es http://api.weatherstack.com/
+     *   la apiRest de compañero https://www.el-tiempo.net/api/
      * 
      * @author Sonia Anton Llanes
      * @created  26/01/2022
-     * @updated  27/01/2022
+     * @updated  06/02/2022
      */
 
 
@@ -22,9 +23,8 @@
                 //Conecto con el web services de: http://api.weatherstack.com/ añadiendo $ciudad
                     $fichero= file_get_contents('http://api.weatherstack.com/current?access_key=791b13a34544da4f5f1669e760434b77&query='.$ciudad);  //devuelve un String del contenido JSON
                     $aJson= json_decode($fichero,true);   //decodificamos el json y lo devolvemos en un array
-                
                     if (isset($aJson['success']) && $aJson['success']==false){  //Si se produce algun error
-                        $oCiudad= new Ciudad($ciudad, "_", "_", 0, null);
+                        $oCiudad= new Ciudad($ciudad, "_", "_", 0,null, null);
                         switch ($aJson['error']['code']){
                             case 101:
                             case 102:
@@ -40,13 +40,41 @@
                         return $oCiudad;
                     }
                     else{  //si no hay error nos devuelve un objeto Ciudad con sus datos
-                        return $oCiudad= new Ciudad($aJson['location']['name'], $aJson['location']['region'], $aJson['location']['country'], $aJson['current']['temperature'], null);
+                        return $oCiudad= new Ciudad($aJson['location']['name'], $aJson['location']['region'], $aJson['location']['country'], $aJson['current']['temperature'], $aJson['current']['weather_icons'][0], null);
                     }
             }
             
             
-            public static function buscarProvincia($codProvincia){
-                
+            /**
+             * @author: Aroa Granero Omañas
+             * Created on: 31/1/2022
+             * Funcion que devuelve un objeto provincia con los datos devueltos por la API. 
+             * En caso de que el servidor de error devuelve null.
+             * 
+             * @param Int $codProvincia
+             * @return \Provincia
+             */
+            public static function provincia($codProvincia) {
+                $urlConcreta='https://www.el-tiempo.net/api/json/v2/provincias/'. $codProvincia;
+                $oProvincia = null;
+                $sResultadoRawData = false;
+                $aHeaders = get_headers( $urlConcreta);   //get_header devuelve un array con las respuestas a una petición HTTP.Lo guardo en la variable headers
+                $numHeaders = substr($aHeaders[0], 9, 3);      //substr devuelve una cadena, entonces quiero que recorra la posicion 0 del array aheaders
+                if ($numHeaders == "200") {
+                    $sResultadoRawData = file_get_contents( $urlConcreta);
+                }
+                if ($sResultadoRawData) {//si el servidor no ha dado fallo
+                    $aJson = json_decode($sResultadoRawData, true); //decodificamos el json y lo devolvemos en un array
+                    $oProvincia = new Provincia($aJson['title'],
+                            $aJson['ciudades']['0']['idProvince'],
+                            $aJson['ciudades']['0']['stateSky']['description'],
+                            $aJson['today']['p'],
+                            $aJson['ciudades']['0']['temperatures']['max'],
+                            $aJson['ciudades']['0']['temperatures']['min']
+                    );
+                }
+
+                return $oProvincia;//si ha dado error devuelve null.
             }
             
         }

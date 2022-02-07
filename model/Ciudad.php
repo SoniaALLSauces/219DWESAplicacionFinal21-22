@@ -16,6 +16,7 @@
             private $region;
             private $pais;
             private $temperatura;
+            private $icono;
             private $error;
             
         //Constructor
@@ -26,13 +27,15 @@
              * @param string $region - region a la que pertenece la ciudad
              * @param string $pais - pais de la ciudad
              * @param integer $temperatura - temperatura de la ciudad en tiempo real
+             * @param string $icono - url del icono de la temperatura en la ciudad en tiempo real
              * @param string $error - si se produce algun error se recoge
              */
-                public function __construct($ciudad,$region,$pais,$temperatura,$error) {
+                public function __construct($ciudad,$region,$pais,$temperatura,$icono,$error) {
                     $this->ciudad = $ciudad;
                     $this->region = $region;
                     $this->pais = $pais;
                     $this->temperatura = $temperatura;
+                    $this->icono = $icono;
                     $this->error = $error;
                 }
             
@@ -78,6 +81,15 @@
                 public function getTemperatura(){
                     return $this->temperatura;
                 }
+            /**
+             * getIcono() - devuelve el nombre del pais de la ciudad
+             * 
+             * @return string $icono - url del icono de la temperatura en la ciudad en tiempo real
+             */    
+                public function getIcono(){
+                    return $this->icono;
+                }
+            
             /**
              * getError() - devuelve el error si existe o null
              * 

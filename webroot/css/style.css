@@ -154,21 +154,49 @@ h2{
     height: 180px;
 }
 
-.rest{
-    display: flex; 
+.rest, .temp, .sinTemp{
+    display: flex;  
 }
-.rest>*{
+.rest>*, .temp>*, .sinTemp>*{
     flex-direction: row;
 }
+.sinTemp{
+    justify-content: center;
+    width: 50vw;
+}
 .temp{
-    width: 20vw;
-    height: 200px;
+    justify-content: center;
+    width: 30vw;
+    margin: 0 5vw;
+}
+.temp>*, .sinTemp, .tiempo>*{
+    margin: 0px 3vw;
+}
+.temp, .sinTemp, .tiempo{
+    height: 170px;
     border: 2px solid #BF2411;
-    margin: 50px;
-    padding: 20px 0px;
+    padding: 10px 0px;
+}
+.temp{ margin: 2px auto; }
+.sinTemp, .tiempo{ margin: 2px 50px; }
+.tempImg>*{
+    width: 80px;
+    margin: 25px 0;
+}
+.tiempo{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+.descAPI{
+    display: flex;
+    align-items: center;
+}
+.webApi{
+    margin-right: 5vw;
 }
 
-.tFormulario, .tRest{
+.tFormulario{
     width: 50vw;
 }
 .tFormularioEdit{
@@ -182,8 +210,11 @@ h2{
 .trDto>*{
     padding-top: 20px;
 }
+.tRest{
+    width: 30vw;
+}
 
-.dato, .error, .datoR, .datoE{
+.dato, .error, .datoR, .datoE, .datoRest{
     width: 100%;
     height: 20px;
 }
@@ -192,7 +223,7 @@ h2{
     height: 30px;
 }
 .vacio{
-    height: 20px;
+    height: 8vh;
 }
 #login, #register, #aceptar, #cancelar{
     width: 85%;
@@ -250,20 +281,21 @@ h3{
 }
 .tRest{
     border: 1px solid black;
-    margin: 50px;
-    padding: 15px;
+    margin: 2px 50px;
+    padding: 10px;
 }
 th{
     margin: 5% auto;
     border: none;
 }
-.dato, .datoR, .datoE{
+.dato, .datoR, .datoE, .datoRest{
     margin: 15px;
     padding: 10px;
 }
 .dato{padding-left: 8vw;}
 .datoR{padding-left: 20px;}
 .datoE{padding-left: 0px;}
+.datoRest{padding-left: 2vw;}
 .datoDto{
     width: 20vw;
     padding-left: 40px;
@@ -366,7 +398,9 @@ input{
 .secDoc{
     background: white;
 }
-
+.temp, .sinTemp, .tiempo{
+    background: white;
+}
 /*.tFormulario, .tRest, .tFormularioEdit{
     background: white;
 }*/
@@ -408,11 +442,11 @@ h2{
 }
 .webApi{
     font-size: 20px;
+    text-align: right;    
 }
 h3{
     font-family: 'Secular One', sans-serif;
     font-size: 20px;
-    text-align: center;
 }
 h4{
     font-size: 20px;
@@ -452,17 +486,18 @@ h4{
     vertical-align: middle;
 }
 
-.temp{
+.temp, .sinTemp, .tiempo{
     text-align: center;    
     vertical-align: middle;
 }
-.temp>div{ font-size: 8rem; }
-.temp>p{ font-size: 1rem; }
+.grados>div{ font-size: 5rem; }
+.grados>.p{ font-size: 1rem; }
+/*.tiempo{font-size: 1.2rem;}*/
     
 .tFormulario, .tRest, .tFormularioEdit{
     text-align: center;
 }
-.dato, .datoR, .datoE{
+.dato, .datoR, .datoE, .datoRest{
     font-size: 18px;
     text-align: left;
 }
@@ -482,6 +517,11 @@ h4{
 }
 .ast{
     color: #bb1212;
+}
+.destacar{
+    color: #bb1212;
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .footer{

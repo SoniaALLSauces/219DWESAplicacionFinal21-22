@@ -25,6 +25,7 @@
         require_once 'model/UsuarioPDO.php';
         require_once 'model/DBPDO.php';
         require_once 'model/Ciudad.php';
+        require_once 'model/Provincia.php';
         require_once 'model/REST.php';
 
 //Array con los controladores

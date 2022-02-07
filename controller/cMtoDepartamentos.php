@@ -20,20 +20,17 @@
                 exit;
         }
         
-    //Si se ha pulsado "Iniciar Sesion"
+    //Si se ha pulsado "buscarDto"
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
     //Arrays para guardar los errores y las respuestas del formulario:
         $aErrores = ['descDepartamento' => null];   //E inicializo cada elemento
         $aRespuestas = ['descDepartamento' => null];   //E inicializo cada elemento
         
-    if (isset($_REQUEST['login'])){
+    if (isset($_REQUEST['buscarDto'])){
         //Valido los campos del formulario con la libreria de validacion
             $aErrores['descDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['descDepartamento'], 255, 1, 1);
-                if ($aErrores['descDepartamento']!=null){         //si es distinto de null
+                if ($aErrores['descDepartamento']!=null){  //si es distinto de null
                     $entradaOK = false;    //si hay algun error entradaOK es false
-                }
-                else {     //Valido que el usuario existe
-
                 }
     }
     else{  //aun no se ha pulsado el boton enviar
@@ -41,10 +38,12 @@
     }
 
     if($entradaOK){  //Si todas las entradas son correctas
+        //Busco registros que coincidan con la descripción introducida y los guardo en un array de objetos Departamento
+        $aRespuestas['descDepartamento']= $_REQUEST['descDepartamento'];  //guardo la respuesta del usuario en la variable
+        $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento']);
         
-        $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
+        
         $_SESSION['pagina']= 'mtoDepartamentos';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
-
             header('Location: index.php');  //recargo el fichero index.php
             exit;
     }   
