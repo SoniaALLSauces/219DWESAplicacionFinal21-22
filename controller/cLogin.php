@@ -58,7 +58,7 @@
     if($entradaOK){  //Si todas las entradas son correctas
         $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexion());  //guardamos la fecha/hora de la ultima conexion antes de modificar
         $oUsuarioActual=UsuarioPDO::registrarUltimaConexion($oUsuario);   //modificamos el usuario con los datos de la ultima entrada
-        $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= $oUsuarioActual;  //Guardamos el objeto usuario en la sesion
+        $_SESSION['usuario219DWESAplicacionFinal']= $oUsuarioActual;  //Guardamos el objeto usuario en la sesion
         $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
         $_SESSION['pagina']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 

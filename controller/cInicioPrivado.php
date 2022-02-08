@@ -13,8 +13,8 @@
 
 
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
-        if($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']!=null){
-            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
+        if($_SESSION['usuario219DWESAplicacionFinal']!=null){
+            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionFinal'];
                 $aUsuario= [
                     'codUsuario' => $oUsuarioActual->getCodUsuario(),  //recuperamos la descripción del usuario
                     'descripcion' => $oUsuarioActual->getDescUsuario(),  //recuperamos la descripción del usuario
