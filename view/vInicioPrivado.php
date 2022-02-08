@@ -21,7 +21,13 @@
         
         <div class="funcionalidadUsuario" onclick="none()">
             <form class="botonesHeader" name="inicio" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                <input type="submit" value="Mto Departamentos" name="botonDepartamentos">
+                <?php if ($aUsuario['codUsuario']=='admin'){ ?>
+                    <input type="submit" value="Mto Cuestiones" name="cuestiones">
+                    <input type="submit" value="Mto Usuarios" name="botonUsuarios">
+                <?php } else{ ?>
+                    <input type="submit" value="Opiniones" name="opiniones">
+                    <input type="submit" value="Mto Departamentos" name="botonDepartamentos">
+                <?php } ?>
                 <input type="submit" value="API REST" name="rest">
             </form>
 
@@ -38,15 +44,15 @@
 
             <section class="datosUsuario">            
                 <article  class="saludo">
-                    <p>BIENVENID@   <?php echo $descripcion ?></p>
+                    <p>BIENVENID@   <?php echo $aUsuario['descripcion']; ?></p>
 
                     <?php
-                        if ($conexiones==1){
+                        if ($aUsuario['conexiones']==1){
                             echo "<p>Esta es la PRIMERA vez que se conecta.</p>";
                         } else{
-                            echo "<p>Es la ".$conexiones."ª vez que se conecta.</p>";
+                            echo "<p>Es la ".$aUsuario['conexiones']."ª vez que se conecta.</p>";
                                 $ultimaConexion = new DateTime();
-                                $ultimaConexionFormat = $ultimaConexion-> setTimestamp($conexionAnterior) -> format ('d-m-Y H:i:s');
+                                $ultimaConexionFormat = $ultimaConexion-> setTimestamp($aUsuario['conexionAnterior']) -> format ('d-m-Y H:i:s');
                             echo "<p>Se conectó por ultima vez el: $ultimaConexionFormat </p>";
                         }
                     ?>

@@ -1,20 +1,10 @@
-<?php
+<!DOCTYPE html>
 
-    /**
-     * LAYOUT proyecto Login Logout Final 2021/22: ventana con el html header, main con la pagina en curso a mostrar indicada por $_SESSION('pagina') y footer
-     * 
-     * @author  Sonia Anton Llanes
-     * @created  24/01/2022
-     * @updated  24/01/2022
-     */
-
-
-    //Importamos todos los archivos necesarios
-        require_once 'config/confApp.php'; //archivo que contiene todos los archivos y los arrays de archivos para que funcione la aplicacion
-   
-?>
-
-
+<!--  Author: Sonia Antón Llanes
+  --  Created on: 07-febrero-2022
+  --  Last Modify: 07-febrero-2022
+  --  ventana con las tecnologías utilizadas en esta aplicación
+  -->
 
 
 <html lang="es">
@@ -42,12 +32,14 @@
                 <img src="webroot/images/logo.png" alt="logo" height="55vh">
             </a>
             <h2>Proyecto FINAL</h2> 
+            <h2 style="width:50vw; color:black; margin:0 auto">Tecnologías</h2>
         </header>
 
-	<main class="main gato">
-
-                <?php require_once $vistas[$_SESSION['pagina']]; ?>
-            
+	<main class="main">
+            <section class="tecnologias">
+                <img src="webroot/images/tecnologias/tecnologias.png" alt="tecnologias">
+                    
+            </section>   
         </main>
         
         <footer class="footer">
@@ -58,7 +50,6 @@
                         <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV"></a>
                         <a class="maxMedia" href=""><img src="webroot/images/linkedin.png" alt="imagen_linkedIn"></a>
                         <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/github.png" alt="imagen_github"></a>
-                        <a class="maxMedia" href="indexTecnologias.php" target="_blank"><img src="webroot/images/tecnologias.png" alt="tecnologias"></a>
                     </li>
                 </ul>
             </nav>
