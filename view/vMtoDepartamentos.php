@@ -16,6 +16,7 @@
 
         <div class="div">
             <h2>Mantenimiento de Departamentos</h2>
+            
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="FormMtoDptos">
                     <table>
@@ -29,9 +30,9 @@
                                                 echo $resultado = ($aErrores['descDepartamento']==NULL && isset($_REQUEST['descDepartamento'])) ? $_REQUEST['descDepartamento'] : $aRespuestas['descDepartamento']=""; 
                                               ?>">
                             </td>
-                            <td class="buscarDto"><input id="buscarDto" name="buscarDep" type="submit" value=""></td>
+                            <td class="buscarDto"><input id="buscarDto" name="buscarDto" type="submit" value=""></td>
                         </tr>
-                        <tr>
+                        <tr class="trError">
                             <td class="dato"></td>
                             <td colspan="2" class="td">
                                 <div class="error"><?php
@@ -45,6 +46,54 @@
                     </table>
                 </div>
             </form>
+            
+            <div class="tableDepartamentos">
+                <table>
+                    <tr>
+                        <th colspan="2"><h3 class="h3Dep">Departamentos:</h3></th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="cod">Codigo</th>
+                        <th class="dep">Departamento</th>
+                        <th class="falta">Fecha Alta/Reactivación</th>
+                        <th class="fbaja">Fecha Baja</th>
+                        <th class="vneg">Volumen Neg.</th>
+                        <th colspan="3"></th>
+                    </tr>
+                    
+<!--                    <tr>
+                        <th colspan="5">
+                            //<?php print_r($aDepartamentos); ?>
+                        </th>
+                    </tr>-->
+                    
+                <?php
+                    //Recorro el array de Departamentos
+                    //Y Muestro la tabla Departametos con los encontrados o entera (por defecto)
+                    foreach ($aDepartamentos as $departamento) {
+                ?>
+                    <tr class="tr">
+                        <td> <?php echo $departamento['codDepartamento']; ?> </td>
+                        <td> <?php echo $departamento['descDepartamento']; ?> </td>
+                        <td> <?php if ($departamento['fechaAlta']!=null){
+                                        echo $departamento['fechaAlta'];
+                                   }?> </td>
+                        <td> <?php echo $departamento['fechaBaja']; ?> </td>
+                        <td> <?php echo $departamento['volumenNeg']; ?> </td>
+                        <td class="th"><img class= "imgtd" src="webroot/images/ojo-mostar.png" alt="mostrar"></td>
+                        <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
+                    <?php if ($departamento['fechaBaja']!='Undefined'){ ?>
+                        <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
+                    <?php } else{ ?>
+                        <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
+                    <?php }?>                        
+                    </tr>
+                <?php
+                    }
+                ?>
+            
+                </table>
+            </div>
 
         </div>
     </section>

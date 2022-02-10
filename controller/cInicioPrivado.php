@@ -13,8 +13,15 @@
 
 
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
-        if($_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']!=null){
-            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
+        if($_SESSION['usuario219DWESAplicacionFinal']!=null){
+            $oUsuarioActual = $_SESSION['usuario219DWESAplicacionFinal'];
+                $aUsuario= [
+                    'codUsuario' => $oUsuarioActual->getCodUsuario(),  //recuperamos la descripción del usuario
+                    'descripcion' => $oUsuarioActual->getDescUsuario(),  //recuperamos la descripción del usuario
+                    'conexiones' => $oUsuarioActual->getNumConexiones(), //recuperamos el numero de conexiones del usuario
+                    'conexionAnterior' => $oUsuarioActual->getFechaHoraUltimaConexionAnterior() //recuperamos la fecha de la conexion anterior del usuario
+                ];
+                
         }
     
     //Si pulso en el boton REST:
@@ -24,12 +31,36 @@
             header('Location: index.php');  //recargo el fichero index.php
                 exit;
         } 
+        
+    //Si pulso en Mantenimiento Cuestiones me lleva a Work in Progress:
+        if (isset($_REQUEST['cuestiones'])){
+            $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
+            $_SESSION['pagina']='wip';     //y guardo wip para la recarga de index
+            header('Location: index.php');   //recargo el fichero index.php con la ventana wip
+                exit;
+        }
+        
+    //Si pulso en Opiniones me lleva a Work in Progress:
+        if (isset($_REQUEST['opiniones'])){
+            $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
+            $_SESSION['pagina']='wip';     //y guardo wip para la recarga de index
+            header('Location: index.php');   //recargo el fichero index.php con la ventana wip
+                exit;
+        }
              
     //Si pulso en Mantenimiento Departamentos me lleva a Mantenimiento de Departamentos:
         if (isset($_REQUEST['botonDepartamentos'])){
             $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
             $_SESSION['pagina']='mtoDepartamentos';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
+                exit;
+        } 
+        
+    //Si pulso en Mantenimiento Usuarios me lleva a Work in Progress:
+        if (isset($_REQUEST['botonUsuarios'])){
+            $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
+            $_SESSION['pagina']='wip';     //y guardo wip para la recarga de index
+            header('Location: index.php');   //recargo el fichero index.php con la ventana wip
                 exit;
         } 
     

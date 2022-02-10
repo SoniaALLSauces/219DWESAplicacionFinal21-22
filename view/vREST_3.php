@@ -14,56 +14,36 @@
             </form>
         </div>
 
-        <h2 class="ventana">API REST Propia: DEPARTAMENTOS</h2>
-        <h3 class="webApi"><a href="" target="_blank">DEPARTAMENTOS - Departamentos/documentation</a></h3>
+        <h2 class="ventana">API's REST</h2>
         
-        <div class="rest">
-            <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <table class="tRest">
-                    <tr>
-                        <td colspan="2">
-                            <div class="datoRest"><label for="LbCodDepartamento">CODIGO Departamento <span class="ast">*</span></label></div>
-                            <div class="datoUsu"><input type="text" name="codDepartamento" id="LbCodDepartamento" placeholder="XXX"
-                                value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oDepartamento']) ? $aDepartamento['codDepartamento'] : ""; 
-                                    ?>"></div>
-                        </td>
-                        <th><input id="buscar" name="buscarDp" type="submit" value=""></th>
-                    </tr>
-                                        
-                    <tr>
-                        <td colspan="3">
-                            <div class="error"><?php
-                                if ($aErrores['codDepartamento']!=NULL) { //si hay errores muestra el mensaje
-                                    echo "<span style=\"color:red;\">".$aErrores['codDepartamento']."</span>"; //aparece el mensaje de error que tiene el array aErrores
-                                }
-                            ?></div>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+        <section class="apis">
+            <table>
+                <tr> <th>Mto Departamentos</th> </tr>
+                <tr> <td>servicio api que devuelve datos del departamento indicado</td> </tr>
+                <tr> <td>Ciudad <span class="ast">*</span>
+                        <div></div>
+                </td> </tr>
+            </table>
             
-            <article class="tiempo">
-                <?php if (isset($_SESSION['oDepartamento'])){ ?>
-                    <article class="departamento">
-                        <div style="font-size:2rem"> <?php echo $aDepartamento['codDepartamento']; ?> </div>
-                        <div>
-                            <p> <?php echo $aDepartamento['descDepartamento']; ?> </p>
-                            <p> Volumen de Negocio:  <?php echo $aDepartamento['volumenNegocio']; ?> </p>
-                            <p> Fecha de Alta:  <?php echo $aDepartamento['fechaAlta']; ?> </p>
-                        <?php if ($aDepartamento['fechaBaja']!=null){ ?>
-                            <p> Fecha de Baja:  <?php echo $aDepartamento['fechaBaja']; ?> </p>
-                        <?php } ?>    
-                    </article>
-                <?php } else{ ?>
-                    <div class="descAPI">servicio API REST que devuelve los datos correspondientes a al departamento indicado. 
-                                        Pasando el código del departamento nos devuelve en Json sus datos: el codigo, la descripción, fecha de alta o baja y el volumen de negocio.</div>
-                <?php } ?>
-            </article>
-        </div>
-        
-        <h2 class="ventana">API REST Externo: TEMPERATURA ACTUAL</h2>
-        <h3 class="webApi"><a href="https://weatherstack.com/documentation" target="_blank">WEATHERSTACK - https://weatherstack.com/documentation</a></h3>
+            <table>
+                <tr>
+                    <th>Weatherstack.com</th>
+                </tr>
+                <tr>
+                    <td>servicio api que devuelve la temperatura en tiempo real de cualquier lugar del mundo</td>
+                </tr>
+            </table>
+            
+            <table>
+                <tr>
+                    <th>El-tiempo.net</th>
+                </tr>
+                <tr>
+                    <td>servicio api que devuelve datos del tiempo de las provincias de España</td>
+                </tr>
+            </table>
+
+        </section>
         
         <div class="rest">
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -73,7 +53,7 @@
                             <div class="datoRest"><label for="LbCiudad">CIUDAD <span class="ast">*</span></label></div>
                             <div class="datoUsu"><input type="text" name="ciudad" id="LbCiudad"
                                 value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oCiudad']) ? $aCiudad['ciudad'] : ""; 
+                                    echo $resultado = isset($_SESSION['oCiudad']) ? $ciudad : ""; 
                                     ?>"></div>
                         </td>
                         <th><input id="buscar" name="buscarCd" type="submit" value=""></th>
@@ -94,17 +74,17 @@
             <?php if (isset($_SESSION['oCiudad'])){ ?>
                 <article class="temp">
                     <div class="tempImg">
-                        <img src="<?php echo $aCiudad['icono']; ?>" alt="Icono">
+                        <img src="<?php echo $icono; ?>" alt="Icono">
                     </div>
                     <div class="grados">
-                        <div> <?php echo $aCiudad['temperatura']; ?>º </div>
-                        <p class="destacar"> <?php echo $aCiudad['ciudad']; ?> </p>
-                        <p class="p"> <?php echo $aCiudad['region']."/".$aCiudad['pais']; ?> </p>
+                        <div> <?php echo $temperatura; ?>º </div>
+                        <p class="destacar"> <?php echo $ciudad; ?> </p>
+                        <p class="p"> <?php echo $region."/".$pais; ?> </p>
                     </div>
                 </article>
             <?php } else{ ?>
                 <article class="sinTemp">
-                    <div class="descAPI">servicio API REST que devuelve la temperatura en tiempo real de cualquier lugar del mundo 
+                    <div class="descAPI">API REST que devuelve la temperatura en tiempo real de cualquier lugar del mundo 
                                         Requiere subscripción que permite un máximo de 250 consultas al mes con coste 0. 
                                         Datos que devuelve en Json son, entre otros: pais, region, latitud/longitud, zona horaria, fecha/hora, temperatura actual, presión, humedad, icono...... </div>
                 </article>
@@ -146,7 +126,7 @@
                     <p><span class="destacar"><?php echo $provincia; ?>:</span>
                         <?php echo $tiempo; ?> </p>
                 <?php } else{ ?>
-                    <div class="descAPI">servicio API REST que devuelve la temperatura y el tiempo según los dos primeros dígitos del código postal de la provincia. 
+                    <div class="descAPI">API REST que devuelve la temperatura y el tiempo según los dos primeros dígitos del código postal de la provincia. 
                                         Los datos que devuelve, entre otros, son: breve resumen del tiempo en el día de hoy o mañana, temperatura máxima y mínima...</div>
                 <?php } ?>
             </article>

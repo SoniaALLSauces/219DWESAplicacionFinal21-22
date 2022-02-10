@@ -20,6 +20,11 @@
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
+    
+    //Si hay objeto oDepartamento guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
+        if(isset($_SESSION['oDepartamento'])){
+            $oDepartamento = $_SESSION['oDepartamento'];
+        }
         
     //Si hay objeto oCiudad guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if(isset($_SESSION['oCiudad'])){
@@ -33,11 +38,30 @@
 //Variables para el formulario
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
     //Array para guardar los errores del formulario:
-        $aErrores = ['ciudad' => null,   //E inicializo cada elemento
+        $aErrores = ['codDepartamento' => null,   //E inicializo cada elemento
+                     'ciudad' => null,
                      'provincia' => null]; 
         
-//FORMULARIO:Si se ha pulsado "BuscarCiudad" o "BuscarProvincia"
-    if (isset($_REQUEST['buscarCd']) || isset($_REQUEST['buscarPr'])){
+//FORMULARIO:Si se ha pulsado "BuscarDepartamento" o "BuscarCiudad" o "BuscarProvincia"
+    if (isset($_REQUEST['buscarDp']) || isset($_REQUEST['buscarCd']) || isset($_REQUEST['buscarPr'])){
+      //Si BUSCO DEPARTAMENTO:
+        if (isset($_REQUEST['buscarDp'])){  //Si busco una nueva ciudad
+            unset($_SESSION['oDepartamento']); //elimino el objeto Departamento guardado en la sesion
+            //Valido los campos del formulario con la libreria de validacion
+                $aErrores['codDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamento'], 3, 3, 1);
+                    if ($aErrores['codDepartamento']!=null){ //si es distinto de null
+                        $entradaOK = false;         //si hay algun error entradaOK es false
+                    } 
+                    else{ //compruebo que no se haya producido ningun error en ciudad
+                        $codDepartamento= $_REQUEST['codDepartamento'];
+                        $oDepartamento= REST::buscarDepartamento($codDepartamento);
+                            if ($oDepartamento==null){
+                                $aErrores['codDepartamento']= "El departamento no existe";
+                                $entradaOK = false;
+                            }
+                    }
+        }
+        
       //Si BUSCO CIUDAD:
         if (isset($_REQUEST['buscarCd'])){  //Si busco una nueva ciudad
             unset($_SESSION['oCiudad']); //elimino el objeto Ciudad guardado en la sesion
@@ -65,7 +89,7 @@
                     } 
                     else{ //compruebo que no se haya producido ningun error
                         $codProvincia= $_REQUEST['provincia'];
-                        $oProvincia= REST::provincia($codProvincia);
+                        $oProvincia= REST::buscarProvincia($codProvincia);
                         if ($oProvincia == null){
                             $aErrores["provincia"]="Provincia no encontrada";
                             $entradaOK = false;
@@ -78,6 +102,9 @@
     }
     //Si la entrada es correctas
     if($entradaOK){ 
+        if(isset($oDepartamento)){
+            $_SESSION['oDepartamento']= $oDepartamento;
+        }
         if(isset($oCiudad)){
             $_SESSION['oCiudad']= $oCiudad;
         }
@@ -88,6 +115,31 @@
     }else{   //Si no son correctas o aun no se ha pulsado "buscar" 
         $_SESSION['pagina']= 'rest';   //continuamos en la sesión para controlador y vista en 'login'
     }
+    
+        if(isset($oDepartamento)){
+            $aDepartamento= [
+                'codDepartamento' => $oDepartamento->getCodDepartamento(),
+                'descDepartamento' => $oDepartamento->getDescDepartamento(),
+                'fechaAlta' => $oDepartamento->getFechaCreacionDepartamento(),
+                'volumenNegocio' => $oDepartamento->getVolumenDeNegocio(),
+                'fechaBaja' => $oDepartamento->getFechaBajaDepartamento()
+            ];       
+        }
+        if(isset($oCiudad)){
+            $aCiudad= [
+                'ciudad' => $oCiudad->getCiudad(),
+                'region' => $oCiudad->getRegion(),
+                'pais' => $oCiudad->getPais(),
+                'temperatura' => $oCiudad->getTemperatura(),
+                'icono' => $oCiudad->getIcono()
+            ];  
+        }
+        if(isset($oProvincia)){
+            $provincia= $oProvincia->getProvincia();
+            $idProvincia= $oProvincia->getIdProvincia();
+            $descripcion= $oProvincia->getDescripcion();
+            $tiempo= $oProvincia->getTiempo();
+        }
     
         
     //salida:

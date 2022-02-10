@@ -12,7 +12,7 @@
 
     
     //Datos del Usuario guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
-        $oUsuarioActual = $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa'];
+        $oUsuarioActual = $_SESSION['usuario219DWESAplicacionFinal'];
             $usuario = $oUsuarioActual->getCodUsuario();  //recuperamos el código del usuario
             $descripcion = $oUsuarioActual->getDescUsuario();  //recuperamos el código del usuario
             $conexiones = $oUsuarioActual->getNumConexiones(); //recuperamos el numero de conexiones del usuario
@@ -47,7 +47,7 @@
         if($entradaOK){  //Si todas las entradas son correctas
             $descUsuario = $_REQUEST['descripcion'];
             $usuarioActual= UsuarioPDO::modificarUsuario($oUsuarioActual, $descUsuario);
-            $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= $usuarioActual;  //Guardamos el objeto usuario en la sesion
+            $_SESSION['usuario219DWESAplicacionFinal']= $usuarioActual;  //Guardamos el objeto usuario en la sesion
             $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
             $_SESSION['pagina']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
@@ -59,9 +59,10 @@
         }
         
     //Si pulso en borrar Usuario:
+        //-- Pendiente ventana de confirmacion --//
         if (isset($_REQUEST['borrar'])){
             if (UsuarioPDO::borrarUsuario($usuario)){
-                $_SESSION['usuario219DWESAplicacionLoginLogOutMulticapa']= null;
+                $_SESSION['usuario219DWESAplicacionFinal']= null;
                 $_SESSION['pagina']= 'inicioPublico'; //cambio el valor de la pagina actual a inicioPublico
                 header('Location: index.php');  //recargo el fichero index.php con la ventana inicioPublico
                     exit;

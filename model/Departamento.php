@@ -27,12 +27,12 @@
              * @param integer $fechaCreacionDepartamento - timestamp de la fecha en la cual se creo el departamento
              * @param float $volumenDeNegocio - volumen de negocio
              */
-                public function __construct($codDepartamento,$descDepartamento,$fechaCreacionDepartamento,$volumenDeNegocio) {
+                public function __construct($codDepartamento,$descDepartamento,$fechaCreacionDepartamento,$volumenDeNegocio,$fechaBajaDepartamento) {
                     $this->codDepartamento = $codDepartamento;
                     $this->descDepartamento = $descDepartamento;
                     $this->fechaCreacionDepartamento = $fechaCreacionDepartamento;
                     $this->volumenDeNegocio = $volumenDeNegocio;
-                    $this->fechaBajaDepartamento = null;
+                    $this->fechaBajaDepartamento = $fechaBajaDepartamento;
                 }
             
         //Getter
