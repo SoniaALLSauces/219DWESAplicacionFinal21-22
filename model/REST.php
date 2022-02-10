@@ -12,6 +12,18 @@
 
 
         class REST{
+            public static function buscarDepartamento($codDepartamento){
+                $oDepartamento= null; //creo el objeto departamento que me devuelve la funcion
+                //Conecto con el web services consulta DepartamentoPorCodigo: http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX añadiendo $codigoDepartamento
+                    $ficheroDepartamento= file_get_contents('http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento='.$codDepartamento);  //devuelve un String del contenido JSON
+                    $aJsonDepartamento= json_decode($ficheroDepartamento,true);   //decodificamos el json y lo devolvemos en un array
+                    if ($aJsonDepartamento['respuesta']!=false){  //Si se produce algun error
+                        $oDepartamento= new Departamento($aJsonDepartamento['codigo'], $aJsonDepartamento['descripcion'], $aJsonDepartamento['fechaAlta'], $aJsonDepartamento['volumenNeg'], $aJsonDepartamento['fechaBaja']);
+                    }
+                return $oDepartamento;
+            }
+            
+            
             /**
              * buscarCiudad() - busca a traves de la apiRest http://api.weatherstack.com/ si existe en su base de datos la ciudad pasada por parámetro
              *    y nos devuelve un objeto de la clase Ciudad con los datos obtenidos del fichero Json que nos devuelve
@@ -46,7 +58,7 @@
             
             
             /**
-             * @author: Aroa Granero Omañas
+             * @author: Aroa Granero Omañas (https://github.com/aroago/208DWESProyectoFinal)
              * Created on: 31/1/2022
              * Funcion que devuelve un objeto provincia con los datos devueltos por la API. 
              * En caso de que el servidor de error devuelve null.
@@ -54,7 +66,7 @@
              * @param Int $codProvincia
              * @return \Provincia
              */
-            public static function provincia($codProvincia) {
+            public static function buscarProvincia($codProvincia) {
                 $urlConcreta='https://www.el-tiempo.net/api/json/v2/provincias/'. $codProvincia;
                 $oProvincia = null;
                 $sResultadoRawData = false;

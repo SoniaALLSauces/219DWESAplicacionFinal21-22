@@ -23,9 +23,9 @@
                     <tr>
                         <td colspan="2">
                             <div class="datoRest"><label for="LbCodDepartamento">CODIGO Departamento <span class="ast">*</span></label></div>
-                            <div class="datoUsu"><input type="text" name="codDepartamento" id="LbCodDepartamento"
+                            <div class="datoUsu"><input type="text" name="codDepartamento" id="LbCodDepartamento" placeholder="XXX"
                                 value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oDepartamento']) ? $departamento : ""; 
+                                    echo $resultado = isset($_SESSION['oDepartamento']) ? $aDepartamento['codDepartamento'] : ""; 
                                     ?>"></div>
                         </td>
                         <th><input id="buscar" name="buscarDp" type="submit" value=""></th>
@@ -34,8 +34,8 @@
                     <tr>
                         <td colspan="3">
                             <div class="error"><?php
-                                if ($aErrores['departamento']!=NULL) { //si hay errores muestra el mensaje
-                                    echo "<span style=\"color:red;\">".$aErrores['departamento']."</span>"; //aparece el mensaje de error que tiene el array aErrores
+                                if ($aErrores['codDepartamento']!=NULL) { //si hay errores muestra el mensaje
+                                    echo "<span style=\"color:red;\">".$aErrores['codDepartamento']."</span>"; //aparece el mensaje de error que tiene el array aErrores
                                 }
                             ?></div>
                         </td>
@@ -43,23 +43,23 @@
                 </table>
             </form>
             
-            <?php if (isset($_SESSION['oDepartamento'])){ ?>
-                <article class="temp">
-                    <div class="tempImg">
-                        <img src="<?php echo $icono; ?>" alt="Icono">
-                    </div>
-                    <div class="grados">
-                        <div> <?php echo $temperatura; ?>º </div>
-                        <p class="destacar"> <?php echo $ciudad; ?> </p>
-                        <p class="p"> <?php echo $region."/".$pais; ?> </p>
-                    </div>
-                </article>
-            <?php } else{ ?>
-                <article class="sinTemp">
+            <article class="tiempo">
+                <?php if (isset($_SESSION['oDepartamento'])){ ?>
+                    <article class="departamento">
+                        <div style="font-size:2rem"> <?php echo $aDepartamento['codDepartamento']; ?> </div>
+                        <div>
+                            <p> <?php echo $aDepartamento['descDepartamento']; ?> </p>
+                            <p> Volumen de Negocio:  <?php echo $aDepartamento['volumenNegocio']; ?> </p>
+                            <p> Fecha de Alta:  <?php echo $aDepartamento['fechaAlta']; ?> </p>
+                        <?php if ($aDepartamento['fechaBaja']!=null){ ?>
+                            <p> Fecha de Baja:  <?php echo $aDepartamento['fechaBaja']; ?> </p>
+                        <?php } ?>    
+                    </article>
+                <?php } else{ ?>
                     <div class="descAPI">servicio API REST que devuelve los datos correspondientes a al departamento indicado. 
                                         Pasando el código del departamento nos devuelve en Json sus datos: el codigo, la descripción, fecha de alta o baja y el volumen de negocio.</div>
-                </article>
-            <?php } ?>
+                <?php } ?>
+            </article>
         </div>
         
         <h2 class="ventana">API REST Externo: TEMPERATURA ACTUAL</h2>
@@ -73,7 +73,7 @@
                             <div class="datoRest"><label for="LbCiudad">CIUDAD <span class="ast">*</span></label></div>
                             <div class="datoUsu"><input type="text" name="ciudad" id="LbCiudad"
                                 value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
-                                    echo $resultado = isset($_SESSION['oCiudad']) ? $ciudad : ""; 
+                                    echo $resultado = isset($_SESSION['oCiudad']) ? $aCiudad['ciudad'] : ""; 
                                     ?>"></div>
                         </td>
                         <th><input id="buscar" name="buscarCd" type="submit" value=""></th>
@@ -94,12 +94,12 @@
             <?php if (isset($_SESSION['oCiudad'])){ ?>
                 <article class="temp">
                     <div class="tempImg">
-                        <img src="<?php echo $icono; ?>" alt="Icono">
+                        <img src="<?php echo $aCiudad['icono']; ?>" alt="Icono">
                     </div>
                     <div class="grados">
-                        <div> <?php echo $temperatura; ?>º </div>
-                        <p class="destacar"> <?php echo $ciudad; ?> </p>
-                        <p class="p"> <?php echo $region."/".$pais; ?> </p>
+                        <div> <?php echo $aCiudad['temperatura']; ?>º </div>
+                        <p class="destacar"> <?php echo $aCiudad['ciudad']; ?> </p>
+                        <p class="p"> <?php echo $aCiudad['region']."/".$aCiudad['pais']; ?> </p>
                     </div>
                 </article>
             <?php } else{ ?>

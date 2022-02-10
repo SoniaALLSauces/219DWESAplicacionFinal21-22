@@ -20,13 +20,13 @@
 //        define ('PASSWORD', 'paso');
         
         /* Constantes BD Entorno Explotación ONE&ONE */
-//        define ('HOST', 'mysql:host=db5005797633.hosting-data.io;dbname=dbs4868815');
-//        define ('USER', 'dbu1573357');
-//        define ('PASSWORD', 'daw2_Sauces');
+        define ('HOST', 'mysql:host=db5005797633.hosting-data.io;dbname=dbs4868815');
+        define ('USER', 'dbu1573357');
+        define ('PASSWORD', 'daw2_Sauces');
         
         
     /* Constantes BD Entorno Desarrollo Casa */
-        define ('HOST', 'mysql:host=192.168.1.119;dbname=DB219DWESLoginLogoutTema5');
-        define ('USER', 'user219DWESLoginLogoutTema5');
-        define ('PASSWORD', 'P@ssw0rd');
+//        define ('HOST', 'mysql:host=192.168.1.119;dbname=DB219DWESLoginLogoutTema5');
+//        define ('USER', 'user219DWESLoginLogoutTema5');
+//        define ('PASSWORD', 'P@ssw0rd');
 

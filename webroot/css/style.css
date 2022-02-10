@@ -154,13 +154,13 @@ h2{
     height: 180px;
 }
 
-.rest, .temp, .sinTemp{
+.rest, .temp, .sinTemp, .departamento{
     display: flex;  
 }
-.rest>*, .temp>*, .sinTemp>*{
+.rest>*, .temp>*, .sinTemp>*, .departamento>*{
     flex-direction: row;
 }
-.sinTemp{
+.sinTemp, .departamento{
     justify-content: center;
     width: 50vw;
 }
@@ -169,7 +169,7 @@ h2{
     width: 30vw;
     margin: 0 5vw;
 }
-.temp>*, .sinTemp, .tiempo>*{
+.temp>*, .sinTemp, .tiempo>*, .departamento>*{
     margin: 0px 3vw;
 }
 .temp, .sinTemp, .tiempo{

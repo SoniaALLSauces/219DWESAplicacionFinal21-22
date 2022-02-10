@@ -2,7 +2,7 @@
 
     /**
      * Api Rest Consultar Departamento por Código
-     *   url http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDtoXCodigo.php?codDepartamento=XXX
+     *   url http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX
      *   
      * 
      * @author Sonia Anton Llanes
@@ -22,26 +22,32 @@
     $entradaOK = true;  //Variable para indicar que el formulario esta correcto
         if (isset($_GET['codDepartamento'])){
             //Compruebo que la entrada sean tres caracteres alfabéticos en mayuscula
-            
-            //Consulto si existe el codigo de departamento en mi tabla
-            $objDepartamento= DepartamentoPDO::buscaDepartamentoPorCod($_GET['codDepartamento']);
-//            $objDepartamento= DepartamentoPDO::buscaDepartamentoPorCod('rr');
-                if ($objDepartamento){
-                    $aDepartamento= [
-                        'respuesta' => true,
-                        'codigo' => $objDepartamento->getCodDepartamento(),
-                        'descripcion' => $objDepartamento->getDescDepartamento(),
-                        'fechaAlta' => $objDepartamento->getFechaCreacionDepartamento(),
-                        'fechaBaja' => $objDepartamento->getFechaBajaDepartamento(),
-                        'volumenNeg' => $objDepartamento->getVolumenDeNegocio()
-                    ];
-                }
-                else{
-                    $aDepartamento= [
-                        'respuesta' => false,
-                        'mensaje' => "El departamento no existe"
-                    ];
-                }
+            if ($_GET['codDepartamento']=== strtoupper($_GET['codDepartamento'])){
+                $aDepartamento= [
+                    'respuesta' => false,
+                    'mensaje' => "El codigo son  tres letras mayusculas"
+                ]; 
+            } else{ //si no hay error en la entrada -> tres letras mayusculas
+                //Consulto si existe el codigo de departamento en mi tabla
+                $objDepartamento= DepartamentoPDO::buscaDepartamentoPorCod($_GET['codDepartamento']);
+    //            $objDepartamento= DepartamentoPDO::buscaDepartamentoPorCod('rr');
+                    if ($objDepartamento){
+                        $aDepartamento= [
+                            'respuesta' => true,
+                            'codigo' => $objDepartamento->getCodDepartamento(),
+                            'descripcion' => $objDepartamento->getDescDepartamento(),
+                            'fechaAlta' => $objDepartamento->getFechaCreacionDepartamento(),
+                            'fechaBaja' => $objDepartamento->getFechaBajaDepartamento(),
+                            'volumenNeg' => $objDepartamento->getVolumenDeNegocio()
+                        ];
+                    }
+                    else{
+                        $aDepartamento= [
+                            'respuesta' => false,
+                            'mensaje' => "El departamento no existe"
+                        ];
+                    }
+            }
         } 
         else{  //aun no se ha pulsado el boton enviar
             $entradaOK = false;   // si no se pulsa enviar, entradaOK es false

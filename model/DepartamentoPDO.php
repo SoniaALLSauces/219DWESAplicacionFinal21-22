@@ -27,7 +27,7 @@
                     if ($rdoConsulta->rowCount()>0){  //si encuentra el registro departamento
                         $departamentoPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
                         //Instancio un objeto Departamento
-                        $oDepartamento= new Departamento($departamentoPDOStatment->T02_CodDepartamento, $departamentoPDOStatment->T02_DescDepartamento, $departamentoPDOStatment->T02_FechaCreacionDepartamento, $departamentoPDOStatment->T02_VolumenDeNegocio);
+                        $oDepartamento= new Departamento($departamentoPDOStatment->T02_CodDepartamento, $departamentoPDOStatment->T02_DescDepartamento, $departamentoPDOStatment->T02_FechaCreacionDepartamento, $departamentoPDOStatment->T02_VolumenDeNegocio, $departamentoPDOStatment->T02_FechaBajaDepartamento);
                     } 
                 return $oDepartamento;
             }
@@ -50,7 +50,7 @@
                 $departamentoPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
                     while ($departamentoPDOStatment){  //si encuentra el registro departamento
                         //Instancio un objeto Departamento
-                        $oDepartamento= new Departamento($departamentoPDOStatment->T02_CodDepartamento, $departamentoPDOStatment->T02_DescDepartamento, $departamentoPDOStatment->T02_FechaCreacionDepartamento, $departamentoPDOStatment->T02_VolumenDeNegocio);
+                        $oDepartamento= new Departamento($departamentoPDOStatment->T02_CodDepartamento, $departamentoPDOStatment->T02_DescDepartamento, $departamentoPDOStatment->T02_FechaCreacionDepartamento, $departamentoPDOStatment->T02_VolumenDeNegocio, $departamentoPDOStatment->T02_FechaBajaDepartamento);
                         $aODepartamento[]= $oDepartamento;
                         //Y avanzo puntero:
                         $departamentoPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
