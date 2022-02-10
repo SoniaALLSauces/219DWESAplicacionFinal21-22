@@ -82,7 +82,11 @@
                         <td> <?php echo $departamento['volumenNeg']; ?> </td>
                         <td class="th"><img class= "imgtd" src="webroot/images/ojo-mostar.png" alt="mostrar"></td>
                         <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
+                    <?php if ($departamento['fechaBaja']!='Undefined'){ ?>
                         <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
+                    <?php } else{ ?>
+                        <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
+                    <?php }?>                        
                     </tr>
                 <?php
                     }

@@ -59,6 +59,7 @@
         }
         
     //Si pulso en borrar Usuario:
+        //-- Pendiente ventana de confirmacion --//
         if (isset($_REQUEST['borrar'])){
             if (UsuarioPDO::borrarUsuario($usuario)){
                 $_SESSION['usuario219DWESAplicacionFinal']= null;

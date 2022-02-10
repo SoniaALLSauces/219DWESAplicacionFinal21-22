@@ -271,6 +271,19 @@ th{height: 4.6vh;}
     padding: 4% 10%;
     
 }
+.apis{
+    width: 95vw;
+    margin: 5px auto;
+    background: none;  
+    display: flex;
+    flex-direction: row;
+}
+.apis>*{
+    width: 30vw;
+    margin: 0 1vw;
+    border: 2px #bb1212 solid;
+    background: white;
+}
 
 .footer{
     width: 100%;

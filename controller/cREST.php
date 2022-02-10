@@ -20,6 +20,11 @@
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
+    
+    //Si hay objeto oDepartamento guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
+        if(isset($_SESSION['oDepartamento'])){
+            $oDepartamento = $_SESSION['oDepartamento'];
+        }
         
     //Si hay objeto oCiudad guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if(isset($_SESSION['oCiudad'])){
@@ -33,7 +38,8 @@
 //Variables para el formulario
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
     //Array para guardar los errores del formulario:
-        $aErrores = ['ciudad' => null,   //E inicializo cada elemento
+        $aErrores = ['departamento' => null,   //E inicializo cada elemento
+                     'ciudad' => null,
                      'provincia' => null]; 
         
 //FORMULARIO:Si se ha pulsado "BuscarCiudad" o "BuscarProvincia"

@@ -13,8 +13,8 @@
         <ul id="listaUsuario" >
             <form name="bottonUsu" method="post">
                 <li class="imagenUsuario"><img onclick="block()" src="webroot/images/usuario.png" alt="IconoUsuario"></li>
-                <li class="liUsuario"><input type="submit" id="editarPerfil" value="Editar Perfil" name="editarPerfil"></li>
                 <li class="liUsuario"><input type="submit" id="detalle" value="Detalle" name="detalle"></li>
+                <li class="liUsuario"><input type="submit" id="editarPerfil" value="Editar Perfil" name="editarPerfil"></li>
                 <li class="liUsuario"><input type="submit" id="cerrarSesion" value="Cerrar sesión" name="cerrarSesion"></li>
             </form>
         </ul>
