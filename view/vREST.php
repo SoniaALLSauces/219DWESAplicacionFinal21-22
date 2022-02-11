@@ -62,7 +62,57 @@
                 <?php } ?>
             </article>
         </div>
+<!---------------------------------------------------------------------------------------------------------------------->
+                        
+        <h2 class="ventana">API REST Alberto: DEPARTAMENTOS</h2>
+        <h3 class="webApi"><a href="" target="_blank">DEPARTAMENTOS Ajeno - Departamentos/documentacion</a></h3>
         
+        <div class="rest">
+            <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <table class="tRest">
+                    <tr>
+                        <td colspan="2">
+                            <div class="datoRest"><label for="LbCodDepartamentoAjeno">CODIGO Departamento <span class="ast">*</span></label></div>
+                            <div class="datoUsu"><input type="text" name="codDepartamentoAjeno" id="LbCodDepartamentoAjeno" placeholder="XXX"
+                                value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
+                                    echo $resultado = isset($_SESSION['oDepartamentoAjeno']) ? $aDepartamento['codDepartamentoAjeno'] : ""; 
+                                    ?>"></div>
+                        </td>
+                        <th><input id="buscar" name="buscarDpAjeno" type="submit" value=""></th>
+                    </tr>
+                                        
+                    <tr>
+                        <td colspan="3">
+                            <div class="error"><?php
+                                if ($aErrores['codDepartamentoAjeno']!=NULL) { //si hay errores muestra el mensaje
+                                    echo "<span style=\"color:red;\">".$aErrores['codDepartamentoAjeno']."</span>"; //aparece el mensaje de error que tiene el array aErrores
+                                }
+                            ?></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            
+            <article class="tiempo">
+                <?php if (isset($_SESSION['oDepartamentoAjeno'])){ ?>
+                    <article class="departamento">
+                        <div style="font-size:2rem"> <?php echo $aDepartamentoAjeno['codDepartamento']; ?> </div>
+                        <div>
+                            <p> <?php echo $aDepartamentoAjeno['descDepartamento']; ?> </p>
+                            <p> Volumen de Negocio:  <?php echo $aDepartamentoAjeno['volumenNegocio']; ?> </p>
+                            <p> Fecha de Alta:  <?php echo $aDepartamentoAjeno['fechaAlta']; ?> </p>
+                        <?php if ($aDepartamentoAjeno['fechaBaja']!=null){ ?>
+                            <p> Fecha de Baja:  <?php echo $aDepartamentoAjeno['fechaBaja']; ?> </p>
+                        <?php } ?>    
+                    </article>
+                <?php } else{ ?>
+                    <div class="descAPI">servicio API REST Ajeno (Alberto) que permite buscar la informacion de un departamento pasando un codigo de departamento. El formato del campo es un codigo de departamento de tres letras. 
+                                        El resultado de la api contendra un valor llamado 'result', este valor devolvera 'success' en caso de que el parámetro pasado sea correcto, o si es incorrecto o surge cualquier otro error el valor de la variable sera 'unsuccessful'.</div>
+                <?php } ?>
+            </article>
+        </div>
+<!---------------------------------------------------------------------------------------------------------------------->
+
         <h2 class="ventana">API REST Externo: TEMPERATURA ACTUAL</h2>
         <h3 class="webApi"><a href="https://weatherstack.com/documentation" target="_blank">WEATHERSTACK - https://weatherstack.com/documentation</a></h3>
         
@@ -111,6 +161,7 @@
                 </article>
             <?php } ?>
         </div>
+<!---------------------------------------------------------------------------------------------------------------------->
         
         <h2 class="ventana">API REST Externo de Aroa: El Tiempo</h2>
         <h3 class="webApi"><a href="https://www.el-tiempo.net/api" target="_blank">EL-TIEMPO.NET - https://www.el-tiempo.net/api</a></h3>

@@ -31,15 +31,32 @@
                 return $oDepartamento;
             }
             
-            public static function buscarDepartamentoOscar($codDepartamento){
-                $oDepartamento= null; //creo el objeto departamento que me devuelve la funcion
-                //Conecto con el web services consulta DepartamentoPorCodigo: http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX añadiendo $codigoDepartamento
-                    $ficheroDepartamento= file_get_contents('http://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento='.$codDepartamento);  //devuelve un String del contenido JSON
-                    $aJsonDepartamento= json_decode($ficheroDepartamento,true);   //decodificamos el json y lo devolvemos en un array
-                    if ($aJsonDepartamento['respuesta']!=false){  //Si se produce algun error
-                        $oDepartamento= new Departamento($aJsonDepartamento['codigo'], $aJsonDepartamento['descripcion'], $aJsonDepartamento['fechaAlta'], $aJsonDepartamento['volumenNeg'], $aJsonDepartamento['fechaBaja']);
+            /**
+             * Metodo buscarDepartamentoAlberto()
+             * 
+             * Metodo que permite buscar un departamento mediante un codigo de departamento
+             * 
+             * @param string $codDepartamento Codigo del departamento
+             * @return \Departamento Un objeto Departamento
+             */
+            public static function buscarDepartamentoAlberto($codDepartamento){
+                $resultadoAPI = @file_get_contents("http://daw207.ieslossauces.es/207DWESAplicaccionFinalAlberto2022/api/buscarDepartamento.php?codDepartamento={$codDepartamento}"); //La respuesta de la api en formato json
+                if($resultadoAPI){
+                    $JSONDecodificado = json_decode($resultadoAPI, true); //Almaceno la informacion decodificada obtenida de la url como un array
+                            
+                    if($JSONDecodificado['result'] == 'success'){
+                        return new Departamento(
+                            $JSONDecodificado['codDepartamento'],
+                            $JSONDecodificado['descDepartamento'],
+                            $JSONDecodificado['fechaCreacionDepartamento'],
+                            $JSONDecodificado['volumenDeNegocio'],
+                            $JSONDecodificado['fechaBajaDepartamento']
+                        );
                     }
-                return $oDepartamento;
+                    if($JSONDecodificado['result'] == 'unsuccessful'){
+                        return $JSONDecodificado['mensajeError'];
+                    }
+                }
             }
             
             
