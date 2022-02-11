@@ -2,8 +2,8 @@
 
     /**
      * Api Rest Consultar Departamento por Código
-     *   url http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX
-     *   
+     *   url local http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=valor
+     *   url internet https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=valor
      * 
      * @author Sonia Anton Llanes
      * @created  06/02/2022
@@ -44,7 +44,7 @@
                     else{
                         $aDepartamento= [
                             'respuesta' => false,
-                            'mensaje' => "El departamento no existe"
+                            'mensaje' => "departamento no encontrado en base de datos"
                         ];
                     }
             }

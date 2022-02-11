@@ -13,7 +13,25 @@
 
 
         class REST{
+            /**
+             * buscarDepartamento() - busca departamento a través de la api propia consultaDepartamentoPorCodigo.php
+             * 
+             * @param string $codDepartamento - codigo del departamento que consta de tres letras
+             * @return \Departamento - devuelve un objeto departamento con los datos recogidos del json que devuelve la api
+             *                      o null si no encuentra ningun departamento
+             */
             public static function buscarDepartamento($codDepartamento){
+                $oDepartamento= null; //creo el objeto departamento que me devuelve la funcion
+                //Conecto con el web services consulta DepartamentoPorCodigo: http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX añadiendo $codigoDepartamento
+                    $ficheroDepartamento= file_get_contents('http://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento='.$codDepartamento);  //devuelve un String del contenido JSON
+                    $aJsonDepartamento= json_decode($ficheroDepartamento,true);   //decodificamos el json y lo devolvemos en un array
+                    if ($aJsonDepartamento['respuesta']!=false){  //Si se produce algun error
+                        $oDepartamento= new Departamento($aJsonDepartamento['codigo'], $aJsonDepartamento['descripcion'], $aJsonDepartamento['fechaAlta'], $aJsonDepartamento['volumenNeg'], $aJsonDepartamento['fechaBaja']);
+                    }
+                return $oDepartamento;
+            }
+            
+            public static function buscarDepartamentoOscar($codDepartamento){
                 $oDepartamento= null; //creo el objeto departamento que me devuelve la funcion
                 //Conecto con el web services consulta DepartamentoPorCodigo: http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=XXX añadiendo $codigoDepartamento
                     $ficheroDepartamento= file_get_contents('http://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento='.$codDepartamento);  //devuelve un String del contenido JSON

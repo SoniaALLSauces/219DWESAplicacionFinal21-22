@@ -169,7 +169,7 @@ h2{
     width: 30vw;
     margin: 0 5vw;
 }
-.temp>*, .sinTemp, .tiempo>*, .departamento>*{
+.temp>*, .sinTemp>*, .tiempo>*, .departamento>*{
     margin: 0px 3vw;
 }
 .temp, .sinTemp, .tiempo{
@@ -283,6 +283,23 @@ th{height: 4.6vh;}
     margin: 0 1vw;
     border: 2px #bb1212 solid;
     background: white;
+}
+.documentacion{
+    margin: 50px;
+    padding-bottom: 10vh;
+}
+.enun{
+    margin-top: 20px;
+    padding-left: 5px;
+}
+.desc{
+    border-left: 6px solid #bb1212;
+    padding: 10px 20px;
+}
+.ejem{
+    margin-top: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .footer{
@@ -477,6 +494,10 @@ table{
     background: none;
 }
 
+.ejem{
+    background: #641E16;
+}
+
 .footer{
     background-color: white;
 }
@@ -577,6 +598,15 @@ h4{
     color: #bb1212;
     font-weight: bolder;
     font-size: 1.2rem;
+}
+.enun{
+    font-family: 'Secular One', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #bb1212;
+}
+.ejem{
+    color: azure;
 }
 
 .footer{

@@ -56,8 +56,9 @@
                     <li class="ftexto"><a href="../index.html">&copy 2021-22. Sonia Anton LLanes </a></li>
                     <li>                       
                         <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV"></a>
-                        <a class="maxMedia" href=""><img src="webroot/images/linkedin.png" alt="imagen_linkedIn"></a>
-                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/github.png" alt="imagen_github"></a>
+                        <a class="maxMedia" href=""><img src="webroot/images/linkedinIcon.png" alt="imagen_linkedIn"></a>
+                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/githubIcon.jpg" alt="imagen_github"></a>
+                        <a class="maxMedia" href="doc/phpdoc/index.html" target="_blank"><img src="webroot/images/phpdoc.png" alt="phpdoc"></a>
                         <a class="maxMedia" href="indexTecnologias.php" target="_blank"><img src="webroot/images/tecnologias.png" alt="tecnologias"></a>
                     </li>
                 </ul>

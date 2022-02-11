@@ -15,7 +15,8 @@
         </div>
 
         <h2 class="ventana">API REST Propia: DEPARTAMENTOS</h2>
-        <h3 class="webApi"><a href="" target="_blank">DEPARTAMENTOS - Departamentos/documentation</a></h3>
+        <!--<h3 class="webApi"><a href="https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/documentacion.php" target="_blank">DEPARTAMENTOS - Departamentos/documentation</a></h3>-->
+        <h3 class="webApi"><a href="api/documentacion.php" target="_blank">DEPARTAMENTOS - Departamentos/documentacion</a></h3>
         
         <div class="rest">
             <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
