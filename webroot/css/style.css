@@ -246,6 +246,7 @@ h2{
     border-collapse: collapse;
     margin: 5px auto;
 }
+.h3Dep>input{margin-left: 20px;}
 th{height: 4.6vh;}
 .tr:nth-child(2n+1){
     background: #ee9797;

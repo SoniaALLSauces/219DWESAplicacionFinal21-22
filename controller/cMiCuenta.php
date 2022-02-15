@@ -23,7 +23,7 @@
       
     //Si pulso en cancelar:
         if (isset($_REQUEST['cancelar'])){
-            $_SESSION['pagina']= 'inicioPrivado'; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
+            $_SESSION['paginaEnCurso']= 'inicioPrivado'; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
@@ -48,14 +48,14 @@
             $descUsuario = $_REQUEST['descripcion'];
             $usuarioActual= UsuarioPDO::modificarUsuario($oUsuarioActual, $descUsuario);
             $_SESSION['usuario219DWESAplicacionFinal']= $usuarioActual;  //Guardamos el objeto usuario en la sesion
-            $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
-            $_SESSION['pagina']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
+            $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];  //guardo en la sesión esta pagina para el boton volver
+            $_SESSION['paginaEnCurso']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
                 header('Location: index.php');  //recargo el fichero index.php
                 exit;
         }   
         else{   //Si no son correctas o aun no se ha pulsado "Iniciar Sesion" 
-            $_SESSION['pagina']= 'editarUsuario';   //continuamos en la sesión para controlador y vista en 'login'
+            $_SESSION['paginaEnCurso']= 'editarUsuario';   //continuamos en la sesión para controlador y vista en 'login'
         }
         
     //Si pulso en borrar Usuario:
@@ -63,7 +63,7 @@
         if (isset($_REQUEST['borrar'])){
             if (UsuarioPDO::borrarUsuario($usuario)){
                 $_SESSION['usuario219DWESAplicacionFinal']= null;
-                $_SESSION['pagina']= 'inicioPublico'; //cambio el valor de la pagina actual a inicioPublico
+                $_SESSION['paginaEnCurso']= 'inicioPublico'; //cambio el valor de la pagina actual a inicioPublico
                 header('Location: index.php');  //recargo el fichero index.php con la ventana inicioPublico
                     exit;
             }

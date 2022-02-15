@@ -22,7 +22,7 @@
                     <table>
                         <tr class="trDto">
                             <td class="datoDto">
-                                <label for="LbDescDepartamento">Descripción del Departamento </label>
+                                <label for="LbDescDepartamento">Busco Departamento por descripción </label>
                             </td>
                             <td colspan="2" class="tdDescDto">
                                 <input type="text" name="descDepartamento" id="LbDescDepartamento"
@@ -50,7 +50,11 @@
             <div class="tableDepartamentos">
                 <table>
                     <tr>
-                        <th colspan="2"><h3 class="h3Dep">Departamentos:</h3></th>
+                        <th colspan="2"><h3 class="h3Dep">Departamentos:
+                                <input type="radio" name="muestroDep" value="todos">Todos
+                                <input type="radio" name="muestroDep" value="alta">Alta
+                                <input type="radio" name="muestroDep" value="baja">Baja
+                            </h3></th>
                     </tr>
                     <tr class="tr">
                         <th class="cod">Codigo</th>

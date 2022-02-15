@@ -18,7 +18,7 @@
 //            unset($_SESSION['oDepartamentoAjeno']); //destruyo la sesion de DepartamentoAjeno
 //            unset($_SESSION['oCiudad']);            //destruyo la sesion de Ciudad
 //            unset($_SESSION['oProvincia']);         //destruyo la sesion de Provincia
-            $_SESSION['pagina']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior: 'inicioPrivado'
+            $_SESSION['paginaEnCurso']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior: 'inicioPrivado'
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
@@ -141,7 +141,7 @@
         }
         
     }else{   //Si no son correctas o aun no se ha pulsado "buscar" 
-        $_SESSION['pagina']= 'rest';   //continuamos en la sesión para controlador y vista en 'login'
+        $_SESSION['paginaEnCurso']= 'rest';   //continuamos en la sesión para controlador y vista en 'login'
     }
     
         if(isset($oDepartamento)){

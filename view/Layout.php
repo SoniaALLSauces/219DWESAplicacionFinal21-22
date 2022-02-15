@@ -46,14 +46,14 @@
 
 	<main class="main gato">
 
-                <?php require_once $vistas[$_SESSION['pagina']]; ?>
+                <?php require_once $vistas[$_SESSION['paginaEnCurso']]; ?>
             
         </main>
         
         <footer class="footer">
             <nav class="fnav">
                 <ul>
-                    <li class="ftexto"><a href="../index.html" <?php session_destroy(); ?>>&copy 2021-22. Sonia Anton LLanes </a></li>
+                    <li class="ftexto"><a href="../index.html">&copy 2021-22. Sonia Anton LLanes </a></li>
                     <li>                       
                         <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV"></a>
                         <a class="maxMedia" href=""><img src="webroot/images/linkedinIcon.png" alt="imagen_linkedIn"></a>
@@ -66,4 +66,5 @@
         </footer>  
         
     </body>
+
 </html>
