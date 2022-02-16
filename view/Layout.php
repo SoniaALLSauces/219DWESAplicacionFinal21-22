@@ -19,7 +19,8 @@
 
 <html lang="es">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+<!--        <meta charset="utf-8">-->
         <title>Sonia Anton Llanes - Login Logout FINAL</title>
         <meta name="author" content="Sonia Antón Llanes">
         <meta name="description" content="Proyecto LogIn LogOut FINAL">
@@ -46,7 +47,7 @@
 
 	<main class="main gato">
 
-                <?php require_once $vistas[$_SESSION['pagina']]; ?>
+                <?php require_once $vistas[$_SESSION['paginaEnCurso']]; ?>
             
         </main>
         
@@ -66,4 +67,5 @@
         </footer>  
         
     </body>
+
 </html>

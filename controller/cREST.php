@@ -14,9 +14,11 @@
 
     //Si pulso en volver:
         if (isset($_REQUEST['volver'])){
-            unset($_SESSION['oCiudad']);     //destruyo la sesion de Ciudad
-            unset($_SESSION['oProvincia']);  //destruyo la sesion de Provincia
-            $_SESSION['pagina']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior: 'inicioPrivado'
+//            unset($_SESSION['oDepartamento']);      //destruyo la sesion de Departamento
+//            unset($_SESSION['oDepartamentoAjeno']); //destruyo la sesion de DepartamentoAjeno
+//            unset($_SESSION['oCiudad']);            //destruyo la sesion de Ciudad
+//            unset($_SESSION['oProvincia']);         //destruyo la sesion de Provincia
+            $_SESSION['paginaEnCurso']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior: 'inicioPrivado'
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
@@ -24,6 +26,10 @@
     //Si hay objeto oDepartamento guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if(isset($_SESSION['oDepartamento'])){
             $oDepartamento = $_SESSION['oDepartamento'];
+        }
+    //Si hay objeto oDepartamentoAjeno guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
+        if(isset($_SESSION['oDepartamentoAjeno'])){
+            $oDepartamento = $_SESSION['oDepartamentoAjeno'];
         }
         
     //Si hay objeto oCiudad guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
@@ -39,11 +45,12 @@
         $entradaOK = true;  //Variable para indicar que el formulario esta correcto
     //Array para guardar los errores del formulario:
         $aErrores = ['codDepartamento' => null,   //E inicializo cada elemento
+                     'codDepartamentoAjeno' => null,
                      'ciudad' => null,
                      'provincia' => null]; 
         
 //FORMULARIO:Si se ha pulsado "BuscarDepartamento" o "BuscarCiudad" o "BuscarProvincia"
-    if (isset($_REQUEST['buscarDp']) || isset($_REQUEST['buscarCd']) || isset($_REQUEST['buscarPr'])){
+    if (isset($_REQUEST['buscarDp']) || isset ($_REQUEST['buscarDpAjeno']) || isset($_REQUEST['buscarCd']) || isset($_REQUEST['buscarPr'])){
       //Si BUSCO DEPARTAMENTO:
         if (isset($_REQUEST['buscarDp'])){  //Si busco una nueva ciudad
             unset($_SESSION['oDepartamento']); //elimino el objeto Departamento guardado en la sesion
@@ -57,6 +64,24 @@
                         $oDepartamento= REST::buscarDepartamento($codDepartamento);
                             if ($oDepartamento==null){
                                 $aErrores['codDepartamento']= "El departamento no existe";
+                                $entradaOK = false;
+                            }
+                    }
+        }
+        
+      //Si BUSCO DEPARTAMENTO AJENO:
+        if (isset($_REQUEST['buscarDpAjeno'])){  //Si busco una nueva ciudad
+            unset($_SESSION['oDepartamentoAjeno']); //elimino el objeto Departamento guardado en la sesion
+            //Valido los campos del formulario con la libreria de validacion
+                $aErrores['codDepartamentoAjeno']= validacionFormularios::comprobarAlfabetico($_REQUEST['codDepartamentoAjeno'], 3, 3, 1);
+                    if ($aErrores['codDepartamentoAjeno']!=null){ //si es distinto de null
+                        $entradaOK = false;         //si hay algun error entradaOK es false
+                    } 
+                    else{ //compruebo que no se haya producido ningun error en ciudad
+                        $codDepartamentoAjeno= $_REQUEST['codDepartamentoAjeno'];
+                        $oDepartamentoAjeno= REST::buscarDepartamentoAlberto($codDepartamentoAjeno);
+                            if ($oDepartamentoAjeno==null){
+                                $aErrores['codDepartamentoAjeno']= "El departamento no existe";
                                 $entradaOK = false;
                             }
                     }
@@ -105,6 +130,9 @@
         if(isset($oDepartamento)){
             $_SESSION['oDepartamento']= $oDepartamento;
         }
+        if(isset($oDepartamentoAjeno)){
+            $_SESSION['oDepartamentoAjeno']= $oDepartamentoAjeno;
+        }
         if(isset($oCiudad)){
             $_SESSION['oCiudad']= $oCiudad;
         }
@@ -113,7 +141,7 @@
         }
         
     }else{   //Si no son correctas o aun no se ha pulsado "buscar" 
-        $_SESSION['pagina']= 'rest';   //continuamos en la sesión para controlador y vista en 'login'
+        $_SESSION['paginaEnCurso']= 'rest';   //continuamos en la sesión para controlador y vista en 'login'
     }
     
         if(isset($oDepartamento)){
@@ -123,6 +151,15 @@
                 'fechaAlta' => $oDepartamento->getFechaCreacionDepartamento(),
                 'volumenNegocio' => $oDepartamento->getVolumenDeNegocio(),
                 'fechaBaja' => $oDepartamento->getFechaBajaDepartamento()
+            ];       
+        }
+        if(isset($oDepartamentoAjeno)){
+            $aDepartamentoAjeno= [
+                'codDepartamento' => $oDepartamentoAjeno->getCodDepartamento(),
+                'descDepartamento' => $oDepartamentoAjeno->getDescDepartamento(),
+                'fechaAlta' => $oDepartamentoAjeno->getFechaCreacionDepartamento(),
+                'volumenNegocio' => $oDepartamentoAjeno->getVolumenDeNegocio(),
+                'fechaBaja' => $oDepartamentoAjeno->getFechaBajaDepartamento()
             ];       
         }
         if(isset($oCiudad)){

@@ -13,13 +13,13 @@
 
      //Si pulso en el boton Log IN
     if (isset($_REQUEST['log'])){
-        $_SESSION['paginaAnterior']=$_SESSION['pagina']; //
-        $_SESSION['pagina']='login';  //cambio la sesion de pagina a LogIN
+        $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso']; //
+        $_SESSION['paginaEnCurso']='login';  //cambio la sesion de pagina a LogIN
         header('Location: index.php');  //recargo el fichero index.php
             exit;
     } 
     
-    $_SESSION['pagina']='inicioPublico';  //Inicio sesion de pagina para ver la vista inicioPublico
+    $_SESSION['paginaEnCurso']='inicioPublico';  //Inicio sesion de pagina para ver la vista inicioPublico
     
     //salida:
     require_once 'view/Layout.php';    //llamamos que se ejecute layout

@@ -38,12 +38,56 @@
              * @param string $descDepartamento - descripcion del departamento
              * @return \Departamento - objeto Departamento con los datos del registro encontrado
              */
-            public static function buscaDepartamentosPorDesc($descDepartamento) {
+            public static function buscaDepartamentosPorDesc($descDepartamento,$estado,$numRegistro=0,$limitRegistros=0) {
                 $aODepartamento;  //array para guardar los objetos Departamento
-                $consultaSQL = <<<EOD
+                switch ($estado){
+                    case "todos": 
+                            if($limitRegistros!=0){
+                                $consultaSQL = <<<EOD
                                    SELECT * FROM T02_Departamento WHERE 
-                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' ;
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%'
+                                   LIMIT {$numRegistro},{$limitRegistros};
                                  EOD;
+                            } else{
+                                $consultaSQL = <<<EOD
+                                   SELECT * FROM T02_Departamento WHERE 
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%';
+                                 EOD;
+                            }
+                            break;
+                    case "alta":
+                            if($limitRegistros!=0){
+                                $consultaSQL = <<<EOD
+                                   SELECT * FROM T02_Departamento WHERE 
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                                   T02_FechaBajaDepartamento IS NULL
+                                   LIMIT {$numRegistro},{$limitRegistros};
+                                 EOD;
+                            } else{
+                                $consultaSQL = <<<EOD
+                                   SELECT * FROM T02_Departamento WHERE 
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                                   T02_FechaBajaDepartamento IS NULL;
+                                 EOD;
+                            }
+                            break;
+                    case "baja": 
+                            if($limitRegistros!=0){
+                                $consultaSQL = <<<EOD
+                                   SELECT * FROM T02_Departamento WHERE 
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                                   T02_FechaBajaDepartamento IS NOT NULL
+                                   LIMIT {$numRegistro},{$limitRegistros};
+                                 EOD;
+                            } else{
+                                $consultaSQL = <<<EOD
+                                   SELECT * FROM T02_Departamento WHERE 
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                                   T02_FechaBajaDepartamento IS NOT NULL;
+                                 EOD;
+                            }
+                            break;
+                }
                 //$parametros = [':descDepartamento' => $descDepartamento];
                 $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);
                   

@@ -1,0 +1,40 @@
+/**
+ * Author:  Sonia Antón Llanes
+ * Created: 26 nov. 2021
+ * Last Modify: 26 nov. 2021
+ */
+
+
+    /* Creo la base de datos DBxxxDWESAplicacionFinal */
+        create database if not exists DB219DWESAplicacionFinal;
+
+    /* Creo el usuario */
+        create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'paso';
+--         create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'P@ssw0rd';
+
+    /* Damos permisos al usuario sobre la base de datos DBxxxDWESAplicacionFinal */
+        grant all privileges on DB219DWESAplicacionFinal.* to 'user219DWESAplicacionFinal'@'%';
+
+    /* Pongo en uso la base de datos creada en script DBxxxDWESAplicacionFinal */
+        use DB219DWESAplicacionFinal;  
+
+    /* Creo la tabla Usuarios si no existe */
+        create table if not exists T01_Usuario(  
+            T01_CodUsuario varchar(8) primary key not null,
+            T01_Password varchar(255),
+            T01_DescUsuario varchar(255),
+            T01_NumConexiones int default 0,
+            T01_FechaHoraUltimaConexion int,
+            T01_Perfil enum('usuario','administrador') default 'usuario',
+            T01_ImagenUsuario mediumblob) engine=innodb;
+
+    /* Creo la tabla Departamentos si no existe */
+        create table if not exists T02_Departamento(  
+            T02_CodDepartamento varchar(3) primary key not null,
+            T02_DescDepartamento varchar(255),
+            T02_FechaCreacionDepartamento date,
+            T02_VolumenDeNegocio float,
+            T02_FechaBajaDepartamento date) engine=innodb;
+
+    
+

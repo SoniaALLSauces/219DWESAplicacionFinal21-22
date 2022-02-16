@@ -14,15 +14,15 @@
 
     //Si pulso en volver desde la ventana login quiero volver a la ventana Pública:
         if (isset($_REQUEST['volver'])){
-            $_SESSION['pagina']='inicioPublico';
+            $_SESSION['paginaEnCurso']='inicioPublico';
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
     
     //Si pulso en Registrarse me lleva a la ventana Registro:
         if (isset($_REQUEST['register'])){
-            $_SESSION['paginaAnterior']=$_SESSION['pagina']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['pagina']='registro';     //y guardo en $_SESSION['pagina'] registro para la recarga de index
+            $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso']; //guardo la pagina actual en $_SESSION por si queremos volver
+            $_SESSION['paginaEnCurso']='registro';     //y guardo en $_SESSION['pagina'] registro para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana registro
                 exit;
         } 
@@ -59,14 +59,14 @@
         $oUsuario->setFechaHoraUltimaConexionAnterior($oUsuario->getFechaHoraUltimaConexion());  //guardamos la fecha/hora de la ultima conexion antes de modificar
         $oUsuarioActual=UsuarioPDO::registrarUltimaConexion($oUsuario);   //modificamos el usuario con los datos de la ultima entrada
         $_SESSION['usuario219DWESAplicacionFinal']= $oUsuarioActual;  //Guardamos el objeto usuario en la sesion
-        $_SESSION['paginaAnterior']=$_SESSION['pagina'];  //guardo en la sesión esta pagina para el boton volver
-        $_SESSION['pagina']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
+        $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];  //guardo en la sesión esta pagina para el boton volver
+        $_SESSION['paginaEnCurso']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
             header('Location: index.php');  //recargo el fichero index.php
             exit;
     }   
     else{   //Si no son correctas o aun no se ha pulsado "Iniciar Sesion" 
-        $_SESSION['pagina']= 'login';   //continuamos en la sesión para controlador y vista en 'login'
+        $_SESSION['paginaEnCurso']= 'login';   //continuamos en la sesión para controlador y vista en 'login'
     }
     
 
