@@ -237,7 +237,7 @@ h2{
 }
 .tableDepartamentos{
     width: 90vw;
-    height: 45vh;
+    /*height: 50vh;*/
     margin: 30px auto 10vh;
     border: 2px #bb1212 solid;
     background: white;
@@ -249,6 +249,15 @@ h2{
     margin: 5px auto;
 }
 .estado{padding-left: 50px;}
+#pagMas, #pagMenos{
+/*    height: 50px;*/
+    border: none;
+}
+.pagNum{
+    position: relative;
+    top: -20px;
+    left: 5px;
+}
 
 th{height: 4.6vh;}
 .tr:nth-child(2n+1){
@@ -437,12 +446,12 @@ input{
 
 
 /* Background */
-/*.gato{
+.gato{
     background-image: url("../images/catBackground.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}*/
+}
 .header, .header>*{
     background: white;
 }
@@ -462,8 +471,7 @@ input{
 #listaUsuario{
     text-decoration: none;
 }
-#buscar, #buscarDto{
-    background-image: url("../images/buscar.png");
+#buscar, #buscarDto, #pagMenos, #pagMas{
     background-size: 50px;
     background-repeat: no-repeat;
     width: 50px;
@@ -471,6 +479,9 @@ input{
     border: none;
     text-decoration: none;
 }
+#buscar, #buscarDto{ background-image: url("../images/buscar.png"); }
+#pagMenos{ background-image: url("../images/atras.png"); }
+#pagMas{ background-image: url("../images/avanzar.png"); }
 .secDoc{
     background: white;
 }
@@ -613,6 +624,9 @@ h4{
     color: azure;
 }
 .datosDep{font-size: 1.3rem;}
+.pagNum{
+    font-size: 1.3rem;
+}
 
 .footer{
     text-align: center;

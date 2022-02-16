@@ -87,9 +87,9 @@
                     <tr>
                         <th colspan="8">
                             <form name="paginar" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                                <input id="pagMenos" type="submit" name="paginaMenos" value="<<">
-                                <?php echo $pagRegistros+1 ; ?>
-                                <input id="pagMas" type="submit" name="paginaMas" value=">>">
+                                <span class="pagMenos"> <input id="pagMenos" type="submit" name="paginaMenos" value=""> </span>
+                                <span class="pagNum"> <?php echo $pagRegistros+1 ; ?> </span>
+                                <span class="pagMas"> <input id="pagMas" type="submit" name="paginaMas" value=""> </span>
                             </form>
                         </th>
                     </tr>

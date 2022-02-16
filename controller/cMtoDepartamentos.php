@@ -36,8 +36,11 @@
         $aErrores = ['descDepartamento' => null];   //E inicializo cada elemento
         $aRespuestas = ['descDepartamento' => "",   //inicializo
                         'estado' => "todos"];       //estado lo inicializo a todos
+            if(isset($_SESSION['descDepartamento'])){
+                $aRespuestas['descDepartamento']= $_SESSION['descDepartamento']; //si existe en la sesion la descripcion buscada la recupero (para no perderla en la paginacion)
+            }
             if(isset($_SESSION['estado'])){
-                $aRespuestas['estado']= $_SESSION['estado']; //si existe en la sesion la recupero (para no perderla en la paginacion)
+                $aRespuestas['estado']= $_SESSION['estado']; //si existe en la sesion la recupero (para no perder la seleccion en la paginacion)
             }
         
 
@@ -51,11 +54,15 @@
         }
         else{  //aun no se ha pulsado el boton enviar
             $entradaOK = false;   // si no se pulsa enviar, entradaOK es false
+            //Hago una busqueda de todos los departamentos y los cuento para tener el numero máximo de paginas a mostrar
+            $Departamentos= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado']);
+            $countDepartamentos= count($Departamentos);
         }
 
         if($entradaOK){  //Si todas las entradas son correctas
             //guardo en aRespuestas la descripcion y el estado introducida por el usuario
                 $aRespuestas['descDepartamento']= $_REQUEST['descDepartamento'];  //guardo la descripcion del usuario en la variable
+                $_SESSION['descDepartamento']= $aRespuestas['descDepartamento'];  //y lo guardo en la session
                 if(isset($_REQUEST['muestroDep'])){
                     $aRespuestas['estado']= $_REQUEST['muestroDep'];  //guardo la respuesta que esta seleccionada radiobutton
                     $_SESSION['estado']= $aRespuestas['estado'];  //y lo guardo en la session
@@ -64,11 +71,15 @@
             //Inicializo a 0 el número de página a mostrar 
                 $pagRegistros= 0;
                 $_SESSION['pagRegistros']= $pagRegistros;  //y lo guardo en la session
+            //Hago una busqueda de los departamentos por descripcion y los cuento para tener el numero máximo de paginas a mostrar
+            $Departamentos= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado']);
+            $countDepartamentos= count($Departamentos);
         }  
         
     
     //Muestro los departamentos que coinciden con la descripcion introducida, y el estado seleccionado o por defecto todas=> ""
         $numRegistros=5;
+        $maxPaginas=$countDepartamentos/$numRegistros;
         $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado'],$numRegistros*$pagRegistros,$numRegistros);
         //Recorro el array de objetos Departamento que me devuelve el método y lo guardo en un array para mostrarlo en vista
         $aDepartamentos= array();
@@ -82,15 +93,15 @@
             ];
         }
     
-    //Si pulsamos en atrasar página de registros
+    //Si pulsamos en atrasar página de registros, teniendo en cuenta que la página minima es 0
         if (isset($_REQUEST['paginaMenos']) && $_SESSION['pagRegistros']>0){
             $_SESSION['pagRegistros']= $pagRegistros-1;   //resto 1 a la sesión de la página
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
     
-    //Si pulsamos en avanzar página de registros
-        if (isset($_REQUEST['paginaMas'])){
+    //Si pulsamos en avanzar página de registros, teniendo en cuenta la página máxima que es $maxPaginas -1
+        if (isset($_REQUEST['paginaMas']) && $_SESSION['pagRegistros']<$maxPaginas-1){
             $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado']);
             if(count($aODepartamento)){
                 $_SESSION['pagRegistros']= $pagRegistros+1;   //sumo 1 a la sesion de la pagina
