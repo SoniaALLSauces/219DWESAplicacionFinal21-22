@@ -10,14 +10,14 @@
 
 
     /* Constantes BD Entorno Desarrollo Maquina Virtual */
-//        define ('HOST', 'mysql:host=192.168.3.119;dbname=DAW219DBDepartamentos');
-//        define ('USER', 'usuarioDAW219DBDepartamentos');
+//        define ('HOST', 'mysql:host=192.168.3.119;dbname=XXX');
+//        define ('USER', 'XXX');
 //        define ('PASSWORD', 'P@ssw0rd');
         
     /* Constantes BD Entorno Desarrollo Local */
-//        define ('HOST', 'mysql:host=daw219.sauces.local;dbname=DB219DWESLoginLogoutTema5');
-//        define ('USER', 'user219DWESLoginLogoutTema5');
-//        define ('PASSWORD', 'paso');
+        define ('HOST', 'mysql:host=daw219.sauces.local;dbname=DB219DWESAplicacionFinal');
+        define ('USER', 'user219DWESAplicacionFinal');
+        define ('PASSWORD', 'paso');
         
         /* Constantes BD Entorno Explotación ONE&ONE */
 //        define ('HOST', 'mysql:host=db5005797633.hosting-data.io;dbname=dbs4868815');
@@ -26,7 +26,7 @@
         
         
     /* Constantes BD Entorno Desarrollo Casa */
-        define ('HOST', 'mysql:host=192.168.1.119;dbname=DB219DWESAplicacionFinal');
-        define ('USER', 'user219DWESAplicacionFinal');
-        define ('PASSWORD', 'P@ssw0rd');
+//        define ('HOST', 'mysql:host=192.168.1.119;dbname=DB219DWESAplicacionFinal');
+//        define ('USER', 'user219DWESAplicacionFinal');
+//        define ('PASSWORD', 'P@ssw0rd');
 

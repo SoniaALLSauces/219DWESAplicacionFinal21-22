@@ -19,7 +19,8 @@
 
 <html lang="es">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+<!--        <meta charset="utf-8">-->
         <title>Sonia Anton Llanes - Login Logout FINAL</title>
         <meta name="author" content="Sonia Antón Llanes">
         <meta name="description" content="Proyecto LogIn LogOut FINAL">
@@ -37,12 +38,12 @@
     
     <body class="container">
         
-        <header class="header">
+<!--        <header class="header">
             <a href="../../index.html">
                 <img src="webroot/images/logo.png" alt="logo" height="55vh">
             </a>
             <h2>Proyecto FINAL</h2> 
-        </header>
+        </header>-->
 
 	<main class="main gato">
 
@@ -50,7 +51,7 @@
             
         </main>
         
-        <footer class="footer">
+<!--        <footer class="footer">
             <nav class="fnav">
                 <ul>
                     <li class="ftexto"><a href="../index.html">&copy 2021-22. Sonia Anton LLanes </a></li>
@@ -63,7 +64,7 @@
                     </li>
                 </ul>
             </nav>
-        </footer>  
+        </footer>  -->
         
     </body>
 

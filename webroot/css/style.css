@@ -233,6 +233,7 @@ h2{
     width: 80vw;
     margin: 10px auto;
     border: 2px #bb1212 solid;
+    overflow: hidden;
 }
 .tableDepartamentos{
     width: 90vw;
@@ -240,13 +241,15 @@ h2{
     margin: 30px auto 10vh;
     border: 2px #bb1212 solid;
     background: white;
+    overflow: hidden;
 }
 .tableDepartamentos>table{
     width: 95%;
     border-collapse: collapse;
     margin: 5px auto;
 }
-.h3Dep>input{margin-left: 20px;}
+.estado{padding-left: 50px;}
+
 th{height: 4.6vh;}
 .tr:nth-child(2n+1){
     background: #ee9797;
@@ -434,12 +437,12 @@ input{
 
 
 /* Background */
-.gato{
+/*.gato{
     background-image: url("../images/catBackground.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}
+}*/
 .header, .header>*{
     background: white;
 }
@@ -609,6 +612,7 @@ h4{
 .ejem{
     color: azure;
 }
+.datosDep{font-size: 1.3rem;}
 
 .footer{
     text-align: center;

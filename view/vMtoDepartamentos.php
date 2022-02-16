@@ -17,7 +17,7 @@
         <div class="div">
             <h2>Mantenimiento de Departamentos</h2>
             
-            <form name="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="FormMtoDptos">
                     <table>
                         <tr class="trDto">
@@ -34,13 +34,11 @@
                         </tr>
                         <tr class="trError">
                             <td class="dato"></td>
-                            <td colspan="2" class="td">
-                                <div class="error"><?php
-                                        if ($aErrores['descDepartamento'] != NULL) { //si hay errores muestra el mensaje
-                                            echo "<span style=\"color:red;\">".$aErrores['descDepartamento']."</span>"; //aparece el mensaje de error que tiene el array aErrores
-                                        }
-                                     ?></div>
-                            </td>
+                            <th colspan="2" class="td"><h3>
+                                        <input type="radio" name="muestroDep" value="todos">Todos
+                                <input type="radio" name="muestroDep" value="alta">Alta
+                                <input type="radio" name="muestroDep" value="baja">Baja   
+                            <h3></th>
                             <td class="buscar"></td>
                         </tr>
                     </table>
@@ -50,18 +48,15 @@
             <div class="tableDepartamentos">
                 <table>
                     <tr>
-                        <th colspan="8"><h3 class="h3Dep">Departamentos:
-                                <input type="radio" name="muestroDep" value="todos">Todos
-                                <input type="radio" name="muestroDep" value="alta">Alta
-                                <input type="radio" name="muestroDep" value="baja">Baja
+                        <th colspan="5"><h3 class="h3Dep">Departamentos: <span class="estado"> <?php echo strtoupper($aRespuestas['estado']); ?> </span> 
                             </h3></th>
                     </tr>
                     <tr class="tr">
-                        <th class="cod">Codigo</th>
-                        <th class="dep">Departamento</th>
-                        <th class="falta">Fecha Alta</th>
-                        <th class="fbaja">Fecha Baja</th>
-                        <th class="vneg">Volumen Neg.</th>
+                        <th class="datosDep">Codigo</th>
+                        <th class="datosDep">Departamento</th>
+                        <th class="datosDep">Fecha Alta</th>
+                        <th class="datosDep">Fecha Baja</th>
+                        <th class="datosDep">Volumen Neg.</th>
                         <th colspan="3"></th>
                     </tr>
                     
@@ -71,13 +66,13 @@
                     foreach ($aDepartamentos as $departamento) {
                 ?>
                     <tr class="tr">
-                        <td> <?php echo $departamento['codDepartamento']; ?> </td>
-                        <td> <?php echo $departamento['descDepartamento']; ?> </td>
-                        <td> <?php if ($departamento['fechaAlta']!=null){
+                        <td class="datosDep"> <?php echo $departamento['codDepartamento']; ?> </td>
+                        <td class="datosDep"> <?php echo $departamento['descDepartamento']; ?> </td>
+                        <td class="datosDep"> <?php if ($departamento['fechaAlta']!=null){
                                         echo $departamento['fechaAlta'];
                                    }?> </td>
-                        <td> <?php echo $departamento['fechaBaja']; ?> </td>
-                        <td> <?php echo $departamento['volumenNeg']; ?> </td>
+                        <td class="datosDep"> <?php echo $departamento['fechaBaja']; ?> </td>
+                        <td class="datosDep"> <?php echo $departamento['volumenNeg']; ?> </td>
                         <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
                     <?php if ($departamento['fechaBaja']!=null){ ?>
                         <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
@@ -91,10 +86,11 @@
                 ?>
                     <tr>
                         <th colspan="8">
-                            <input id="pagMenos" type="submit" name="paginaMenos" value="<<">
-                            <?php echo $pagRegistros+1 ; ?>
-                            <input id="pagMas" type="submit" name="paginaMas" value=">>">
-                            <input id="mas" name="mas" type="submit" value="mas">
+                            <form name="paginar" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                                <input id="pagMenos" type="submit" name="paginaMenos" value="<<">
+                                <?php echo $pagRegistros+1 ; ?>
+                                <input id="pagMas" type="submit" name="paginaMas" value=">>">
+                            </form>
                         </th>
                     </tr>
                 </table>

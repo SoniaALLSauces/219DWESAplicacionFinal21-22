@@ -9,8 +9,8 @@
         create database if not exists DB219DWESAplicacionFinal;
 
     /* Creo el usuario */
---         create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'paso';
-        create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'P@ssw0rd';
+        create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'paso';
+--         create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'P@ssw0rd';
 
     /* Damos permisos al usuario sobre la base de datos DBxxxDWESAplicacionFinal */
         grant all privileges on DB219DWESAplicacionFinal.* to 'user219DWESAplicacionFinal'@'%';
