@@ -38,11 +38,12 @@
              * @param string $descDepartamento - descripcion del departamento
              * @return \Departamento - objeto Departamento con los datos del registro encontrado
              */
-            public static function buscaDepartamentosPorDesc($descDepartamento) {
+            public static function buscaDepartamentosPorDesc($descDepartamento,$numRegistro) {
                 $aODepartamento;  //array para guardar los objetos Departamento
                 $consultaSQL = <<<EOD
                                    SELECT * FROM T02_Departamento WHERE 
-                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' ;
+                                   T02_DescDepartamento LIKE '%{$descDepartamento}%' 
+                                   LIMIT {$numRegistro},5;
                                  EOD;
                 //$parametros = [':descDepartamento' => $descDepartamento];
                 $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);

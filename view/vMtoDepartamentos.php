@@ -50,7 +50,7 @@
             <div class="tableDepartamentos">
                 <table>
                     <tr>
-                        <th colspan="2"><h3 class="h3Dep">Departamentos:
+                        <th colspan="8"><h3 class="h3Dep">Departamentos:
                                 <input type="radio" name="muestroDep" value="todos">Todos
                                 <input type="radio" name="muestroDep" value="alta">Alta
                                 <input type="radio" name="muestroDep" value="baja">Baja
@@ -59,17 +59,11 @@
                     <tr class="tr">
                         <th class="cod">Codigo</th>
                         <th class="dep">Departamento</th>
-                        <th class="falta">Fecha Alta/Reactivación</th>
+                        <th class="falta">Fecha Alta</th>
                         <th class="fbaja">Fecha Baja</th>
                         <th class="vneg">Volumen Neg.</th>
                         <th colspan="3"></th>
                     </tr>
-                    
-<!--                    <tr>
-                        <th colspan="5">
-                            //<?php print_r($aDepartamentos); ?>
-                        </th>
-                    </tr>-->
                     
                 <?php
                     //Recorro el array de Departamentos
@@ -84,18 +78,25 @@
                                    }?> </td>
                         <td> <?php echo $departamento['fechaBaja']; ?> </td>
                         <td> <?php echo $departamento['volumenNeg']; ?> </td>
-                        <td class="th"><img class= "imgtd" src="webroot/images/ojo-mostar.png" alt="mostrar"></td>
                         <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
-                    <?php if ($departamento['fechaBaja']!='Undefined'){ ?>
-                        <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
-                    <?php } else{ ?>
+                    <?php if ($departamento['fechaBaja']!=null){ ?>
                         <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
-                    <?php }?>                        
+                    <?php } else{ ?>
+                        <td class="th"><img class= "imgtd" src="webroot/images/down.png" alt="darBaja"></td>
+                    <?php }?> 
+                        <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
                     </tr>
                 <?php
                     }
                 ?>
-            
+                    <tr>
+                        <th colspan="8">
+                            <input id="pagMenos" type="submit" name="paginaMenos" value="<<">
+                            <?php echo $pagRegistros+1 ; ?>
+                            <input id="pagMas" type="submit" name="paginaMas" value=">>">
+                            <input id="mas" name="mas" type="submit" value="mas">
+                        </th>
+                    </tr>
                 </table>
             </div>
 

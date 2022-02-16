@@ -9,7 +9,8 @@
         create database if not exists DB219DWESAplicacionFinal;
 
     /* Creo el usuario */
-        create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'paso';
+--         create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'paso';
+        create user if not exists 'user219DWESAplicacionFinal'@'%' identified by 'P@ssw0rd';
 
     /* Damos permisos al usuario sobre la base de datos DBxxxDWESAplicacionFinal */
         grant all privileges on DB219DWESAplicacionFinal.* to 'user219DWESAplicacionFinal'@'%';
@@ -31,7 +32,7 @@
         create table if not exists T02_Departamento(  
             T02_CodDepartamento varchar(3) primary key not null,
             T02_DescDepartamento varchar(255),
-            T02_FechaCreacionDepartamento date default current_timestamp,
+            T02_FechaCreacionDepartamento date,
             T02_VolumenDeNegocio float,
             T02_FechaBajaDepartamento date) engine=innodb;
 
