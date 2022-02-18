@@ -15,14 +15,14 @@
         </div>
 
         <div class="div">
-            <h2>Mantenimiento de Departamentos</h2>
+            <h2>Mantenimiento de Usuarios</h2>
             
             <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="FormMtoDptos">
                     <table>
                         <tr class="trDto">
                             <td class="datoDto">
-                                <label for="LbDescDepartamento">Busco Departamento por descripción </label>
+                                <label for="LbDescDepartamento">Busco Usuario por descripción </label>
                             </td>
                             <td colspan="2" class="tdDescDto">
                                 <input type="text" name="descDepartamento" id="LbDescDepartamento"
@@ -88,13 +88,10 @@
                         <th colspan="8">
                             <form name="paginar" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                                 <span class="pagMenos"> <input id="pagMenos" type="submit" name="paginaMenos" value=""> </span>
-                                <span class="pagNum"> <?php echo $pagRegistros+1  ; ?> </span>
+                                <span class="pagNum"> <?php echo $pagRegistros+1 ; ?> </span>
                                 <span class="pagMas"> <input id="pagMas" type="submit" name="paginaMas" value=""> </span>
                             </form>
                         </th>
-                    </tr>
-                    <tr>
-                        <td> <?php echo $numDepartamentos; ?></td>
                     </tr>
                 </table>
             </div>

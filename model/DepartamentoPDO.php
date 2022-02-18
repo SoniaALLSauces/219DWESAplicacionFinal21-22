@@ -33,9 +33,13 @@
             }
             
             /**
-             * buscaDepartamentosPorDesc() - busca en la tabla Departamentos si existe algun registro/s que contenga la descripción pasada por parámetro
+             * buscaDepartamentosPorDesc() - busca en la tabla Departamentos según descripción y estado,
+             *     y opcional se puede indicar un numero limite de registros para traernos y la posición del registro del cual comienza 
              * 
-             * @param string $descDepartamento - descripcion del departamento
+             * @param type $descDepartamento - cadena de letras que sirve de filtro para buscar registros
+             * @param type $estado - que puede ser "todos", "alta" o "baja"
+             * @param type $numRegistro - 
+             * @param type $limitRegistros - maximo limite de registros que me traigo
              * @return \Departamento - objeto Departamento con los datos del registro encontrado
              */
             public static function buscaDepartamentosPorDesc($descDepartamento,$estado,$numRegistro=0,$limitRegistros=0) {
@@ -100,6 +104,44 @@
                         $departamentoPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
                     } 
                 return $aODepartamento;
+            }
+            
+            /**
+             * contadorDepartamentos() - metodo para contar registros por descripcion y estado sin necesidad de traerlos
+             * 
+             * @param type $descDepartamento - cadena de letras que sirve de filtro para buscar registros
+             * @param type $estado - que puede ser "todos", "alta" o "baja"
+             * @return int $contadorRegistros - nos devuelve el numero de registros encontrados
+             */
+            public static function contadorDepartamentos($descDepartamento,$estado) {
+                $contadorRegistros;   //variable para guardar el numero de registros que me traigo
+                switch ($estado){
+                    case "todos": 
+                            $consultaSQL = <<<EOD
+                               SELECT COUNT(*) FROM T02_Departamento WHERE 
+                               T02_DescDepartamento LIKE '%{$descDepartamento}%';
+                             EOD;
+                            break;
+                    case "alta":
+                            $consultaSQL = <<<EOD
+                               SELECT COUNT(*) FROM T02_Departamento WHERE 
+                               T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                               T02_FechaBajaDepartamento IS NULL;
+                             EOD;
+                            break;
+                    case "baja": 
+                            $consultaSQL = <<<EOD
+                               SELECT COUNT(*) FROM T02_Departamento WHERE 
+                               T02_DescDepartamento LIKE '%{$descDepartamento}%' AND
+                               T02_FechaBajaDepartamento IS NOT NULL;
+                             EOD;
+                            break;
+                }
+                $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);
+                $contadorRegistros = $rdoConsulta ->fetchObject();
+                //settype($contadorRegistros, "integer"); 
+                     
+                return $contadorRegistros;
             }
             
         }

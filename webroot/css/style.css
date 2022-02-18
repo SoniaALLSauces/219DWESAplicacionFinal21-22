@@ -446,12 +446,12 @@ input{
 
 
 /* Background */
-.gato{
+/*.gato{
     background-image: url("../images/catBackground.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-}
+}*/
 .header, .header>*{
     background: white;
 }

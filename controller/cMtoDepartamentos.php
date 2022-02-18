@@ -55,8 +55,7 @@
         else{  //aun no se ha pulsado el boton enviar
             $entradaOK = false;   // si no se pulsa enviar, entradaOK es false
             //Hago una busqueda de todos los departamentos y los cuento para tener el numero máximo de paginas a mostrar
-            $Departamentos= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado']);
-            $countDepartamentos= count($Departamentos);
+            $numDepartamentos= DepartamentoPDO::contadorDepartamentos($aRespuestas['descDepartamento'],$aRespuestas['estado']);
         }
 
         if($entradaOK){  //Si todas las entradas son correctas
@@ -72,14 +71,13 @@
                 $pagRegistros= 0;
                 $_SESSION['pagRegistros']= $pagRegistros;  //y lo guardo en la session
             //Hago una busqueda de los departamentos por descripcion y los cuento para tener el numero máximo de paginas a mostrar
-            $Departamentos= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado']);
-            $countDepartamentos= count($Departamentos);
+            $numDepartamentos= DepartamentoPDO::contadorDepartamentos($aRespuestas['descDepartamento'],$aRespuestas['estado']);
         }  
         
     
     //Muestro los departamentos que coinciden con la descripcion introducida, y el estado seleccionado o por defecto todas=> ""
-        $numRegistros=5;
-        $maxPaginas=$countDepartamentos/$numRegistros;
+        $numRegistros=3;
+        $maxPaginas=$numDepartamentos/$numRegistros;
         $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado'],$numRegistros*$pagRegistros,$numRegistros);
         //Recorro el array de objetos Departamento que me devuelve el método y lo guardo en un array para mostrarlo en vista
         $aDepartamentos= array();
