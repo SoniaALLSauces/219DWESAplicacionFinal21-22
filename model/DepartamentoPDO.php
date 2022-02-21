@@ -43,7 +43,7 @@
              * @return \Departamento - objeto Departamento con los datos del registro encontrado
              */
             public static function buscaDepartamentosPorDesc($descDepartamento,$estado,$numRegistro=0,$limitRegistros=0) {
-                $aODepartamento;  //array para guardar los objetos Departamento
+                $aODepartamento=null;  //array para guardar los objetos Departamento
                 switch ($estado){
                     case "todos": 
                             if($limitRegistros!=0){
@@ -114,7 +114,7 @@
              * @return int $contadorRegistros - nos devuelve el numero de registros encontrados
              */
             public static function contadorDepartamentos($descDepartamento,$estado) {
-                $contadorRegistros;   //variable para guardar el numero de registros que me traigo
+                $contador= null;   //variable para guardar el numero de registros que coinciden con la seleccion
                 switch ($estado){
                     case "todos": 
                             $consultaSQL = <<<EOD
@@ -137,12 +137,12 @@
                              EOD;
                             break;
                 }
-                $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);
-                $contadorRegistros = $rdoConsulta ->fetchObject();
-                //settype($contadorRegistros, "integer"); 
-                     
-                return $contadorRegistros;
+                $rdoContar = DBPDO::ejecutaConsulta($consultaSQL);
+                $contador = $rdoContar ->fetch();                   
+                return $contador[0];
             }
+            
+            
             
         }
         

@@ -40,7 +40,8 @@
         'editarUsuario' => 'controller/cMiCuenta.php',
         'wip' => 'controller/cWIP.php',
         'rest' => 'controller/cREST.php',
-        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php'
+        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
+        'mtoUsuarios' => 'controller/cMtoUsuarios.php'
     ];
 
 //Array con las vistas
@@ -54,6 +55,7 @@
         'editarUsuario' => 'view/vMiCuenta.php',
         'wip' => 'view/vWIP.php',
         'rest' => 'view/vREST.php',
-        'mtoDepartamentos' => 'view/vMtoDepartamentos.php'
+        'mtoDepartamentos' => 'view/vMtoDepartamentos.php',
+        'mtoUsuarios' => 'view/vMtoUsuarios.php'
     ];
     

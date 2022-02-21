@@ -106,6 +106,15 @@
                 public function getPerfil(){
                     return $this->perfil;
                 }
+            /**
+             * getImagenUsuario() - devuelve la imagen del usuario
+             * 
+             * @return type $imagenUsuario - imagen del usuario
+             */    
+                public function getImagenUsuario(){
+                    return $this->imagenUsuario;
+                }
+                
          
             //Setter
             /**

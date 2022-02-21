@@ -6,7 +6,7 @@
   -->
 
 
-    <section class="mtoDepartamentos">
+    <section class="mtoUsuarios">
         
         <div class="volver">
             <form name="volver" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -25,76 +25,71 @@
                                 <label for="LbDescDepartamento">Busco Usuario por descripción </label>
                             </td>
                             <td colspan="2" class="tdDescDto">
-                                <input type="text" name="descDepartamento" id="LbDescDepartamento"
-                                       value="<?php  //Si no hay ningun error y se ha enviado mantenerlo
-                                                echo $resultado = ($aErrores['descDepartamento']==NULL && isset($_REQUEST['descDepartamento'])) ? $_REQUEST['descDepartamento'] : $aRespuestas['descDepartamento']=""; 
-                                              ?>">
+                                <input type="text" name="descUsuario" id="LbDescUsuario">
+<!--                                       value="<?php  //Si no hay ningun error y se ha enviado mantenerlo
+                                                echo $resultado = ($aErrores['descUsuario']==NULL && isset($_REQUEST['descUsuario'])) ? $_REQUEST['descUsuario'] : $aRespuestas['descUsuario']=""; 
+                                              ?>"-->
                             </td>
-                            <td class="buscarDto"><input id="buscarDto" name="buscarDto" type="submit" value=""></td>
-                        </tr>
-                        <tr class="trError">
-                            <td class="dato"></td>
-                            <th colspan="2" class="td"><h3>
-                                        <input type="radio" name="muestroDep" value="todos">Todos
-                                <input type="radio" name="muestroDep" value="alta">Alta
-                                <input type="radio" name="muestroDep" value="baja">Baja   
-                            <h3></th>
-                            <td class="buscar"></td>
+                            <td class="buscarUsuario"><input id="buscarUsuario" name="buscarUsuario" type="submit" value=""></td>
                         </tr>
                     </table>
                 </div>
             </form>
             
-            <div class="tableDepartamentos">
-                <table>
+            <div class="tableUsuarios">
+                <table id="tableUsuarios">
                     <tr>
-                        <th colspan="5"><h3 class="h3Dep">Departamentos: <span class="estado"> <?php echo strtoupper($aRespuestas['estado']); ?> </span> 
-                            </h3></th>
+                        <th colspan="4"><h3 class="h3Dep">Usuarios: </h3></th>
                     </tr>
                     <tr class="tr">
-                        <th class="datosDep">Codigo</th>
-                        <th class="datosDep">Departamento</th>
-                        <th class="datosDep">Fecha Alta</th>
-                        <th class="datosDep">Fecha Baja</th>
-                        <th class="datosDep">Volumen Neg.</th>
-                        <th colspan="3"></th>
+                        <th class="datosDep">Usuario</th>
+                        <th class="datosDep">Descripcion</th>
+                        <th class="datosDep">Ultima Conexion</th>
+                        <th class="datosDep">Numero Conex.</th>
+                        <th class="datosDep">Perfil</th>
+                        <th class="datosDep">Imagen</th>
+                        <th></th>
                     </tr>
-                    
-                <?php
-                    //Recorro el array de Departamentos
-                    //Y Muestro la tabla Departametos con los encontrados o entera (por defecto)
-                    foreach ($aDepartamentos as $departamento) {
-                ?>
-                    <tr class="tr">
-                        <td class="datosDep"> <?php echo $departamento['codDepartamento']; ?> </td>
-                        <td class="datosDep"> <?php echo $departamento['descDepartamento']; ?> </td>
-                        <td class="datosDep"> <?php if ($departamento['fechaAlta']!=null){
-                                        echo $departamento['fechaAlta'];
-                                   }?> </td>
-                        <td class="datosDep"> <?php echo $departamento['fechaBaja']; ?> </td>
-                        <td class="datosDep"> <?php echo $departamento['volumenNeg']; ?> </td>
-                        <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
-                    <?php if ($departamento['fechaBaja']!=null){ ?>
-                        <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
-                    <?php } else{ ?>
-                        <td class="th"><img class= "imgtd" src="webroot/images/down.png" alt="darBaja"></td>
-                    <?php }?> 
-                        <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
-                    </tr>
-                <?php
-                    }
-                ?>
-                    <tr>
-                        <th colspan="8">
-                            <form name="paginar" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                                <span class="pagMenos"> <input id="pagMenos" type="submit" name="paginaMenos" value=""> </span>
-                                <span class="pagNum"> <?php echo $pagRegistros+1 ; ?> </span>
-                                <span class="pagMas"> <input id="pagMas" type="submit" name="paginaMas" value=""> </span>
-                            </form>
-                        </th>
-                    </tr>
+               
                 </table>
             </div>
+            
+            <script>
+                var tabla=document.getElementById("tableUsuarios");  //selecciono la tabla
+                var descripcion=document.getElementById("LbDescUsuario").value;  //selecciono el valor de la descripcion introducida por el usuario
+                
+                var xhr = new XMLHttpRequest();
+                    //inicio el objeto XMLHttpRequest() llamando a la api de Usuarios creada
+                xhr.open('get', 'http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario='+descripcion); 
+                    xhr.onload = function(){
+                        console.log(this.responseText);
+                        var aUsers = JSON.parse(this.responseText); 
+                        for (let i=0; i<aUsers.length; i++){
+                            var fila=document.createElement("tr");
+                                var celdaCodigo=document.createElement("td");
+                                    celdaCodigo.innerHTML= aUsers[i].codigo;
+                                    fila.appendChild(celdaCodigo);
+                                var celdaDescripcion=document.createElement("td");
+                                    celdaDescripcion.innerHTML= aUsers[i].descripcion;
+                                    fila.appendChild(celdaDescripcion);
+                                var celdaUltConexion=document.createElement("td");
+                                    var timestampUltConexion= aUsers[i].ultimaConexion;
+                                    var date = new Date(timestampUltConexion);
+                                    var ultimaConexion = date.getDate() +"/"+ (date.getMonth()+1) +"/"+ date.getFullYear();  //formateo la fecha en dia/mes/año
+                                    celdaUltConexion.innerHTML= aUsers[i].ultimaConexion;
+                                    fila.appendChild(celdaUltConexion);
+                                var celdaNConexiones=document.createElement("td");
+                                    celdaNConexiones.innerHTML= aUsers[i].numConexiones;
+                                    fila.appendChild(celdaNConexiones);
+                                var celdaPerfil=document.createElement("td");
+                                    celdaPerfil.innerHTML= aUsers[i].perfil;
+                                    fila.appendChild(celdaPerfil);
+                                
+                            tabla.appendChild(fila);
+                        }
+                    }
+                xhr.send();  //envio la peticion
+            </script>
 
         </div>
     </section>

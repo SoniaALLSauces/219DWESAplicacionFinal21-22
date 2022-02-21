@@ -13,9 +13,7 @@
     
     //Si pulso en volver:
         if (isset($_REQUEST['volver'])){
-            $paginaActual=$_SESSION['paginaEnCurso'];     //guardo la pagina actual en una variable, por si queremos volver
             $_SESSION['paginaEnCurso']=$_SESSION['paginaAnterior']; //cambio el valor de la pagina actual a la que teniamos guardada en anterior
-            $_SESSION['paginaAnterior']=$paginaActual;     //y la pagina anterior la que habiamos guardado en la variable antes de cambiarla
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit;
         }
@@ -50,6 +48,8 @@
                 $aErrores['descDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['descDepartamento'], 255, 1, 0);
                     if ($aErrores['descDepartamento']!=null){  //si es distinto de null
                         $entradaOK = false;    //si hay algun error entradaOK es false
+                        //Y pagino con la busqueda de aRespuestas por defecto: "" =>todos
+                        $numDepartamentos= DepartamentoPDO::contadorDepartamentos($aRespuestas['descDepartamento'],$aRespuestas['estado']);
                     }
         }
         else{  //aun no se ha pulsado el boton enviar
@@ -77,7 +77,7 @@
     
     //Muestro los departamentos que coinciden con la descripcion introducida, y el estado seleccionado o por defecto todas=> ""
         $numRegistros=3;
-        $maxPaginas=$numDepartamentos/$numRegistros;
+        $maxPaginas=ceil($numDepartamentos/$numRegistros);
         $aODepartamento= DepartamentoPDO::buscaDepartamentosPorDesc($aRespuestas['descDepartamento'],$aRespuestas['estado'],$numRegistros*$pagRegistros,$numRegistros);
         //Recorro el array de objetos Departamento que me devuelve el método y lo guardo en un array para mostrarlo en vista
         $aDepartamentos= array();
