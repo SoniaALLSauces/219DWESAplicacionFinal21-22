@@ -6,7 +6,7 @@
      * 
      * @author Sonia Anton Llanes
      * @created 21/01/2022
-     * @updated: 24/01/2022
+     * @updated: 23/02/2022
      */
 
 
@@ -36,18 +36,9 @@
             'inicioPublico' => 'controller/cInicioPublico.php',
             'login' => 'controller/cLogin.php',
             'registro' => 'controller/cRegistro.php',
-            'inicioPrivado' => 'controller/cInicioPublico.php',
-            'detalle' => 'controller/cInicioPublico.php',
-            'editarUsuario' => 'controller/cInicioPublico.php',
-            'wip' => 'controller/cInicioPublico.php',
-            'rest' => 'controller/cInicioPublico.php',
-            'mtoDepartamentos' => 'controller/cInicioPublico.php',
-            'mtoUsuarios' => 'controller/cInicioPublico.php'
-        ],
+            'wip' => 'controller/cWIP.php'
+            ],
         'privado' => [
-            'inicioPublico' => 'controller/cInicioPublico.php',
-            'login' => 'controller/cLogin.php',
-            'registro' => 'controller/cRegistro.php',
             'inicioPrivado' => 'controller/cInicioPrivado.php',
             'detalle' => 'controller/cDetalle.php',
             'editarUsuario' => 'controller/cMiCuenta.php',
@@ -55,7 +46,7 @@
             'rest' => 'controller/cREST.php',
             'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
             'mtoUsuarios' => 'controller/cMtoUsuarios.php'
-        ]
+            ]
         
     ];   
         

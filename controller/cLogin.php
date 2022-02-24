@@ -8,7 +8,7 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 30/01/2021
+     * @updated: 24/02/2021
      */
 
 
@@ -60,6 +60,7 @@
         $oUsuarioActual=UsuarioPDO::registrarUltimaConexion($oUsuario);   //modificamos el usuario con los datos de la ultima entrada
         $_SESSION['usuario219DWESAplicacionFinal']= $oUsuarioActual;  //Guardamos el objeto usuario en la sesion
         $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso'];  //guardo en la sesión esta pagina para el boton volver
+        $_SESSION['tipo']='privado';
         $_SESSION['paginaEnCurso']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
             header('Location: index.php');  //recargo el fichero index.php

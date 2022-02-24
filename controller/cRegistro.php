@@ -80,6 +80,7 @@
         $usuarioActual=UsuarioPDO::altaUsuario($aRespuestas['usuario'], $aRespuestas['descripcion'], $aRespuestas['password']);   //modificamos el usuario con los datos de la ultima entrada
         
         $_SESSION['usuario219DWESAplicacionFinal']= $usuarioActual;  //Guardamos el objeto usuario en la sesion
+        $_SESSION['tipo']= 'privado';
         $_SESSION['paginaEnCurso']= 'inicioPrivado';  //guardamos en la sesión para controlador y vista en 'inicioPrivado' cuando se ha logeado
 
             header('Location: index.php');  //recargo el fichero index.php

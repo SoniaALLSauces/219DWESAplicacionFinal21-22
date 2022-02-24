@@ -7,9 +7,16 @@
      * 
      * @author Sonia Anton Llanes
      * @created 26/01/2022
-     * @updated: 26/01/2022
+     * @updated: 24/02/2022
      */
 
+     //Primero: Si no existe usuario logeado en esta aplicacion no puede entrar en paginas privadas, lo mando a la pagina de inicio:
+        if(!isset($_SESSION['usuario219DWESAplicacionFinal'])){
+            $_SESSION['tipo']='publico'; //
+            $_SESSION['paginaEnCurso']='inicioPublico';  //cambio la sesion de pagina a rest
+            header('Location: index.php');  //recargo el fichero index.php
+                exit;
+        }
     
     //Si pulso en volver:
         if (isset($_REQUEST['volver'])){
