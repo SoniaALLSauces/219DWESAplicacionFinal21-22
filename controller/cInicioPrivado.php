@@ -11,14 +11,7 @@
      * @updated: 24/02/2022
      */
 
-    //Primero: Si no existe usuario logeado en esta aplicacion no puede entrar en paginas privadas, lo mando a la pagina de inicio:
-        if(!isset($_SESSION['usuario219DWESAplicacionFinal'])){
-            $_SESSION['tipo']='publico'; //
-            $_SESSION['paginaEnCurso']='inicioPublico';  //cambio la sesion de pagina a rest
-            header('Location: index.php');  //recargo el fichero index.php
-                exit;
-        }
-
+    
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if($_SESSION['usuario219DWESAplicacionFinal']!=null){
             $oUsuarioActual = $_SESSION['usuario219DWESAplicacionFinal'];

@@ -17,6 +17,11 @@
 //Requerimos que se cargue el controlador según si se ha iniciado sesión o no
     if(isset($_SESSION['tipo']) && isset($_SESSION['paginaEnCurso'])){
         if (isset($controladores[$_SESSION['tipo']][$_SESSION['paginaEnCurso']])){
+            //Primero compruebo si queremos entrar en una pagina privada que exista usuario logeado en esta aplicacion, sino lo mando a la pagina de inicio publico:
+                if($_SESSION['tipo']=='privado' && !isset($_SESSION['usuario219DWESAplicacionFinal'])){
+                    $_SESSION['tipo']='publico'; //
+                    $_SESSION['paginaEnCurso']='inicioPublico';  //cambio la sesion de pagina a inicio publico
+                }
             require_once $controladores[$_SESSION['tipo']][$_SESSION['paginaEnCurso']];
         }
         else{
@@ -25,6 +30,8 @@
     } else{
         require_once $controladores['publico']['inicioPublico'];  //cuando es la primera vez que entro y no hemos iniciado sesion abro el controlador del login
     }
+    
+    
 
     
 //Requerimos que se cargue el controlador según si se ha iniciado sesión de página o no
