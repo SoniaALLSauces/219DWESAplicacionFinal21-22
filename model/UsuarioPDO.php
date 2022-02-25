@@ -151,6 +151,26 @@
                 return $eliminado;
             }
             
+            public static function buscaUsuariosPorDesc($descUsuario) {
+                $aOUsuario=null;  //array para guardar los objetos Usuario
+                    $consultaSQL = <<<EOD
+                       SELECT * FROM T01_Usuario WHERE 
+                       T01_DescUsuario LIKE '%{$descUsuario}%';
+                     EOD;
+                //$parametros = [':descUsuario' => $descUsuario];
+                $rdoConsulta = DBPDO::ejecutaConsulta($consultaSQL);
+                  
+                $usuarioPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
+                    while ($usuarioPDOStatment){  //si encuentra el registro departamento
+                        //Instancio un objeto Usuario
+                        $oUsuario= new Usuario($usuarioPDOStatment->T01_CodUsuario, null,$usuarioPDOStatment->T01_DescUsuario, $usuarioPDOStatment->T01_NumConexiones, $usuarioPDOStatment->T01_FechaHoraUltimaConexion, null, $usuarioPDOStatment->T01_Perfil, $usuarioPDOStatment->T01_ImagenUsuario, null);
+                        $aOUsuario[]= $oUsuario;
+                        //Y avanzo puntero:
+                        $usuarioPDOStatment = $rdoConsulta ->fetchObject();  //guardo todos los datos del registro encontrado
+                    } 
+                return $aOUsuario;
+            }
+            
             
             
         }

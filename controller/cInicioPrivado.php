@@ -8,10 +8,10 @@
      * 
      * @author Sonia Anton Llanes
      * @created 25/01/2022
-     * @updated: 06/02/2022
+     * @updated: 24/02/2022
      */
 
-
+    
     //Si hay objeto guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if($_SESSION['usuario219DWESAplicacionFinal']!=null){
             $oUsuarioActual = $_SESSION['usuario219DWESAplicacionFinal'];
@@ -56,10 +56,10 @@
                 exit;
         } 
         
-    //Si pulso en Mantenimiento Usuarios me lleva a Work in Progress:
+    //Si pulso en Mantenimiento Usuarios me lleva a Mantenimiento de Usuarios:
         if (isset($_REQUEST['botonUsuarios'])){
             $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso']; //guardo la pagina actual en $_SESSION por si queremos volver
-            $_SESSION['paginaEnCurso']='wip';     //y guardo wip para la recarga de index
+            $_SESSION['paginaEnCurso']='mtoUsuarios';     //y guardo wip para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana wip
                 exit;
         } 
@@ -83,6 +83,11 @@
     //Si pulso en Log Out:
         if (isset($_REQUEST['cerrarSesion'])){
             unset($_SESSION['usuario219DWESAplicacionFinal']);  //elimino el usuario guardado en la sesion
+            //Si el usuario ha entrado en mantenimiento de departamentos y se han creado sesiones de departamentos las borro
+                if(isset($_SESSION['pagRegistros'])){ unset($_SESSION['pagRegistros']); }
+                if(isset($_SESSION['descDepartamento'])){ unset($_SESSION['descDepartamento']); }
+                if(isset($_SESSION['estado'])){ unset($_SESSION['estado']); }
+            
             $_SESSION['paginaEnCurso']='inicioPublico';     //y guardo login para la recarga de index
             header('Location: index.php');   //recargo el fichero index.php con la ventana login
                 exit;

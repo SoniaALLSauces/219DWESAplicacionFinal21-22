@@ -6,7 +6,7 @@
      * 
      * @author Sonia Anton Llanes
      * @created 21/01/2022
-     * @updated: 24/01/2022
+     * @updated: 23/02/2022
      */
 
 
@@ -32,16 +32,36 @@
 
 //Array con los controladores
     $controladores = [
-        'inicioPublico' => 'controller/cInicioPublico.php',
-        'login' => 'controller/cLogin.php',
-        'registro' => 'controller/cRegistro.php',
-        'inicioPrivado' => 'controller/cInicioPrivado.php',
-        'detalle' => 'controller/cDetalle.php',
-        'editarUsuario' => 'controller/cMiCuenta.php',
-        'wip' => 'controller/cWIP.php',
-        'rest' => 'controller/cREST.php',
-        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php'
-    ];
+        'publico' => [
+            'inicioPublico' => 'controller/cInicioPublico.php',
+            'login' => 'controller/cLogin.php',
+            'registro' => 'controller/cRegistro.php',
+            'wip' => 'controller/cWIP.php'
+            ],
+        'privado' => [
+            'inicioPrivado' => 'controller/cInicioPrivado.php',
+            'detalle' => 'controller/cDetalle.php',
+            'editarUsuario' => 'controller/cMiCuenta.php',
+            'wip' => 'controller/cWIP.php',
+            'rest' => 'controller/cREST.php',
+            'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
+            'mtoUsuarios' => 'controller/cMtoUsuarios.php'
+            ]
+        
+    ];   
+        
+//    $controladores = [
+//        'inicioPublico' => 'controller/cInicioPublico.php',
+//        'login' => 'controller/cLogin.php',
+//        'registro' => 'controller/cRegistro.php',
+//        'inicioPrivado' => 'controller/cInicioPrivado.php',
+//        'detalle' => 'controller/cDetalle.php',
+//        'editarUsuario' => 'controller/cMiCuenta.php',
+//        'wip' => 'controller/cWIP.php',
+//        'rest' => 'controller/cREST.php',
+//        'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
+//        'mtoUsuarios' => 'controller/cMtoUsuarios.php'
+//    ];
 
 //Array con las vistas
     $vistas = [
@@ -54,6 +74,7 @@
         'editarUsuario' => 'view/vMiCuenta.php',
         'wip' => 'view/vWIP.php',
         'rest' => 'view/vREST.php',
-        'mtoDepartamentos' => 'view/vMtoDepartamentos.php'
+        'mtoDepartamentos' => 'view/vMtoDepartamentos.php',
+        'mtoUsuarios' => 'view/vMtoUsuarios.php'
     ];
     

@@ -7,10 +7,10 @@
      * 
      * @author Sonia Anton Llanes
      * @created 21/01/2022
-     * @updated: 25/01/2021
+     * @updated: 24/02/2021
      */
 
-
+    
      //Si pulso en el boton Log IN
     if (isset($_REQUEST['log'])){
         $_SESSION['paginaAnterior']=$_SESSION['paginaEnCurso']; //
@@ -19,6 +19,7 @@
             exit;
     } 
     
+    $_SESSION['tipo']='publico';
     $_SESSION['paginaEnCurso']='inicioPublico';  //Inicio sesion de pagina para ver la vista inicioPublico
     
     //salida:
