@@ -113,6 +113,31 @@
             }
             
             
+            public static function bajaLogicaDepartamento($codDepartamento) {
+                $consultaSQL = <<<EOD
+                                    UPDATE T02_Departamento SET 
+                                    T02_FechaBajaDepartamento = CURDATE()
+                                    WHERE T02_CodDepartamento='{$codDepartamento}';
+                                EOD;
+                $bajaDepartamento = DBPDO::ejecutaConsulta($consultaSQL);                
+                
+                if($bajaDepartamento){ return true; }
+                else { return false; }
+            }
+            
+            
+            public static function rehabilitarDepartamento($codDepartamento) {
+                $consultaSQL = <<<EOD
+                                    UPDATE T02_Departamento SET 
+                                    T02_FechaCreacionDepartamento = CURDATE(),
+                                    T02_FechaBajaDepartamento = null
+                                    WHERE T02_CodDepartamento='{$codDepartamento}';
+                                EOD;
+                $altaDepartamento = DBPDO::ejecutaConsulta($consultaSQL);                
+                
+                if($altaDepartamento){ return true; }
+                else { return false; }
+            }
             
         }
         

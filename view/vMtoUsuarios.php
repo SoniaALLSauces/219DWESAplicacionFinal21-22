@@ -17,12 +17,12 @@
         <div class="div">
             <h2>Mantenimiento de Usuarios</h2>
             
-            <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form name="formularioUsuarios" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="FormMtoDptos">
                     <table>
                         <tr class="trDto">
                             <td class="datoDto">
-                                <label for="LbDescDepartamento">Busco Usuario por descripción </label>
+                                <label for="LbDescUsuario">Busco Usuario por descripción </label>
                             </td>
                             <td colspan="2" class="tdDescDto">
                                 <input type="text" name="descUsuario" id="LbDescUsuario">
@@ -56,11 +56,11 @@
             
             <script>
                 var tabla=document.getElementById("tableUsuarios");  //selecciono la tabla
-                var descripcion=document.getElementById("LbDescUsuario").value;  //selecciono el valor de la descripcion introducida por el usuario
+                var descripcion=document.getElementById("LbDescUsuario");  //selecciono el valor de la descripcion introducida por el usuario
                 
                 var xhr = new XMLHttpRequest();
                     //inicio el objeto XMLHttpRequest() llamando a la api de Usuarios creada
-                xhr.open('get', 'http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario='+descripcion); 
+                xhr.open('get', 'http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario='+descripcion.value); 
                     xhr.onload = function(){
                         console.log(this.responseText);
                         var aUsers = JSON.parse(this.responseText); 

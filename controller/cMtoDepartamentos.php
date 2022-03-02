@@ -107,6 +107,22 @@
                 exit; 
             }
         }
+        
+    //Si pulso altaDepartamento - reactivo:
+        if (isset($_REQUEST['altaDto'])){
+            DepartamentoPDO::rehabilitarDepartamento($_REQUEST['altaDto']);
+            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
+                exit; 
+        }
+
+
+    //Si pulso bajaDepartamento:
+        if (isset($_REQUEST['bajaDto'])){
+            DepartamentoPDO::bajaLogicaDepartamento($_REQUEST['bajaDto']);
+            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
+                exit; 
+        }
+
     
 
     //salida:
