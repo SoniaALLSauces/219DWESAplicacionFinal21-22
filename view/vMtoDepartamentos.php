@@ -57,6 +57,7 @@
                         <th class="datosDep">Fecha Alta</th>
                         <th class="datosDep">Fecha Baja</th>
                         <th class="datosDep">Volumen Neg.</th>
+                        <td class="th">
                         <th colspan="3"></th>
                     </tr>
                     
@@ -68,19 +69,23 @@
                     <tr class="tr">
                         <td class="datosDep"> <?php echo $departamento['codDepartamento']; ?> </td>
                         <td class="datosDep"> <?php echo $departamento['descDepartamento']; ?> </td>
-                        <td class="datosDep"> <?php if ($departamento['fechaAlta']!=null){
-                                        echo $departamento['fechaAlta'];
-                                   }?> </td>
+                        <td class="datosDep"> <?php echo $departamento['fechaAlta']; ?>
                         <td class="datosDep"> <?php echo $departamento['fechaBaja']; ?> </td>
                         <td class="datosDep"> <?php echo $departamento['volumenNeg']; ?> </td>
+                    <form name="mtoDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
-                    <?php if ($departamento['fechaBaja']!=null){ ?>
-                        <td class="th"><img class= "imgtd" src="webroot/images/top.png" alt="reactivar"></td>
-                    <?php } else{ ?>
-                        <td class="th"><img class= "imgtd" src="webroot/images/down.png" alt="darBaja"></td>
-                    <?php }?> 
-                        <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
-                    </tr>
+                        <?php if ($departamento['fechaBaja']!=null){ ?>
+                            <td class="th"><button type="submit" name="altaDto" value="<?php echo $departamento['codDepartamento']; ?>">
+                                    <img class="imgtd" src="webroot/images/top.png" alt="reactivar">
+                            </button></td>
+                        <?php } else{ ?>
+                            <td class="th"><button type="submit" name="bajaDto" value="<?php echo $departamento['codDepartamento']; ?>">
+                                    <img class="imgtd" src="webroot/images/down.png" alt="darBaja">
+                            </button></td>
+                        <?php }?> 
+                            <td class="th"><img class= "imgtd" src="webroot/images/eliminar.png" alt="eliminar"></td>
+                        </tr>
+                    </form>
                 <?php
                     }
                 ?>
