@@ -208,7 +208,7 @@ h2{
 }
 
 .tFormulario{
-    width: 50vw;
+    width: 500px;
 }
 .tFormularioEdit{
     width: 60vw;
@@ -647,7 +647,7 @@ h4{
     text-align: right;
 }
 #login, #register, #aceptar, #cancelar{
-    font-size: 2vw;
+    font-size: 1.5rem;
 }
 .ast{
     color: #bb1212;
