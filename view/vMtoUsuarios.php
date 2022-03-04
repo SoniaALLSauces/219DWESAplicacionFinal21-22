@@ -9,7 +9,7 @@
     <section class="mtoUsuarios">
         
         <div class="volver">
-            <form name="volver" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+            <form name="volver" method="post">
                 <input id="volver" name="volver" type="submit" value="">
             </form>
         </div>
@@ -53,16 +53,15 @@
             
             <script>
                 var tabla=document.getElementById("tableUsuarios");  //selecciono la tabla
-                var descripcion=document.getElementById("LbDescUsuario");  //selecciono el valor de la descripcion introducida por el usuario
-                console.log(descripcion.value);
                 
-                
-                document.getElementById("buscarUsuario").addEventListener("click", buscarUsuarios('') );
+                var descripcion=document.getElementById("LbDescUsuario").value;  //selecciono el valor de la descripcion introducida por el usuario
+                console.log(descripcion);
+
                 function buscarUsuarios(descUsuario){
-                    
                     var xhr = new XMLHttpRequest();
                         //inicio el objeto XMLHttpRequest() llamando a la api de Usuarios creada
-                    xhr.open('get', `http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descUsuario}`, true); 
+//                    xhr.open('get', `http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=a`, true); 
+                    xhr.open('get', `http://192.168.1.119/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descripcion}`, true); 
                         xhr.onload = function(){
                             //console.log(this.responseText);
                             var aUsers = JSON.parse(this.responseText); 
@@ -92,6 +91,7 @@
                         }
                     xhr.send();  //envio la peticion
                 }
+                buscarUsuarios(descripcion);
             </script>
 
         </div>

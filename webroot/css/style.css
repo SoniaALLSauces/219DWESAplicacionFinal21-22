@@ -68,6 +68,17 @@ h2{
     height: 200px;
     flex-direction: row;
 }
+.tdDescDto>*{
+    position: relative;
+    top: -20px;
+    width: 30vw;
+    display: inline;
+    margin: 0 20px;
+}
+.tdDescDto>#buscarDto{
+    position: relative;
+    top: 0px;
+}
 
 .botonesHeader{
     border-right: 1px solid #BF2411;   
@@ -208,7 +219,7 @@ h2{
     padding-top: 20px;
 }
 .trDto>*{
-    padding-top: 20px;
+    padding-top: 5px;
 }
 .tRest{
     width: 30vw;
@@ -237,6 +248,8 @@ h2{
 }
 .FormMtoDptos>table{
     width: 100%;
+    padding: 2vh;
+    margin: 0px auto;
 }
 .tableDepartamentos, .tableUsuarios{
     width: 90vw;
@@ -343,6 +356,7 @@ th{height: 4.6vh;}
 h3{
     padding-bottom: 10px;
 }
+.h3Dep{ padding-bottom: 0px; }
 .miWeb{
     margin: 50px;
 }
@@ -397,14 +411,15 @@ th{
     font-size: 18px;
 }
 .tdDescDto>*{
-    width: 40vw;
     font-size: 18px;
 }
 
 .datoUsu>input, .tdDescDto>input{
     border: none;
-    border-bottom: 1px solid black;
-    padding: 0 10px;
+    border: 1px solid grey;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
 }
 input{
     margin-left: 1%;
@@ -428,6 +443,11 @@ input{
 .botonDepartamentos>*{
     border: 2px solid #BF2411;
     margin: 5px 10px;
+    padding: 5px 20px;
+}
+.botonesDpto>*{
+    border: 2px solid #BF2411;
+    margin: 1px 10px;
     padding: 5px 20px;
 }
 .botonesPr>*{
@@ -518,6 +538,7 @@ table{
 
 .botones>*,
 .botonDepartamentos>*,
+.botonesDpto>*,
 .saludo{
     background: #ecaaa1;
 }
@@ -586,9 +607,13 @@ h4{
 .liUsuario>*,
 .botones>*,
 .botonesPr>*,
-.botonDepartamentos>*{
+.botonDepartamentos>*,
+.botonesDpto>*{
     font-size: 1.1rem;
     vertical-align: middle;
+}
+.botonesDpto{
+    text-align: right;
 }
 .wip{
     text-align: center;
