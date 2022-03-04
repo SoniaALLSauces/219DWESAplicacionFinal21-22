@@ -20,26 +20,34 @@
             <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="FormMtoDptos">
                     <table>
-                        <tr class="trDto">
-                            <td class="datoDto">
-                                <label for="LbDescDepartamento">Busco Departamento por descripción </label>
+                        <tr>
+                            <td><h3>Mantenimiento de Departamentos</h3></td>
+                            <td class="botonesDpto">
+                                <button>Añadir</button>
+                                <button>Exportar</button>
+                                <button>Importar</button>
                             </td>
-                            <td colspan="2" class="tdDescDto">
-                                <input type="text" name="descDepartamento" id="LbDescDepartamento"
-                                       value="<?php  //Si no hay ningun error y se ha enviado mantenerlo
-                                                echo $resultado = ($aErrores['descDepartamento']==NULL && isset($_REQUEST['descDepartamento'])) ? $_REQUEST['descDepartamento'] : $aRespuestas['descDepartamento']=""; 
-                                              ?>">
-                            </td>
-                            <td class="buscarDto"><input id="buscarDto" name="buscarDto" type="submit" value=""></td>
                         </tr>
-                        <tr class="trError">
-                            <td class="dato"></td>
-                            <th colspan="2" class="td"><h3>
-                                        <input type="radio" name="muestroDep" value="todos">Todos
-                                <input type="radio" name="muestroDep" value="alta">Alta
-                                <input type="radio" name="muestroDep" value="baja">Baja   
-                            <h3></th>
-                            <td class="buscar"></td>
+                        <tr>
+                            <th colspan="2">Busqueda por Descripción y/o Estado:</th>
+                        </tr>
+                        <tr class="trDto">
+                            <th colspan="2" class="tdDescDto">
+                                <input type="text" name="descDepartamento" id="LbDescDepartamento" placeholder="introduzca descripción"
+                                       value="<?php  //Si no hay ningun error y se ha enviado mantenerlo
+                                           echo $resultado = ($aErrores['descDepartamento']==NULL && isset($_REQUEST['descDepartamento'])) ? $_REQUEST['descDepartamento'] : $aRespuestas['descDepartamento']=""; 
+                                           ?>">
+<!--                            </th>
+                            <th colspan="2" class="radio">-->
+                                <h3 class="h3Dep">Estado: 
+                                    <input type="radio" name="muestroDep" value="todos">Todos
+                                    <input type="radio" name="muestroDep" value="alta">Alta
+                                    <input type="radio" name="muestroDep" value="baja">Baja   
+                                </h3>
+<!--                            </th>
+                            <th class="buscarDto">-->
+                                <input id="buscarDto" name="buscarDto" type="submit" value="">
+                            </th>
                         </tr>
                     </table>
                 </div>
