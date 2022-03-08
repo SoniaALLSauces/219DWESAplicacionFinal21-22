@@ -45,6 +45,7 @@
             'wip' => 'controller/cWIP.php',
             'rest' => 'controller/cREST.php',
             'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
+            'editarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
             'mtoUsuarios' => 'controller/cMtoUsuarios.php'
             ]
         
@@ -75,6 +76,7 @@
         'wip' => 'view/vWIP.php',
         'rest' => 'view/vREST.php',
         'mtoDepartamentos' => 'view/vMtoDepartamentos.php',
+        'editarDepartamento' => 'view/vConsultarModificarDepartamento.php',
         'mtoUsuarios' => 'view/vMtoUsuarios.php'
     ];
     

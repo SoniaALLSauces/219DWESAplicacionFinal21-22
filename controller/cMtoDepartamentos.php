@@ -88,6 +88,12 @@
             ];
         }
     
+    //Si pulsamos en primera página
+        if (isset($_REQUEST['primeraPagina'])){
+            $_SESSION['pagRegistros']= 0;   //me posiciono en la primera página
+            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
+                exit;
+        }
     //Si pulsamos en atrasar página de registros, teniendo en cuenta que la página minima es 0
         if (isset($_REQUEST['paginaMenos']) && $_SESSION['pagRegistros']>0){
             $_SESSION['pagRegistros']= $pagRegistros-1;   //resto 1 a la sesión de la página
@@ -104,6 +110,12 @@
                 exit; 
             }
         }
+    //Si pulsamos en ultima página
+        if (isset($_REQUEST['ultimaPagina'])){
+            $_SESSION['pagRegistros']= $maxPaginas-1;   //me posiciono en el numero máximo de páginas, la última
+            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
+                exit;
+        }
         
     //Si pulso altaDepartamento - reactivo:
         if (isset($_REQUEST['altaDto'])){
@@ -118,6 +130,15 @@
             header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
                 exit; 
         }
+    
+    //Si pulso editarDepartamento:
+        if (isset($_REQUEST['editarDto'])){
+            $_SESSION['codDepartamento'] = $_REQUEST['editarDto'];
+            $_SESSION['paginaEnCurso']= 'editarDepartamento';
+            header('Location: index.php');  //recargo el fichero index.php con la ventana detalle
+                exit; 
+        }
+    
 
     //salida:
     require_once 'view/Layout.php';    //llamamos que se ejecute layout

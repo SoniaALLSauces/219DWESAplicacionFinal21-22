@@ -93,7 +93,15 @@
                 <a class="docImagen" target="_blank" href="doc/docsApp/201127ModeloFisicoDeDatos20-21.pdf">
                     <img src="webroot/images/docs/modFisicoDatos.png" alt="modFisicodeDatos">
                 </a>
-                
+            </article>
+            <article class="documentosApp">
+                <a class="docImagen" target="_blank" href="api/documentacion.php">
+                    <img src="webroot/images/docs/documentacionApis.png" alt="apisRest">
+                </a>
+                <div class="descripcion">
+                    <p class="documento">APIs REST Propias</p>
+                    <p>Documentación de funcionamiento de las tres apis rest propias creadas para esta aplicación.</p>
+                </div>
             </article>
         </section>
         
