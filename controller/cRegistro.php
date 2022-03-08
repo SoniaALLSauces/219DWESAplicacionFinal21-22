@@ -47,7 +47,7 @@
     if (isset($_REQUEST['aceptar'])){
         //Valido los campos del formulario con la libreria de validacion
             $aErrores['usuario']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['usuario'], 8, 1, 1);
-            $aErrores['descUsuario']= validacionFormularios::comprobarAlfabetico($_REQUEST['descUsuario'], 255, 1, 1);
+            $aErrores['descUsuario']= validacionFormularios::comprobarAlfabetico($_REQUEST['descUsuario'], 255, 1, 0);
             $aErrores['password']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['password'], 8, 1, 1);
             $aErrores['passwordRep']= validacionFormularios::comprobarAlfaNumerico($_REQUEST['passwordRep'], 8, 1, 1);
                 foreach ($aErrores as $campo => $error){  //Recorro array errores y compruebo si se ha incluido algún error

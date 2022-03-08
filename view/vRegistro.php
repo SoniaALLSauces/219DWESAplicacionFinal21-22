@@ -38,15 +38,10 @@
                         <td colspan="2" class="datoR"><label for="LbDescUsuario">Nombre y Apellidos <span class="ast">*</span></label></td>
                     <tr>
                     <tr>
-                        <td class="datoUsu"><input type="text" name="descUsuario" id="LbDescUsuario"
+                        <td colspan="2" class="datoUsu"><input type="text" name="descUsuario" id="LbDescUsuario"
                             value="<?php  //Si no hay ningun error y se ha enviado un valor mantenerlo
                                 echo $resultado = ($aErrores['descUsuario']==NULL && isset($_REQUEST['descUsuario'])) ? $_REQUEST['descUsuario'] : ""; 
                               ?>"></td>
-                        <td class="errorR"><?php
-                                if ($aErrores['descUsuario']!=NULL) { //si hay errores muestra el mensaje
-                                    echo "<span style=\"color:red;\">".$aErrores['descUsuario']."</span>"; //aparece el mensaje de error que tiene el array aErrores
-                                }
-                            ?></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="datoR"><label for="LbPassword">Contraseña  <span class="ast">*</span></label></td>

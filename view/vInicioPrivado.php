@@ -10,16 +10,16 @@
   
     <section class="inicioPr">
         
-        <ul id="listaUsuario" >
+        <ul id="listaUsuario">
             <form name="bottonUsu" method="post">
-                <li class="imagenUsuario"><img onclick="block()" src="webroot/images/usuario.png" alt="IconoUsuario"></li>
+                <li class="imagenUsuario"><img onmouseover="block()" src="webroot/images/usuario.png" alt="IconoUsuario"></li>
                 <li class="liUsuario"><input type="submit" id="detalle" value="Detalle" name="detalle"></li>
                 <li class="liUsuario"><input type="submit" id="editarPerfil" value="Editar Perfil" name="editarPerfil"></li>
                 <li class="liUsuario"><input type="submit" id="cerrarSesion" value="Cerrar sesión" name="cerrarSesion"></li>
             </form>
         </ul>
         
-        <div class="funcionalidadUsuario" onclick="none()">
+        <div class="funcionalidadUsuario" onmouseover="none()">
             <form class="botonesHeader" name="inicio" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                 <?php if ($aUsuario['codUsuario']=='admin'){ ?>
                     <input type="submit" value="Mto Cuestiones" name="cuestiones">
