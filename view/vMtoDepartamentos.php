@@ -81,7 +81,10 @@
                         <td class="datosDep"> <?php echo $departamento['fechaBaja']; ?> </td>
                         <td class="datosDep"> <?php echo $departamento['volumenNeg']; ?> </td>
                     <form name="mtoDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <td class="th"><img class= "imgtd" src="webroot/images/editar.png" alt="editar"></td>
+                        <!--<td class="th"><img class="imgtd" src="webroot/images/editar.png" alt="editar"></td>-->
+                        <td class="th"><button type="submit" name="editarDto" value="<?php echo $departamento['codDepartamento']; ?>">
+                                <img class="imgtd" src="webroot/images/editar.png" alt="editar">
+                        </button></td>
                         <?php if ($departamento['fechaBaja']!=null){ ?>
                             <td class="th"><button type="submit" name="altaDto" value="<?php echo $departamento['codDepartamento']; ?>">
                                     <img class="imgtd" src="webroot/images/top.png" alt="reactivar">
@@ -100,11 +103,11 @@
                     <tr>
                         <th colspan="8">
                             <form name="paginar" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-                                <span class="pagMenos"> <input id="pagFirst" type="submit" name="pagFirst" value=""> </span>
+                                <span class="pagMenos"> <input id="pagFirst" type="submit" name="primeraPagina" value=""> </span>
                                 <span class="pagMenos"> <input id="pagMenos" type="submit" name="paginaMenos" value=""> </span>
                                 <span class="pagNum"> <?php echo $pagRegistros+1 ." de ".  $maxPaginas; ?> </span>
                                 <span class="pagMas"> <input id="pagMas" type="submit" name="paginaMas" value=""> </span>
-                                <span class="pagMas"> <input id="pagEnd" type="submit" name="pagFirst" value=""> </span>
+                                <span class="pagMas"> <input id="pagEnd" type="submit" name="ultimaPagina" value=""> </span>
                             </form>
                         </th>
                     </tr>

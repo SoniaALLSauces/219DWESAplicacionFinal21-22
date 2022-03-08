@@ -139,5 +139,19 @@
                 else { return false; }
             }
             
+            public static function modificaDepartamento($codDepartamento,$descripcion,$volumen) {
+                //Actualizo los datos modificando descripcion y volumen
+                    $sqlUpdate = <<<EOD
+                                      UPDATE T02_Departamento SET 
+                                        T02_DescDepartamento='{$descripcion}',
+                                        T02_VolumenDeNegocio='{$volumen}'
+                                      WHERE T02_CodDepartamento='{$codDepartamento}';
+                                    EOD;
+                    $rdoUpdate = DBPDO::ejecutaConsulta($sqlUpdate);
+                
+                if($rdoUpdate){ return true; }
+                else { return false; }
+            }
+            
         }
         
