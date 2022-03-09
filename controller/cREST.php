@@ -29,7 +29,7 @@
         }
     //Si hay objeto oDepartamentoAjeno guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:
         if(isset($_SESSION['oDepartamentoAjeno'])){
-            $oDepartamento = $_SESSION['oDepartamentoAjeno'];
+            $oDepartamentoAjeno = $_SESSION['oDepartamentoAjeno'];
         }
         
     //Si hay objeto oCiudad guardado en la sesion: lo deserializamos el objeto guardado en la session guardandolo en una variable:

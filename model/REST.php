@@ -54,7 +54,7 @@
                         );
                     }
                     if($JSONDecodificado['result'] == 'unsuccessful'){
-                        return $JSONDecodificado['mensajeError'];
+                        return null;
                     }
                 }
             }

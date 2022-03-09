@@ -2,8 +2,8 @@
 
 
     /**
-     * Controlador que contiene la vista de Editar Perfil del usuario se ha logeado 
-     *   con los datos del Usuario de $_SESSION y permite editar la descripción
+     * Controlador que contiene la vista de modificar departamento se ha seleccionado 
+     *   con los datos del codDepartamento de $_SESSION y permite editar la descripción y el volumen
      * 
      * @author Sonia Anton Llanes
      * @created 07/03/2022
