@@ -2,8 +2,8 @@
 
 
     /**
-     * Controlador que contiene la vista de Editar Perfil del usuario se ha logeado 
-     *   con los datos del Usuario de $_SESSION y permite editar la descripción
+     * Controlador que contiene la vista de modificar departamento se ha seleccionado 
+     *   con los datos del codDepartamento de $_SESSION y permite editar la descripción y el volumen
      * 
      * @author Sonia Anton Llanes
      * @created 07/03/2022
@@ -60,20 +60,6 @@
         }   
         else{   //Si no son correctas o aun no se ha pulsado "Iniciar Sesion" 
             $_SESSION['paginaEnCurso']= 'editarDepartamento';   //continuamos en la sesión para controlador y vista en 'login'
-        }
-        
-    //Si pulso en borrar Usuario:
-        //-- Pendiente ventana de confirmacion --//
-        if (isset($_REQUEST['borrar'])){
-            if (UsuarioPDO::borrarUsuario($usuario)){
-                $_SESSION['usuario219DWESAplicacionFinal']= null;
-                $_SESSION['paginaEnCurso']= 'inicioPublico'; //cambio el valor de la pagina actual a inicioPublico
-                header('Location: index.php');  //recargo el fichero index.php con la ventana inicioPublico
-                    exit;
-            }
-            else{
-                echo "ERROR al BORRAR";
-            }
         }
         
 

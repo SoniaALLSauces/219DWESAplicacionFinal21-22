@@ -46,6 +46,7 @@
             'rest' => 'controller/cREST.php',
             'mtoDepartamentos' => 'controller/cMtoDepartamentos.php',
             'editarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
+            'altaDepartamento' => 'controller/cAltaDepartamento.php',
             'mtoUsuarios' => 'controller/cMtoUsuarios.php'
             ]
         
@@ -77,6 +78,7 @@
         'rest' => 'view/vREST.php',
         'mtoDepartamentos' => 'view/vMtoDepartamentos.php',
         'editarDepartamento' => 'view/vConsultarModificarDepartamento.php',
+        'altaDepartamento' => 'view/vAltaDepartamento.php',
         'mtoUsuarios' => 'view/vMtoUsuarios.php'
     ];
     

@@ -3,7 +3,7 @@
     /**
      * Api Rest Consultar Departamento por Código
      *   url local http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/validarDNI.php?dni=valor
-     *   url internet https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaDepartamentoPorCodigo.php?codDepartamento=valor
+     *   url internet https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/validarDNI.php?dni=valor
      * 
      * @author Sonia Anton Llanes
      * @created  06/02/2022

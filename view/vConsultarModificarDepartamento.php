@@ -30,15 +30,15 @@
                             <div class="datoE"><label for="LbDescripcion">Descripción Departamento </label></div>
                         </td>
                         <td colspan="2">
-                            <div class="datoUsu"><input type="text" name="descripcion" id="LbDescripcion"
-                                value="<?php echo $descripcion; ?>" style="background: white;"></div>
+                            <div class="datoUsu"><input type="text" name="descripcion" id="LbDescripcion" style="background: white;"
+                                value="<?php echo $descripcion; ?>"></div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <div class="error"><?php
                                 if ($aErrores['descripcion'] != NULL) { //si hay errores muestra el mensaje
-                                    echo "<span style=\"color:red;\">Campo obligatorio. Solo admite letras, máximo 50 caracteres</span>"; //aparece el mensaje de error que tiene el array aErrores
+                                    echo "<span style=\"color:red;\">Solo admite letras, máximo 50 caracteres</span>"; //aparece el mensaje de error que tiene el array aErrores
                                 }
                              ?></div>
                         </td>
@@ -66,15 +66,15 @@
                             <div class="datoE"><label for="LbVolumen">Volumen de Negocio </label></div>
                         </td>
                         <td  colspan="2">
-                            <div class="datoUsu"><input type="text" name="volumen" id="LbVolumen" style="background: #f0c0ba;"
-                                value="<?php echo $volumen; ?>" style="background: white;"></div>
+                            <div class="datoUsu"><input type="text" name="volumen" id="LbVolumen" style="background: white;"
+                                value="<?php echo $volumen; ?>"></div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <div class="error"><?php
-                                if ($aErrores['descripcion'] != NULL) { //si hay errores muestra el mensaje
-                                    echo "<span style=\"color:red;\">Campo obligatorio. Solo admite letras, máximo 50 caracteres</span>"; //aparece el mensaje de error que tiene el array aErrores
+                                if ($aErrores['volumen'] != NULL) { //si hay errores muestra el mensaje
+                                    echo "<span style=\"color:red;\">Solo admite numeros, entre 1 y 50</span>"; //aparece el mensaje de error que tiene el array aErrores
                                 }
                              ?></div>
                         </td>
@@ -89,3 +89,4 @@
         </div>
         
     </section>
+

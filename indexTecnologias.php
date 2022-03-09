@@ -36,10 +36,27 @@
         </header>
 
 	<main class="main">
-            <section class="tecnologias">
-                <img src="webroot/images/tecnologias/tecnologias.png" alt="tecnologias">
-                    
-            </section>   
+<!--            <section class="tecnologias">
+                <img src="webroot/images/tecnologias/tecnologias.png" alt="tecnologias">  
+            </section>   -->
+            <section class="secTecnologias">
+                <section class="imgTecnologias">
+                    <a href="https://es.wikipedia.org/wiki/Servidor_HTTP_Apache"><img class="tecnologia" src="webroot/images/tecnologias/apache.png" alt="Apache"></a>
+                    <a href="https://es.wikipedia.org/wiki/PHP"><img class="tecnologia" src="webroot/images/tecnologias/php.png" alt="Php"></a>
+                    <a href="https://es.wikipedia.org/wiki/MySQL"><img class="tecnologia" src="webroot/images/tecnologias/mysql.png" alt="MySQL"></a>
+                </section>
+                <section class="imgTecnologias">
+                    <a href="https://es.wikipedia.org/wiki/JavaScript"><img class="tecnologia" src="webroot/images/tecnologias/javascript.png" alt="JavaScript"></a>
+                    <a href="https://es.wikipedia.org/wiki/HTML"><img class="tecnologia" src="webroot/images/tecnologias/html.png" alt="HTML"></a>
+                    <a href="https://es.wikipedia.org/wiki/CSS"><img class="tecnologia" src="webroot/images/tecnologias/css.png" alt="CSS"></a>
+                </section>
+                <section class="imgTecnologias">
+                    <a href="doc/temaUno.pdf"><img class="tecnologia" src="webroot/images/conceptosgenerales.jpg" alt="ConceptosGenerales" title="Introducción DAW Entorno Servidor"></a>
+                    <a href="doc/DocumentacionUS.pdf"><img class="tecnologia" src="webroot/images/ubuntuServer.png" alt="UbuntuServer" title="Documentación Ubuntu Server"></a>
+                    <a href="doc/DocumentacionWX.pdf"><img class="tecnologia" src="webroot/images/windowsX.jpg" alt="WindowsX" title="Documentación Windows X"></a>
+                </section>
+                
+            </section>
         </main>
         
         <footer class="footer">
@@ -47,9 +64,13 @@
                 <ul>
                     <li class="ftexto"><a href="../index.html">&copy 2021-22. Sonia Anton LLanes </a></li>
                     <li>                       
-                        <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV"></a>
-                        <a class="maxMedia" href=""><img src="webroot/images/linkedin.png" alt="imagen_linkedIn"></a>
-                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/github.png" alt="imagen_github"></a>
+                        <a class="maxMedia" href="doc/curriculum_SALL.pdf" target="_blank"><img src="webroot/images/CV.png" alt="imagen_CV" title="Curriculum Vitae"></a>
+                        <a class="maxMedia" href=""><img src="webroot/images/linkedinIcon.png" alt="imagen_linkedIn" title="LinkedIn"></a>
+                        <a class="maxMedia" href="https://github.com/SoniaALLSauces/219DWESAplicacionFinal21-22.git" target="_blank"><img src="webroot/images/githubIcon.jpg" alt="imagen_github" title="Github"></a>
+                        <a class="maxMedia" href="doc/phpdoc/index.html" target="_blank"><img src="webroot/images/phpdoc.png" alt="phpdoc" title="Documentación phpDoc"></a>
+                        <a class="maxMedia" href="indexTecnologias.php" target="_blank"><img src="webroot/images/tecnologias.png" alt="tecnologias" title="Tecnologias usadas"></a>
+                        <a class="maxMedia" href="https://www.bbva.es/personas.html" target="_blank"><img src="webroot/images/web.png" alt="web" title="Web imitada"></a>
+                    
                     </li>
                 </ul>
             </nav>

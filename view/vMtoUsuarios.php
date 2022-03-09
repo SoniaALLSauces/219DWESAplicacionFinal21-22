@@ -52,46 +52,56 @@
             </div>
             
             <script>
-                var tabla=document.getElementById("tableUsuarios");  //selecciono la tabla
+                var buscarUsuario=document.getElementById("buscarUsuario");  //selecciono el boton buscar Usuario
+                buscarUsuariosLoadJSON();
+                //Creo evento click en el boton buscarUsuario
+                buscarUsuario.addEventListener("click", function(){ buscarUsuariosLoadJSON() });  
                 
-                var descripcion=document.getElementById("LbDescUsuario").value;  //selecciono el valor de la descripcion introducida por el usuario
-                console.log(descripcion);
+                var tabla=document.getElementById("tableUsuarios");  //selecciono la tabla en una variable
 
-                function buscarUsuarios(descUsuario){
-                    var xhr = new XMLHttpRequest();
-                        //inicio el objeto XMLHttpRequest() llamando a la api de Usuarios creada
-//                    xhr.open('get', `http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=a`, true); 
-                    xhr.open('get', `http://192.168.1.119/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descripcion}`, true); 
-                        xhr.onload = function(){
-                            //console.log(this.responseText);
-                            var aUsers = JSON.parse(this.responseText); 
-                            for (let i=0; i<aUsers.length; i++){
-                                var fila=document.createElement("tr");
-                                    var celdaCodigo=document.createElement("td");
-                                        celdaCodigo.innerHTML= aUsers[i].codigo;
-                                        fila.appendChild(celdaCodigo);
-                                    var celdaDescripcion=document.createElement("td");
-                                        celdaDescripcion.innerHTML= aUsers[i].descripcion;
-                                        fila.appendChild(celdaDescripcion);
-                                    var celdaUltConexion=document.createElement("td");
-                                        var timestampUltConexion= aUsers[i].ultimaConexion;
-                                        var date = new Date(timestampUltConexion);
-                                        var ultimaConexion = date.getDate() +"/"+ (date.getMonth()+1) +"/"+ date.getFullYear();  //formateo la fecha en dia/mes/año
-                                        celdaUltConexion.innerHTML= aUsers[i].ultimaConexion;
-                                        fila.appendChild(celdaUltConexion);
-                                    var celdaNConexiones=document.createElement("td");
-                                        celdaNConexiones.innerHTML= aUsers[i].numConexiones;
-                                        fila.appendChild(celdaNConexiones);
-                                    var celdaPerfil=document.createElement("td");
-                                        celdaPerfil.innerHTML= aUsers[i].perfil;
-                                        fila.appendChild(celdaPerfil);
-
-                                tabla.appendChild(fila);
-                            }
-                        }
-                    xhr.send();  //envio la peticion
+                function buscarUsuariosLoadJSON(){
+                    var descripcion=document.getElementById("LbDescUsuario").value;  //selecciono el valor de la descripcion introducida por el usuario
+                    console.log(descripcion);
+                    
+//                    var xhr = new XMLHttpRequest();
+//                        //inicio el objeto XMLHttpRequest() llamando a la api de Usuarios propia
+////                    xhr.open('get', `https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descripcion}`, true); 
+//                        xhr.onload = function(){
+//                            //console.log(this.responseText);
+//                            //var aUsers = JSON.parse(this.responseText); 
+//                            if (this.readyState == 4 && this.status == 200) {
+//                                var aUsers = JSON.parse(xhr.responseText);
+//                            
+//                                for (let i=0; i<aUsers.length; i++){
+//                                    var fila=document.createElement("tr");
+//                                        var celdaCodigo=document.createElement("td");
+//                                            celdaCodigo.innerHTML= aUsers[i].codigo;
+//                                            fila.appendChild(celdaCodigo);
+//                                        var celdaDescripcion=document.createElement("td");
+//                                            celdaDescripcion.innerHTML= aUsers[i].descripcion;
+//                                            fila.appendChild(celdaDescripcion);
+//                                        var celdaUltConexion=document.createElement("td");
+//                                            var timestampUltConexion= aUsers[i].ultimaConexion;
+//                                            var date = new Date(timestampUltConexion);
+//                                            var ultimaConexion = date.getDate() +"/"+ (date.getMonth()+1) +"/"+ date.getFullYear();  //formateo la fecha en dia/mes/año
+//                                            celdaUltConexion.innerHTML= aUsers[i].ultimaConexion;
+//                                            fila.appendChild(celdaUltConexion);
+//                                        var celdaNConexiones=document.createElement("td");
+//                                            celdaNConexiones.innerHTML= aUsers[i].numConexiones;
+//                                            fila.appendChild(celdaNConexiones);
+//                                        var celdaPerfil=document.createElement("td");
+//                                            celdaPerfil.innerHTML= aUsers[i].perfil;
+//                                            fila.appendChild(celdaPerfil);
+//
+//                                    tabla.appendChild(fila);
+//                                }
+//                            }
+//                            
+//                        }
+//                    xhr.open('get', `http://daw219.sauces.local/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descripcion}`, true);    
+////                    xhr.open('get', `https://daw219.ieslossauces.es/219DWESAplicacionFinal21-22/api/consultaUsuarioPorDescripcion.php?descUsuario=${descripcion}`, true);    
+//                    xhr.send();  //envio la peticion
                 }
-                buscarUsuarios(descripcion);
             </script>
 
         </div>

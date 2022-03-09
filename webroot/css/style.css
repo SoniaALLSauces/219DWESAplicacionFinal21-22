@@ -293,7 +293,7 @@ th{height: 4.6vh;}
 }
 .imgtd{ height: 4.6vh; }
 
-.tecnologias{
+/*.tecnologias{
     width: 100%;
     height: 100%;
 }
@@ -302,7 +302,26 @@ th{height: 4.6vh;}
     height: 90vh;
     padding: 4% 10%;
     
+}*/
+.secTecnologias{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+.imgTecnologias{
+    height: 25vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tecnologia{
+    height: 24vh;
+    margin: 0 5vw;
+}
+
 .apis{
     width: 95vw;
     margin: 5px auto;
@@ -332,6 +351,13 @@ th{height: 4.6vh;}
     margin-top: 5px;
     padding: 10px 20px;
     border-radius: 5px;
+}
+.separacion{
+    border-bottom: 6px solid #bb1212;
+    margin: 20px 20px 20px -20px;
+}
+.final{
+    margin-bottom: 8vh;
 }
 
 .footer{
@@ -445,6 +471,7 @@ input{
     margin: 5px 10px;
     padding: 5px 20px;
 }
+.botonesDpto{margin: 0 10vw;}
 .botonesDpto>*{
     border: 2px solid #BF2411;
     margin: 1px 10px;
@@ -497,7 +524,7 @@ input{
 #listaUsuario{
     text-decoration: none;
 }
-#buscar, #buscarDto, #buscarUsuario, #pagMenos, #pagMas, #pagFirst, #pagEnd{
+#buscar, #buscarDto, #buscarUsuario, #pagMenos, #pagMas,  #pagFirst, #pagEnd{
     background-size: 50px;
     background-repeat: no-repeat;
     width: 50px;

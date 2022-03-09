@@ -1,4 +1,3 @@
-
 <!--  Author: Sonia Antón Llanes
   --  Created on: 02-febrero-2022
   --  Last Modify: 04-febrero-2022
@@ -15,19 +14,16 @@
         </div>
 
         <div class="div">
-            <h2>Mantenimiento de Departamentos</h2>
-            
-            <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <div class="FormMtoDptos">
+            <h2>Mantenimiento de Departamentos</h2> 
+            <div class="botonesDpto">
+                <button>Añadir</button>
+                <button>Exportar</button>
+                <button>Importar</button>
+            </div>
+
+            <form name="formularioDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">            
+               <div class="FormMtoDptos">
                     <table>
-                        <tr>
-                            <td><h3>Mantenimiento de Departamentos</h3></td>
-                            <td class="botonesDpto">
-                                <button>Añadir</button>
-                                <button>Exportar</button>
-                                <button>Importar</button>
-                            </td>
-                        </tr>
                         <tr>
                             <th colspan="2">Busqueda por Descripción y/o Estado:</th>
                         </tr>
@@ -41,7 +37,7 @@
                             <th colspan="2" class="radio">-->
                                 <h3 class="h3Dep">Estado: 
                                     <input type="radio" name="muestroDep" value="todos">Todos
-                                    <input type="radio" name="muestroDep" value="alta">Alta
+                                    <input type="radio" name="muestroDep" value="alta" required>Alta
                                     <input type="radio" name="muestroDep" value="baja">Baja   
                                 </h3>
 <!--                            </th>

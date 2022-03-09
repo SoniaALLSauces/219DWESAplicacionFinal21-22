@@ -1,0 +1,62 @@
+
+<!--  Author: Sonia Antón Llanes
+  --  Created on: 02-febrero-2022
+  --  Last Modify: 04-febrero-2022
+  --  vMtoDepartamentos PROYECTO FINAL: $_SESSION['pagina'] tiene como valor mtoDepartamentos : mostramos el formulario
+  -->
+
+
+    <section class="mtoUsuarios">
+        
+        <div class="volver">
+            <form name="volver" method="post">
+                <input id="volver" name="volver" type="submit" value="">
+            </form>
+        </div>
+
+        <div class="div">
+            <h2>Mantenimiento de Usuarios</h2>
+            
+            <form name="formularioUsuarios" method="post">
+                <div class="FormMtoDptos">
+                    <table>
+                        <tr class="trDto">
+                            <td class="datoDto">
+                                <label for="LbDescUsuario">Busco Usuario por descripción </label>
+                            </td>
+                            <td colspan="2" class="tdDescDto">
+                                <input type="text" name="descUsuario" id="LbDescUsuario">
+                            </td>
+                            <td class="buscarUsuario"><input onclick="valorUsuario()" id="buscarUsuario" name="buscarUsuario" type="submit" value=""></td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            
+            <div class="tableUsuarios">
+                <table id="tableUsuarios">
+                    <tr>
+                        <th colspan="4"><h3 class="h3Dep">Usuarios: </h3></th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="datosDep">Usuario</th>
+                        <th class="datosDep">Descripcion</th>
+                        <th class="datosDep">Ultima Conexion</th>
+                        <th class="datosDep">Numero Conex.</th>
+                        <th class="datosDep">Perfil</th>
+                        <th class="datosDep">Imagen</th>
+                        <th></th>
+                    </tr>
+               
+                </table>
+            </div>
+            
+            <script>
+                function valorUsuario(){
+                    var valor=document.getElementById("LbDescUsuario").value;
+                    console.log(valor);
+                }
+            </script>
+
+        </div>
+    </section>

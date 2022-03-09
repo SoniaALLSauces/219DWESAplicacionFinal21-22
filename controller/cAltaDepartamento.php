@@ -2,23 +2,22 @@
 
 
     /**
-     * Controlador que contiene la vista de Registro de un nuevo usuario
+     * Controlador que contiene la vista de Alta de un nuevo departamento
      *   valida los datos que introduce el usuario en el formulario
-     *   y controla que el usuario no exista (el codUsuario es primary key)
-     *   y que la contraseña se confirme correctamente,
-     *   guarda el nuevo usuario en la base de datos, en $_SESSION
-     *   y carga la página de ventana privada para este nuevo usuario
+     *   y controla que el codigo de departamento no exista (el codDepartamento es primary key)
+     *   guarda el nuevo departemento en la base de datos,
+     *   y carga la página de mantenimiento de departamentos mostrando todos (incluido el nuevo)
      * 
      * @author Sonia Anton Llanes
-     * @created 31/01/2022
-     * @updated: 01/02/2021
+     * @created 08/03/2022
+     * @updated: 08/03/2021
      */
 
-    
+
     //Si pulso en cancelar: vuelvo a la pantalla inicioPublico
         if (isset($_REQUEST['cancelar'])){
             $_SESSION['paginaAnterior']= $_SESSION['paginaEnCurso'];   //guardo la pagina actual en $_SESSION['paginaAnterior'] antes de cargar el login
-            $_SESSION['paginaEnCurso']= 'inicioPublico';   //al cancelar el registro volvemos a la pantalla de inicioPublico
+            $_SESSION['paginaEnCurso']= 'mtoDepartamentos';   //al cancelar el registro volvemos a la pantalla de inicioPublico
             header('Location: index.php');  //recargo el fichero index.php con la ventana login
                 exit;
         }
